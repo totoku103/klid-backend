@@ -1,0 +1,23 @@
+.idea
+.idea/**
+
+.DS_Store
+
+/.vscode
+/.vscode/**
+
+target
+target/**
+
+# Claude settings
+.claude/
+
+# oh-my-claudecode plugin
+.omc/
+
+# IntelliJ IDEA
+*.iml
+
+# Logs
+log/
+logs/
