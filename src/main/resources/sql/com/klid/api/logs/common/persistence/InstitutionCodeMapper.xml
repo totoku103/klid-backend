@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.logs.common.persistence.InstitutionCodeMapper">
+
+    <resultMap id="institutionCodeResultMap" type="com.klid.api.logs.common.dto.InstitutionCodeResDTO">
+        <result property="level" column="LEVEL_NO"/>
+        <result property="institutionCode" column="INST_CD"/>
+        <result property="institutionName" column="INST_NM"/>
+        <result property="parentInstitutionCode" column="PARENT_CD"/>
+    </resultMap>
+
+    <!-- CTRS 기관코드 목록 조회 -->
+    <select id="selectCTRSInstitutionCodeList" resultMap="institutionCodeResultMap">
+        SELECT
+            LEVEL_NO,
+            INST_CD,
+            INST_NM,
+            PARENT_CD
+        FROM TSMINST
+        WHERE USE_YN = 'Y'
+        ORDER BY LEVEL_NO, INST_CD
+    </select>
+
+    <!-- 타시스템 기관코드 목록 조회 -->
+    <select id="selectOtherInstitutionCodeList" resultMap="institutionCodeResultMap">
+        SELECT
+            NULL AS LEVEL_NO,
+            NULL AS INST_CD,
+            NULL AS INST_NM,
+            NULL AS PARENT_CD
+        FROM DUAL
+        WHERE 1 = 0
+    </select>
+
+</mapper>

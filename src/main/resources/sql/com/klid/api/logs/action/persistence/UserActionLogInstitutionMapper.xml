@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.logs.action.persistence.UserActionLogInstitutionMapper">
+
+    <resultMap id="gridResultMap" type="com.klid.api.logs.common.dto.InstitutionSummaryGridResDTO">
+        <result property="depthLevel" column="DEPTH_LEVEL"/>
+        <result property="institutionCode" column="INST_CD"/>
+        <result property="institutionName" column="INST_NM"/>
+        <result property="parentInstitutionCode" column="PARENT_INST_CD"/>
+        <result property="fullPathName" column="FULL_PATH_NAME"/>
+        <result property="totalCount" column="TOTAL_COUNT"/>
+    </resultMap>
+
+    <resultMap id="chartYAxisResultMap" type="com.klid.api.logs.action.dto.InstitutionChartYAxisDTO">
+        <result property="ymd" column="YMD"/>
+        <result property="institutionName" column="INST_NM"/>
+        <result property="institutionCode" column="INST_CD"/>
+        <result property="totalCount" column="TOTAL_COUNT"/>
+    </resultMap>
+
+    <!-- CTRS 기관별 행동 로그 그리드 목록 -->
+    <select id="selectCTRSSystemGridList" resultMap="gridResultMap">
+        SELECT
+            I.LEVEL_NO AS DEPTH_LEVEL,
+            I.INST_CD,
+            I.INST_NM,
+            I.PARENT_CD AS PARENT_INST_CD,
+            I.INST_NM AS FULL_PATH_NAME,
+            NVL(A.CNT, 0) AS TOTAL_COUNT
+        FROM TSMINST I
+        LEFT JOIN (
+            SELECT
+                C.INST_CD,
+                COUNT(*) AS CNT
+            FROM USER_ACT_HIST H
+            JOIN COMM_USER C ON H.REG_USER_ID = C.USER_ID
+            WHERE H.REG_DATE LIKE #{month} || '%'
+            GROUP BY C.INST_CD
+        ) A ON I.INST_CD = A.INST_CD
+        WHERE 1 = 1
+        <if test="institutionCode != null and institutionCode != ''">
+            AND (I.INST_CD = #{institutionCode} OR I.PARENT_CD = #{institutionCode})
+        </if>
+        <if test="codeLevel != null">
+            AND I.LEVEL_NO = #{codeLevel}
+        </if>
+        ORDER BY I.INST_CD
+    </select>
+
+    <!-- 타시스템 기관별 행동 로그 그리드 목록 -->
+    <select id="selectOtherSystemGridList" resultMap="gridResultMap">
+        SELECT
+            NULL AS DEPTH_LEVEL,
+            NULL AS INST_CD,
+            NULL AS INST_NM,
+            NULL AS PARENT_INST_CD,
+            NULL AS FULL_PATH_NAME,
+            0 AS TOTAL_COUNT
+        FROM DUAL
+        WHERE 1 = 0
+    </select>
+
+    <!-- 차트 X축 일자 목록 (해당 월의 모든 일자) -->
+    <select id="selectAllSystemChartXAxisList" resultType="java.lang.Integer">
+        SELECT TO_NUMBER(TO_CHAR(TO_DATE(#{month}, 'YYYYMM') + LEVEL - 1, 'DD')) AS YMD
+        FROM DUAL
+        CONNECT BY LEVEL &lt;= TO_NUMBER(TO_CHAR(LAST_DAY(TO_DATE(#{month}, 'YYYYMM')), 'DD'))
+        ORDER BY YMD
+    </select>
+
+    <!-- CTRS 기관별 차트 데이터 -->
+    <select id="selectCTRSChartDataList" resultMap="chartYAxisResultMap">
+        SELECT
+            TO_NUMBER(SUBSTR(H.REG_DATE, 7, 2)) AS YMD,
+            I.INST_NM,
+            I.INST_CD,
+            COUNT(*) AS TOTAL_COUNT
+        FROM USER_ACT_HIST H
+        JOIN COMM_USER C ON H.REG_USER_ID = C.USER_ID
+        JOIN TSMINST I ON C.INST_CD = I.INST_CD
+        WHERE H.REG_DATE LIKE #{month} || '%'
+        <if test="institutionCode != null and institutionCode != ''">
+            AND (I.INST_CD = #{institutionCode} OR I.PARENT_CD = #{institutionCode})
+        </if>
+        <if test="codeLevel != null">
+            AND I.LEVEL_NO = #{codeLevel}
+        </if>
+        GROUP BY TO_NUMBER(SUBSTR(H.REG_DATE, 7, 2)), I.INST_NM, I.INST_CD
+        ORDER BY YMD, I.INST_CD
+    </select>
+
+    <!-- 타시스템 기관별 차트 데이터 -->
+    <select id="selectOtherChartDataList" resultMap="chartYAxisResultMap">
+        SELECT
+            NULL AS YMD,
+            NULL AS INST_NM,
+            NULL AS INST_CD,
+            0 AS TOTAL_COUNT
+        FROM DUAL
+        WHERE 1 = 0
+    </select>
+
+</mapper>

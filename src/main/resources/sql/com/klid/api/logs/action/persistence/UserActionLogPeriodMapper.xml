@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.logs.action.persistence.UserActionLogPeriodMapper">
+
+    <resultMap id="periodResultMap" type="com.klid.api.logs.action.dto.UserActionLogPeriodResDTO">
+        <result property="timeSlot" column="TIME_SLOT"/>
+        <result property="sumCount" column="SUM_COUNT"/>
+    </resultMap>
+
+    <!-- 기간별 일자별 행동 로그 조회 -->
+    <select id="selectUserActionLogPeriodData" resultMap="periodResultMap">
+        SELECT
+            T.YMD AS TIME_SLOT,
+            NVL(D.CNT, 0) AS SUM_COUNT
+        FROM (
+            SELECT TO_CHAR(TO_DATE(#{startYmd}, 'YYYYMMDD') + LEVEL - 1, 'YYYYMMDD') AS YMD
+            FROM DUAL
+            CONNECT BY LEVEL &lt;= TO_DATE(#{endYmd}, 'YYYYMMDD') - TO_DATE(#{startYmd}, 'YYYYMMDD') + 1
+        ) T
+        LEFT JOIN (
+            SELECT
+                SUBSTR(REG_DATE, 1, 8) AS YMD,
+                COUNT(*) AS CNT
+            FROM USER_ACT_HIST
+            WHERE REG_DATE BETWEEN #{startYmd} || '000000' AND #{endYmd} || '235959'
+            <if test="systemType != null and systemType != '' and systemType != 'ctrs'">
+                AND 1 = 0
+            </if>
+            GROUP BY SUBSTR(REG_DATE, 1, 8)
+        ) D ON T.YMD = D.YMD
+        ORDER BY T.YMD
+    </select>
+
+</mapper>

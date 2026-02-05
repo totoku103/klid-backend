@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.logs.action.persistence.UserActionLogMapper">
+
+    <resultMap id="summaryResultMap" type="com.klid.api.logs.action.dto.SummaryResDTO">
+        <result property="fromDate" column="FROM_DATE"/>
+        <result property="toDate" column="TO_DATE"/>
+        <result property="count" column="CNT"/>
+    </resultMap>
+
+    <resultMap id="gridResultMap" type="com.klid.api.logs.action.dto.UserActionGridResDTO">
+        <result property="seq" column="SEQ"/>
+        <result property="actionType" column="ACT_TYPE"/>
+        <result property="actionTypeMessage" column="ACT_TYPE_MSG"/>
+        <result property="parentMenuName" column="PARENT_MENU_NAME"/>
+        <result property="menuName" column="MENU_NAME"/>
+        <result property="fullMenuName" column="FULL_MENU_NAME"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="institutionName" column="INST_NM"/>
+        <result property="regDate" column="REG_DATE"/>
+        <result property="regDateHumanFormat" column="REG_DATE_HUMAN"/>
+        <result property="connectIp" column="USR_IP"/>
+        <result property="systemType" column="SYSTEM_TYPE"/>
+        <result property="reason" column="REASON"/>
+    </resultMap>
+
+    <!-- CTRS 전일 행동 로그 카운트 -->
+    <select id="selectCtrsActionCntPrevDay" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USER_ACT_HIST
+        WHERE REG_DATE BETWEEN TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '000000'
+                           AND TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- CTRS 전주 행동 로그 카운트 -->
+    <select id="selectCtrsActionCntPrevWeek" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USER_ACT_HIST
+        WHERE REG_DATE BETWEEN TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') || '000000'
+                           AND TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- CTRS 전월 행동 로그 카운트 -->
+    <select id="selectCtrsActionCntPrevMonth" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USER_ACT_HIST
+        WHERE REG_DATE BETWEEN TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') || '000000'
+                           AND TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전일 행동 로그 카운트 -->
+    <select id="selectOtherActionCntPrevDay" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전주 행동 로그 카운트 -->
+    <select id="selectOtherActionCntPrevWeek" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전월 행동 로그 카운트 -->
+    <select id="selectOtherActionCntPrevMonth" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- CTRS 사용자 행동 로그 그리드 목록 -->
+    <select id="selectCtrsUserActionGridList" resultMap="gridResultMap" parameterType="map">
+        SELECT
+            A.SEQ,
+            A.ACT_TYPE,
+            DECODE(A.ACT_TYPE, 'I', '등록', 'U', '수정', 'D', '삭제', 'R', '조회', 'E', '다운로드', A.ACT_TYPE) AS ACT_TYPE_MSG,
+            B1.MENU_NAME AS PARENT_MENU_NAME,
+            B.MENU_NAME,
+            B1.MENU_NAME || ' > ' || B.MENU_NAME AS FULL_MENU_NAME,
+            A.REG_USER_NAME AS USER_NAME,
+            A.REG_USER_ID AS USER_ID,
+            D.INST_NM,
+            TO_NUMBER(A.REG_DATE) AS REG_DATE,
+            TO_CHAR(TO_DATE(A.REG_DATE, 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS') AS REG_DATE_HUMAN,
+            (SELECT USR_IP FROM (
+                SELECT USR_IP FROM USR_LOGINFO
+                WHERE USR_ID = A.REG_USER_ID
+                ORDER BY LOG_DT DESC
+            ) WHERE ROWNUM = 1) AS USR_IP,
+            'CTRS' AS SYSTEM_TYPE,
+            F.REASON
+        FROM USER_ACT_HIST A
+        INNER JOIN COM_MENU B ON A.GUID = B.GUID AND B.MENU_KIND = 'MENU'
+        INNER JOIN COM_MENU B1 ON B.MENU_PAGE_NO = B1.MENU_NO AND B1.MENU_KIND = 'PAGE'
+        LEFT JOIN COMM_USER C ON A.REG_USER_ID = C.USER_ID
+        LEFT JOIN TSMINST D ON C.INST_CD = D.INST_CD
+        LEFT JOIN FILE_DOWNLOAD_HIST F ON A.SEQ = F.USER_ACT_HIST_SEQ
+        WHERE 1=1
+        <if test="dto.date1 != null and dto.date1 != ''">
+            AND A.REG_DATE &gt;= #{dto.date1} || '000000'
+        </if>
+        <if test="dto.date2 != null and dto.date2 != ''">
+            AND A.REG_DATE &lt;= #{dto.date2} || '235959'
+        </if>
+        <if test="dto.actionType != null and dto.actionType != ''">
+            AND A.ACT_TYPE = #{dto.actionType}
+        </if>
+        <if test="dto.userName != null and dto.userName != ''">
+            AND A.REG_USER_NAME LIKE '%' || #{dto.userName} || '%'
+        </if>
+        <if test="dto.userId != null and dto.userId != ''">
+            AND A.REG_USER_ID LIKE '%' || #{dto.userId} || '%'
+        </if>
+        ORDER BY A.SEQ DESC
+    </select>
+
+    <!-- 타시스템 사용자 행동 로그 그리드 목록 (현재 데이터 없음) -->
+    <select id="selectOtherUserActionGridList" resultMap="gridResultMap" parameterType="map">
+        SELECT
+            NULL AS SEQ,
+            NULL AS ACT_TYPE,
+            NULL AS ACT_TYPE_MSG,
+            NULL AS PARENT_MENU_NAME,
+            NULL AS MENU_NAME,
+            NULL AS FULL_MENU_NAME,
+            NULL AS USER_NAME,
+            NULL AS USER_ID,
+            NULL AS INST_NM,
+            NULL AS REG_DATE,
+            NULL AS REG_DATE_HUMAN,
+            NULL AS USR_IP,
+            #{dto.systemType} AS SYSTEM_TYPE,
+            NULL AS REASON
+        FROM DUAL
+        WHERE 1 = 0
+    </select>
+
+</mapper>

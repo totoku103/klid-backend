@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.logs.connect.persistence.UserConnectLogMapper">
+
+    <resultMap id="summaryResultMap" type="com.klid.api.logs.connect.dto.SummaryResDTO">
+        <result property="fromDate" column="FROM_DATE"/>
+        <result property="toDate" column="TO_DATE"/>
+        <result property="count" column="CNT"/>
+    </resultMap>
+
+    <resultMap id="gridResultMap" type="com.klid.api.logs.connect.dto.UserConnectGridResDTO">
+        <result property="ymdhms" column="YMDHMS"/>
+        <result property="ymdhmsHuman" column="YMDHMS_HUMAN"/>
+        <result property="inOutType" column="LOG_CD"/>
+        <result property="inOutTypeMessage" column="LOG_CD_MSG"/>
+        <result property="instNm" column="INST_NM"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="userId" column="USR_ID"/>
+        <result property="connectIp" column="USR_IP"/>
+        <result property="system" column="SYSTEM_TYPE"/>
+    </resultMap>
+
+    <!-- CTRS 전일 접속 로그 카운트 -->
+    <select id="selectCtrsLoginCntPrevDay" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USR_LOGINFO
+        WHERE LOG_CD IN ('IN', 'OUT')
+          AND LOG_DT BETWEEN TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '000000'
+                         AND TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- CTRS 전주 접속 로그 카운트 -->
+    <select id="selectCtrsLoginCntPrevWeek" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USR_LOGINFO
+        WHERE LOG_CD IN ('IN', 'OUT')
+          AND LOG_DT BETWEEN TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') || '000000'
+                         AND TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- CTRS 전월 접속 로그 카운트 -->
+    <select id="selectCtrsLoginCntPrevMonth" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') AS TO_DATE,
+            COUNT(*) AS CNT
+        FROM USR_LOGINFO
+        WHERE LOG_CD IN ('IN', 'OUT')
+          AND LOG_DT BETWEEN TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') || '000000'
+                         AND TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') || '235959'
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전일 접속 로그 카운트 -->
+    <select id="selectOtherLoginCntPrevDay" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전주 접속 로그 카운트 -->
+    <select id="selectOtherLoginCntPrevWeek" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(TRUNC(SYSDATE) - 7, 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(TRUNC(SYSDATE) - 1, 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- 타시스템(VMS/CTSS) 전월 접속 로그 카운트 -->
+    <select id="selectOtherLoginCntPrevMonth" resultMap="summaryResultMap">
+        SELECT
+            TO_CHAR(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1), 'YYYYMMDD') AS FROM_DATE,
+            TO_CHAR(LAST_DAY(ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -1)), 'YYYYMMDD') AS TO_DATE,
+            0 AS CNT
+        FROM DUAL
+    </select>
+
+    <!-- CTRS 사용자 접속 로그 그리드 목록 -->
+    <select id="selectCtrsUserConnectGridList" resultMap="gridResultMap" parameterType="map">
+        SELECT
+            TO_NUMBER(B.LOG_DT) AS YMDHMS,
+            TO_CHAR(TO_DATE(B.LOG_DT, 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS') AS YMDHMS_HUMAN,
+            B.LOG_CD,
+            DECODE(B.LOG_CD, 'IN', '로그인', 'OUT', '로그아웃', B.LOG_CD) AS LOG_CD_MSG,
+            C.INST_NM,
+            A.USER_NAME,
+            B.USR_ID,
+            B.USR_IP,
+            'CTRS' AS SYSTEM_TYPE
+        FROM COMM_USER A
+        INNER JOIN USR_LOGINFO B ON A.USER_ID = B.USR_ID
+        INNER JOIN TSMINST C ON A.INST_CD = C.INST_CD
+        WHERE B.LOG_CD IN ('IN', 'OUT')
+        <if test="dto.date1 != null and dto.date1 != ''">
+            AND B.LOG_DT &gt;= #{dto.date1} || '000000'
+        </if>
+        <if test="dto.date2 != null and dto.date2 != ''">
+            AND B.LOG_DT &lt;= #{dto.date2} || '235959'
+        </if>
+        <if test="dto.inOutType != null and dto.inOutType != ''">
+            AND B.LOG_CD = #{dto.inOutType}
+        </if>
+        <if test="dto.userId != null and dto.userId != ''">
+            AND B.USR_ID LIKE '%' || #{dto.userId} || '%'
+        </if>
+        <if test="dto.connectIp != null and dto.connectIp != ''">
+            AND B.USR_IP LIKE '%' || #{dto.connectIp} || '%'
+        </if>
+        ORDER BY B.LOG_DT DESC
+    </select>
+
+    <!-- 타시스템 사용자 접속 로그 그리드 목록 (현재 데이터 없음) -->
+    <select id="selectOtherUserConnectGridList" resultMap="gridResultMap" parameterType="map">
+        SELECT
+            NULL AS YMDHMS,
+            NULL AS YMDHMS_HUMAN,
+            NULL AS LOG_CD,
+            NULL AS LOG_CD_MSG,
+            NULL AS INST_NM,
+            NULL AS USER_NAME,
+            NULL AS USR_ID,
+            NULL AS USR_IP,
+            #{dto.system} AS SYSTEM_TYPE
+        FROM DUAL
+        WHERE 1 = 0
+    </select>
+
+</mapper>
