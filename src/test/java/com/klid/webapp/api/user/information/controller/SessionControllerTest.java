@@ -59,8 +59,9 @@ class SessionControllerTest {
             ResponseEntity<SessionUserSimpleInformationDTO> response = controller.getSessionUserSimpleInformation();
 
             assertNotNull(response.getBody());
-            assertEquals("10", response.getBody().roleCtrs());
-            assertEquals("20", response.getBody().roleIics());
+            assertNotNull(response.getBody().authRole());
+            assertEquals("A", response.getBody().authRole().main());
+            assertEquals("01", response.getBody().authRole().sub());
         }
 
         @Test
@@ -72,8 +73,8 @@ class SessionControllerTest {
             ResponseEntity<SessionUserSimpleInformationDTO> response = controller.getSessionUserSimpleInformation();
 
             assertNotNull(response.getBody());
-            assertNotNull(response.getBody().boardAuth());
-            assertEquals("Y", response.getBody().boardAuth().roleTbz01());
+            assertNotNull(response.getBody().boardRole());
+            assertEquals("Y", response.getBody().boardRole().tbz().role01());
         }
 
         @Test

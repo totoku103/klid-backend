@@ -69,8 +69,7 @@ class SessionServiceImplTest {
                         () -> assertEquals("testUser", result.userId()),
                         () -> assertEquals("홍길동", result.userName()),
                         () -> assertEquals(100, result.instCd()),
-                        () -> assertEquals("테스트기관", result.instNm()),
-                        () -> assertEquals("test@example.com", result.emailAddr())
+                        () -> assertEquals("테스트기관", result.instNm())
                 );
             }
         }
@@ -86,9 +85,9 @@ class SessionServiceImplTest {
                 SessionUserSimpleInformationDTO result = service.getSessionUserSimpleInformation();
 
                 assertAll(
-                        () -> assertEquals("10", result.roleCtrs()),
-                        () -> assertEquals("20", result.roleIics()),
-                        () -> assertNotNull(result.boardAuth())
+                        () -> assertEquals("A", result.authRole().main()),
+                        () -> assertEquals("01", result.authRole().sub()),
+                        () -> assertNotNull(result.boardRole())
                 );
             }
         }

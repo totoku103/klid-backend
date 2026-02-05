@@ -11,76 +11,55 @@ import static org.junit.jupiter.api.Assertions.*;
 class SessionUserSimpleInformationDTOTest {
 
     @Nested
-    @DisplayName("from() 팩토리 메서드")
-    class FromFactoryMethod {
+    @DisplayName("from()")
+    class From {
 
         @Test
         @DisplayName("UserDto가 null이면 null을 반환한다")
         void returnsNullWhenUserDtoIsNull() {
             SessionUserSimpleInformationDTO result = SessionUserSimpleInformationDTO.from(null);
-
             assertNull(result);
         }
 
         @Test
-        @DisplayName("UserDto의 기본 정보가 정상적으로 매핑된다")
-        void mapsBasicInformationCorrectly() {
+        @DisplayName("UserDto에서 기본 정보를 올바르게 변환한다")
+        void convertsBasicInformationCorrectly() {
             UserDto userDto = createTestUserDto();
 
             SessionUserSimpleInformationDTO result = SessionUserSimpleInformationDTO.from(userDto);
 
-            assertAll(
-                    () -> assertEquals("testUser", result.userId()),
-                    () -> assertEquals("홍길동", result.userName()),
-                    () -> assertEquals(100, result.instCd()),
-                    () -> assertEquals("테스트기관", result.instNm()),
-                    () -> assertEquals("과장", result.grade()),
-                    () -> assertEquals("test@example.com", result.emailAddr())
-            );
+            assertNotNull(result);
+            assertEquals("testUser", result.userId());
+            assertEquals("홍길동", result.userName());
+            assertEquals(100, result.instCd());
+            assertEquals("테스트기관", result.instNm());
         }
 
         @Test
-        @DisplayName("UserDto의 권한 정보가 정상적으로 매핑된다")
-        void mapsRoleInformationCorrectly() {
+        @DisplayName("UserDto에서 권한 정보를 올바르게 변환한다")
+        void convertsRoleInformationCorrectly() {
             UserDto userDto = createTestUserDto();
 
             SessionUserSimpleInformationDTO result = SessionUserSimpleInformationDTO.from(userDto);
 
-            assertAll(
-                    () -> assertEquals("10", result.roleCtrs()),
-                    () -> assertEquals("20", result.roleIics()),
-                    () -> assertEquals("A", result.authMain()),
-                    () -> assertEquals("01", result.authSub())
-            );
+            assertNotNull(result);
+            assertNotNull(result.authRole());
+            assertEquals("A", result.authRole().main());
+            assertEquals("01", result.authRole().sub());
         }
 
         @Test
-        @DisplayName("BoardAuthDto가 정상적으로 생성된다")
-        void createsBoardAuthDtoCorrectly() {
+        @DisplayName("UserDto에서 게시판 권한 정보를 올바르게 변환한다")
+        void convertsBoardRoleCorrectly() {
             UserDto userDto = createTestUserDto();
 
             SessionUserSimpleInformationDTO result = SessionUserSimpleInformationDTO.from(userDto);
 
-            assertNotNull(result.boardAuth());
-            assertEquals("Y", result.boardAuth().roleTbz01());
-            assertEquals("N", result.boardAuth().roleNot01());
-        }
-    }
-
-    @Nested
-    @DisplayName("Record 동등성")
-    class RecordEquality {
-
-        @Test
-        @DisplayName("같은 값을 가진 Record는 동등하다")
-        void recordsWithSameValuesAreEqual() {
-            UserDto userDto = createTestUserDto();
-
-            SessionUserSimpleInformationDTO dto1 = SessionUserSimpleInformationDTO.from(userDto);
-            SessionUserSimpleInformationDTO dto2 = SessionUserSimpleInformationDTO.from(userDto);
-
-            assertEquals(dto1, dto2);
-            assertEquals(dto1.hashCode(), dto2.hashCode());
+            assertNotNull(result.boardRole());
+            assertNotNull(result.boardRole().tbz());
+            assertEquals("Y", result.boardRole().tbz().role01());
+            assertNotNull(result.boardRole().notice());
+            assertEquals("N", result.boardRole().notice().role01());
         }
     }
 
