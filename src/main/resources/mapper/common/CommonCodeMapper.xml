@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.common.code.persistence.CommonCodeMapper">
+
+    <resultMap type="com.klid.api.common.code.dto.CommonCodeDTO" id="resultCommonCode">
+        <result property="comCode1" column="COM_CODE1"/>
+        <result property="comCode2" column="COM_CODE2"/>
+        <result property="comCode3" column="COM_CODE3"/>
+        <result property="codeName" column="CODE_NAME"/>
+        <result property="codeLvl" column="CODE_LVL"/>
+    </resultMap>
+
+    <!-- 공통코드 리스트 조회
+        comCode1 - 대코드
+        comCode2 - 중코드
+        comCode3 - 소코드
+        codeLvl - 코드레벨
+    -->
+    <select id="selectCommonCode" resultMap="resultCommonCode">
+        SELECT COM_CODE1, COM_CODE2, COM_CODE3, CODE_NAME, CODE_LVL
+        FROM COMM_CODE
+        WHERE USE_YN = 'Y'
+        <if test="comCode1!=null">
+            AND COM_CODE1 = #{comCode1}
+        </if>
+        <if test="comCode2!=null">
+            AND COM_CODE2 = #{comCode2}
+        </if>
+        <if test="comCode3!=null">
+            AND COM_CODE3 = #{comCode3}
+        </if>
+        <if test="codeLvl != null and codeLvl > 0">
+            AND CODE_LVL = #{codeLvl}
+        </if>
+        ORDER BY COM_CODE2 ASC
+    </select>
+
+</mapper>
