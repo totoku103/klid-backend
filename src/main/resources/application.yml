@@ -30,7 +30,7 @@ spring:
 mybatis:
   mapper-locations:
     - classpath:oracle/com/klid/webapp/**/*.xml
-    - classpath:com/klid/api/**/*.xml
+    - classpath:mapper/com/klid/api/**/*.xml
   config-location: classpath:config/mybatis-config.xml
 
 server:
