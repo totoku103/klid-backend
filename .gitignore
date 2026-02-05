@@ -21,3 +21,6 @@ target/**
 # Logs
 log/
 logs/
+
+# Exception: API logs package (source code, not runtime logs)
+!src/main/java/com/klid/api/logs/
