@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.dashboard.persistence.DashboardMapper">
+
+    <!-- 예경보 현재 상태 -->
+    <select id="selectThreatNow" resultType="com.klid.api.dashboard.dto.ThreatStatusDTO">
+        SELECT PAST_THREAT as pastThreat,
+               NOW_THREAT as nowThreat,
+               INST_CD as instCd,
+               MOD_DT as modDt,
+               b.LEVEL_NM as pastNm,
+               c.LEVEL_NM as nowNm
+        FROM THREAT_NOW a
+        LEFT OUTER JOIN (SELECT LEVEL_CD, LEVEL_NM FROM THREAT_BASIS) b
+        ON a.PAST_THREAT=b.LEVEL_CD
+        LEFT OUTER JOIN (SELECT LEVEL_CD, LEVEL_NM FROM THREAT_BASIS) c
+        ON a.NOW_THREAT=c.LEVEL_CD
+        ORDER BY MOD_DT DESC
+    </select>
+
+    <!-- 기간 설정 조회 -->
+    <select id="selectPeriodNow" resultType="com.klid.api.dashboard.dto.PeriodSettingDTO">
+        SELECT PERIOD_1 as period1,
+               PERIOD_2 as period2,
+               PERIOD_3 as period3,
+               INST_CD as instCd
+        FROM PERIOD_NOW
+        WHERE INST_CD=#{instCd}
+    </select>
+
+    <!-- 기간별 미처리 건수 -->
+    <select id="selectPeriodStatus" resultType="com.klid.api.dashboard.dto.PeriodStatusDTO">
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    WITH proid AS ( SELECT  to_char(sysdate - nvl(min(period_1),10),'yyyymmdd') AS period1,
+                    to_char(sysdate - nvl(min(period_2),20),'yyyymmdd') AS period2,
+                    to_char(sysdate - nvl(min(period_3),30),'yyyymmdd') AS period3
+                    FROM period_now
+                    WHERE inst_cd = #{sInstCd}),
+                    proid_min AS (
+                    SELECT min(proid) FROM (
+                    SELECT period1 AS proid FROM proid
+                    UNION ALL
+                    SELECT period2 AS proid FROM proid
+                    UNION ALL
+                    SELECT period3 AS proid FROM proid
+                    )
+                    ),
+                    tree AS ( SELECT inst_cd
+                    FROM tsminst
+                    CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                    START WITH inst_cd = #{sInstCd} ),
+                    pri AS (
+                    SELECT INCI_TRNS_RCPT_INST_CD AS dmg_inst_cd,
+                    TO_CHAR(TO_DATE(INCI_ACPN_DT, 'YYYYMMDDHH24:MI:SS'), 'yyyymmdd') AS inci_acpn_dt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    AND TRANS_INCI_PRCS_STAT NOT IN ('12', '13', '15', '17')
+                    AND inci_acpn_dt BETWEEN (SELECT * FROM proid_min) || '000000' AND TO_CHAR(SYSDATE, 'yyyymmdd') || '235959'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND (d.INCI_TRNS_RCPT_INST_CD = #{sInstCd} OR dmg_inst_cd = #{sInstCd})
+                    AND d.INCI_TRNS_RCPT_SIDO_INST_CD NOT IN (SELECT * FROM tree
+                    WHERE INST_cd <![CDATA[ <> ]]>  #{sInstCd})
+                    UNION ALL
+                    SELECT DCL_INST_CD AS dmg_inst_cd,
+                    TO_CHAR(TO_DATE(INCI_ACPN_DT, 'YYYYMMDDHH24:MI:SS'), 'yyyymmdd') AS inci_acpn_dt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    AND TRANS_INCI_PRCS_STAT NOT IN ('12', '13', '15', '17')
+                    AND inci_acpn_dt BETWEEN (SELECT * FROM proid_min) || '000000' AND TO_CHAR(SYSDATE, 'yyyymmdd') || '235959'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND d.DCL_INST_CD IN (#{sInstCd})
+                    UNION ALL
+                    SELECT INCI_TRNS_RCPT_SIDO_INST_CD AS dmg_inst_cd,
+                    TO_CHAR(TO_DATE(INCI_ACPN_DT, 'YYYYMMDDHH24:MI:SS'), 'yyyymmdd') AS inci_acpn_dt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    AND TRANS_SIDO_PRCS_STAT NOT IN ('12', '13', '15', '17')
+                    AND inci_acpn_dt BETWEEN (SELECT * FROM proid_min) || '000000' AND TO_CHAR(SYSDATE, 'yyyymmdd') || '235959'
+                    AND (d.INCI_TRNS_RCPT_INST_CD IN (SELECT * FROM tree
+                    WHERE INST_cd <![CDATA[ <> ]]>  #{sInstCd})
+                    OR d.INCI_TRNS_RCPT_SIDO_INST_CD IN (SELECT * FROM tree
+                    WHERE INST_CD <![CDATA[ <> ]]>  #{sInstCd}))
+                    )
+                    SELECT * FROM (
+                    SELECT   nvl(SUM(CASE WHEN inci_acpn_dt > (SELECT period1 FROM proid WHERE rownum = 1)
+                    THEN 1
+                    ELSE 0 END), 0) AS cnt1,
+                    nvl(SUM(CASE WHEN inci_acpn_dt BETWEEN (SELECT period2 FROM proid WHERE rownum = 1) AND (SELECT period1 FROM proid WHERE rownum = 1)
+                    THEN 1
+                    ELSE 0 END), 0) AS cnt2,
+                    nvl(SUM(CASE WHEN inci_acpn_dt <![CDATA[ <= ]]>  (SELECT period3 FROM proid WHERE rownum = 1)
+                    THEN 1
+                    ELSE 0 END), 0) AS cnt3
+                    FROM pri t1, tree t2
+                    WHERE t1.dmg_inst_cd = t2.inst_cd
+                    )
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    SELECT
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt > period1 THEN 1 ELSE 0
+                    END),0) AS cnt1,
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt BETWEEN period2 AND period1
+                    THEN 1 ELSE 0
+                    END),0) AS cnt2,
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt <![CDATA[ <= ]]> period3 THEN 1 ELSE 0
+                    END),0) AS cnt3
+                    FROM(
+                    SELECT
+                    TO_CHAR(TO_DATE(INCI_ACPN_DT,  'YYYYMMDDHH24:MI:SS'), 'yyyymmdd') AS inci_acpn_dt
+                    FROM tbzledge
+                    WHERE 1=1
+                    AND inci_acpn_dt LIKE TO_CHAR(SYSDATE, 'yyyy') || '%'
+                    AND TRANS_SIDO_PRCS_STAT NOT IN (12,13,15,17)
+                    AND INCI_TRNS_RCPT_SIDO_INST_CD = #{sInstCd}
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    ) a, (SELECT
+                    to_char(sysdate-nvl(min(period_1),10),'yyyymmdd') AS period1,
+                    to_char(sysdate-nvl(min(period_2),20),'yyyymmdd') AS period2,
+                    to_char(sysdate-nvl(min(period_3),30),'yyyymmdd') AS period3
+                    FROM period_now WHERE inst_cd =#{sInstCd} ) b
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    SELECT
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt > period1 THEN 1 ELSE 0
+                    END),0) AS cnt1,
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt BETWEEN period2 AND period1
+                    THEN 1 ELSE 0
+                    END),0) AS cnt2,
+                    nvl(SUM(CASE
+                    WHEN  inci_acpn_dt <![CDATA[ <= ]]> period3 THEN 1 ELSE 0
+                    END),0) AS cnt3
+                    FROM(
+                    SELECT
+                    TO_CHAR(TO_DATE(INCI_ACPN_DT,  'YYYYMMDDHH24:MI:SS'), 'yyyymmdd') AS inci_acpn_dt
+                    FROM tbzledge
+                    WHERE 1=1
+                    AND inci_acpn_dt LIKE TO_CHAR(SYSDATE, 'yyyy') || '%'
+                    AND INCI_PRCS_STAT NOT IN (12,13,15,17)
+                    AND EXISTS(
+                    SELECT inst_cd
+                    FROM tsminst_leaf tsminst
+                    WHERE tsminst.sub_cd = dmg_inst_cd
+                    AND inst_cd = 1100000
+                    AND sub_cd NOT IN (
+                    SELECT com_code2
+                    FROM COMM_CODE
+                    WHERE com_code1 = '4002'
+                    AND code_lvl = '2')
+                    AND sub_cd <![CDATA[ <> ]]> 1200000)
+                    AND inci_no LIKE 'CT%'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND length(inci_no) <![CDATA[ < ]]>  16
+                    ) a, (SELECT
+                    to_char(sysdate-nvl(min(period_1),10),'yyyymmdd') AS period1,
+                    to_char(sysdate-nvl(min(period_2),20),'yyyymmdd') AS period2,
+                    to_char(sysdate-nvl(min(period_3),30),'yyyymmdd') AS period3
+                    FROM period_now WHERE inst_cd =#{sInstCd} ) b
+                </when>
+            </choose>
+        </if>
+    </select>
+
+    <!-- 금일 처리 현황 -->
+    <select id="selectTodayStatus" resultType="com.klid.api.dashboard.dto.TodayStatusDTO">
+        SELECT
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    SUM(CASE
+                            WHEN INCI_PRCS_STAT > 0 THEN 1 ELSE 0
+                        END) AS apply,
+                    (SUM(CASE
+                            WHEN INCI_PRCS_STAT IN (1,2, 5, 7, 8, 9, 10, 11, 14, 16) THEN 1 ELSE 0 END))	AS ing,
+                    SUM(CASE
+                            WHEN INCI_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END) AS end
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    (SUM(CASE
+                            WHEN TRANS_INCI_PRCS_STAT > 0 THEN 1 ELSE 0
+                        END)
+                    )AS apply,
+                    (SUM(CASE
+                         	WHEN TRANS_INCI_PRCS_STAT IN (1,2,5,7,8,9,10,11,14,16) THEN 1 ELSE 0
+                        END)
+                    )AS ing,
+                    (SUM(CASE
+                            WHEN TRANS_INCI_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END)
+                    )AS end
+                </when>
+                <otherwise>
+                    SUM(CASE
+                            WHEN TRANS_SIDO_PRCS_STAT > 0 THEN 1 ELSE 0
+                        END) AS apply,
+                    SUM(CASE
+                            WHEN TRANS_SIDO_PRCS_STAT IN (1, 2,5,7,8,9,10,11,14,16) THEN 1 ELSE 0
+                        END) AS ing,
+                    SUM(CASE
+                            WHEN TRANS_SIDO_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END) AS end
+                </otherwise>
+            </choose>
+        </if>
+        FROM TBZLEDGE a
+        WHERE 1=1
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    AND (
+                    INCI_TRNS_RCPT_INST_CD IN (
+                    1100000,
+                    #{sInstCd}
+                    )
+                    OR INCI_TRNS_RCPT_SIDO_INST_CD IN (
+                    SELECT
+                    inst_cd
+                    FROM
+                    tsminst
+                    CONNECT BY
+                    PRIOR inst_cd = pnt_inst_cd
+                    START WITH
+                    inst_cd = #{sInstCd}
+                    )
+                    OR DCL_INST_CD IN (#{sInstCd})
+                    )
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    AND INCI_TRNS_RCPT_SIDO_INST_CD = #{sInstCd}
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    AND EXISTS(
+                    SELECT sub_cd
+                    FROM tsminst_leaf tsminst
+                    WHERE tsminst.sub_cd = dmg_inst_cd
+                    AND inst_cd = 1100000
+                    AND sub_cd NOT IN (
+                    SELECT com_code2
+                    FROM COMM_CODE
+                    WHERE com_code1 = '4002'
+                    AND code_lvl = '2')
+                    AND sub_cd <![CDATA[ <> ]]> 1200000)
+                    AND inci_no LIKE 'CT%'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND length(inci_no) <![CDATA[ < ]]>  16
+                </when>
+            </choose>
+        </if>
+        AND  INCI_ACPN_DT BETWEEN to_number(to_char(sysdate, 'yyyymmdd') ||'000000') AND to_number(to_char(sysdate, 'yyyymmdd') ||'235959')
+    </select>
+
+    <!-- 연도 종료 건수 -->
+    <select id="selectYearStatus" resultType="com.klid.api.dashboard.dto.YearStatusDTO">
+        SELECT
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    SUM(CASE
+                            WHEN INCI_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END) AS end
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    (SUM(CASE
+                            WHEN TRANS_INCI_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END)
+                    )AS end
+                </when>
+                <otherwise>
+                    SUM(CASE
+                            WHEN TRANS_SIDO_PRCS_STAT IN (12,13,15,17) THEN 1 ELSE 0
+                        END) AS end
+                </otherwise>
+            </choose>
+        </if>
+        FROM TBZLEDGE
+        WHERE 1=1
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    AND (
+                    INCI_TRNS_RCPT_INST_CD IN (
+                    1100000,
+                    #{sInstCd}
+                    )
+                    OR INCI_TRNS_RCPT_SIDO_INST_CD IN (
+                    SELECT
+                    inst_cd
+                    FROM
+                    tsminst
+                    CONNECT BY
+                    PRIOR inst_cd = pnt_inst_cd
+                    START WITH
+                    inst_cd = #{sInstCd}
+                    )
+                    OR DCL_INST_CD IN (#{sInstCd})
+                    )
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    AND INCI_TRNS_RCPT_SIDO_INST_CD = #{sInstCd}
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    AND EXISTS(
+                    SELECT sub_cd
+                    FROM tsminst_leaf tsminst
+                    WHERE tsminst.sub_cd = dmg_inst_cd
+                    AND inst_cd = 1100000
+                    AND sub_cd NOT IN (
+                    SELECT com_code2
+                    FROM COMM_CODE
+                    WHERE com_code1 = '4002'
+                    AND code_lvl = '2')
+                    AND sub_cd <![CDATA[ <> ]]> 1200000)
+                    AND inci_no LIKE 'CT%'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND length(inci_no) <![CDATA[ < ]]>  16
+                </when>
+            </choose>
+        </if>
+        AND  INCI_ACPN_DT BETWEEN to_number(to_char(sysdate, 'yyyy') ||'0101000000') AND to_number(to_char(sysdate, 'yyyymmdd') ||'235959')
+    </select>
+
+    <!-- 사고 유형별 Top5 -->
+    <select id="selectInciTypeList" resultType="com.klid.api.dashboard.dto.AccidentTypeRankDTO">
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_2' or sAuthMain == 'AUTH_MAIN_1'">
+                    SELECT com_code2, b.code_name AS name, count(accd_typ_cd) AS y
+                    FROM (
+                    SELECT accd_typ_cd
+                    FROM tbzledge D
+                    WHERE
+                    EXISTS(
+                    SELECT sub_cd
+                    FROM tsminst_leaf tsminst
+                    WHERE tsminst.sub_cd= d.dmg_inst_cd
+                    AND inst_cd = #{instCd}
+                    AND sub_cd NOT IN (
+                    SELECT com_code2
+                    FROM COMM_CODE
+                    WHERE com_code1 = '4002'
+                    AND code_lvl = '2')
+                    AND sub_cd <![CDATA[ <> ]]> 1200000)  AND inci_no LIKE 'CT%'
+                    AND length(inci_no) <![CDATA[ < ]]> 16
+                    <choose>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_acpn_dt')">
+                            AND TO_DATE(inci_acpn_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_upd_dt')">
+                            AND TO_DATE(inci_upd_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                    </choose>
+                    AND INCI_PRCS_STAT <![CDATA[ <> ]]> 0
+                    AND inci_no LIKE 'CT%'
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND DMG_INST_CD <![CDATA[ <> ]]> 1100000
+                    ) a,
+                    (
+                    SELECT com_code2, code_name
+                    FROM comm_code
+                    WHERE com_code1 = '3002' AND code_lvl = '2'
+                    AND com_code2 NOT IN (SELECT COM_CODE2
+                    FROM comm_code WHERE com_code1='4018' AND code_lvl='2' AND USE_YN='Y')
+                    ) b
+                    WHERE a.accd_typ_cd(+) = b.com_code2
+                    GROUP BY com_code2, b.code_name
+                    ORDER BY y DESC
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    SELECT
+                    com_code2,
+                    b.code_name AS name,
+                    count(accd_typ_cd) AS y
+                    FROM (
+                    SELECT accd_typ_cd
+                    FROM tbzledge D
+                    WHERE 1=1
+                    AND (
+                    INCI_TRNS_RCPT_INST_CD IN (
+                    1100000,
+                    #{instCd}
+                    )
+                    OR INCI_TRNS_RCPT_SIDO_INST_CD IN (
+                    SELECT
+                    inst_cd
+                    FROM
+                    tsminst
+                    CONNECT BY
+                    PRIOR inst_cd = pnt_inst_cd
+                    START WITH
+                    inst_cd = #{instCd}
+                    )
+                    OR DCL_INST_CD IN (#{instCd})
+                    )
+                    <choose>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_acpn_dt')">
+                            AND TO_DATE(inci_acpn_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_upd_dt')">
+                            AND TO_DATE(inci_upd_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                    </choose>
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND length(INCI_NO)=15
+                    ) a,
+                    (
+                    SELECT
+                    com_code2,
+                    code_name
+                    FROM comm_code
+                    WHERE com_code1 = '3002' AND code_lvl = '2'
+                    AND com_code2 NOT IN (SELECT COM_CODE2
+                    FROM comm_code WHERE com_code1='4018' AND code_lvl='2' AND USE_YN='Y')
+                    ) b
+                    WHERE a.accd_typ_cd (+) = b.com_code2
+                    GROUP BY com_code2, b.code_name
+                    ORDER BY y DESC
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    SELECT
+                    com_code2,
+                    b.code_name AS name,
+                    count(accd_typ_cd) AS y
+                    FROM (
+                    SELECT accd_typ_cd
+                    FROM tbzledge D
+                    WHERE 1=1
+                    <choose>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_acpn_dt')">
+                            AND TO_DATE(inci_acpn_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                        <when test="dateType !=  null and dateType.equalsIgnoreCase('inci_upd_dt')">
+                            AND TO_DATE(inci_upd_dt,'yyyymmddhh24miss') BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')
+                        </when>
+                    </choose>
+                    AND INCI_TRNS_RCPT_SIDO_INST_CD = #{instCd}
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    ) a,
+                    (
+                    SELECT
+                    com_code2,
+                    code_name
+                    FROM comm_code
+                    WHERE com_code1 = '3002' AND code_lvl = '2'
+                    AND com_code2 NOT IN (SELECT COM_CODE2
+                    FROM comm_code WHERE com_code1='4018' AND code_lvl='2' AND USE_YN='Y')
+                    ) b
+                    WHERE a.accd_typ_cd (+) = b.com_code2
+                    GROUP BY com_code2, b.code_name
+                    ORDER BY y DESC
+                </when>
+            </choose>
+        </if>
+    </select>
+
+    <!-- 시도별 Top5 (기관별) -->
+    <select id="selectInciLocalList" resultType="com.klid.api.dashboard.dto.InstitutionRankDTO">
+        WITH sido AS (SELECT *
+        FROM  (SELECT dmg_inst_cd,
+        <choose>
+            <when test="dateType == 'inci_acpn_dt'">
+                nvl(count(inci_acpn_dt),0) total_cnt
+            </when>
+            <otherwise>
+                nvl(count(inci_upd_dt),0) total_cnt
+            </otherwise>
+        </choose>
+        FROM tbzledge D
+        WHERE EXISTS(SELECT sub_cd
+        FROM tsminst_leaf tsminst
+        WHERE tsminst.sub_cd= d.dmg_inst_cd
+        AND inst_cd = 1100000
+        AND sub_cd NOT IN (
+        SELECT com_code2
+        FROM COMM_CODE
+        WHERE com_code1 = '4002'
+        AND code_lvl = '2')
+        AND sub_cd <![CDATA[ <> ]]> 1200000) AND inci_no LIKE 'CT%' AND length(inci_no) <![CDATA[ < ]]> 16
+        <choose>
+            <when test="dateType == 'inci_acpn_dt'">
+              AND TO_DATE(inci_acpn_dt, 'yyyymmddhh24miss')
+            </when>
+            <otherwise>
+               AND TO_DATE(inci_upd_dt, 'yyyymmddhh24miss')
+            </otherwise>
+        </choose>
+        BETWEEN TO_DATE(#{startDt}, 'yyyymmddhh24miss')
+        AND TO_DATE(#{endDt},'yyyymmddhh24miss')
+        AND inci_ttl NOT LIKE '%훈련%' AND inci_ttl NOT LIKE '%확인%'
+        AND DMG_INST_CD <![CDATA[ <> ]]> 1100000
+        GROUP BY DMG_INST_CD) a,
+        (SELECT t1.sub_cd AS inst_cd, t2.inst_nm AS inst_nm, nvl(replace((SELECT local_cd FROM tsminst WHERE inst_cd=t2.inst_cd), 170, 75), '0') local_cd
+        FROM tsminst_leaf t1, TSMINST t2
+        WHERE  (t2.PNT_INST_CD=1100000)
+        AND t1.inst_cd = t2.inst_cd
+        AND t1.inst_cd NOT IN (SELECT com_code2 FROM COMM_CODE
+        WHERE com_code1 = '4002'
+        AND code_lvl = '2'  )
+        AND t1.sub_cd <![CDATA[ <> ]]> 1200000
+        AND t2.inst_cd <![CDATA[ <> ]]> 1200000) b
+        WHERE a.dmg_inst_cd (+) = b.inst_cd
+        ORDER BY to_number(local_cd))
+        SELECT local_cd AS instCd, inst_nm AS name, SUM( nvl(total_cnt,0) ) AS y FROM sido GROUP BY local_cd, inst_nm
+        <choose>
+            <when test="sortType == 'main'">
+                ORDER BY y DESC ,to_number(local_cd)
+            </when>
+            <otherwise>
+                ORDER BY to_number(local_cd)
+            </otherwise>
+        </choose>
+    </select>
+
+    <!-- 시군구별 Top5 -->
+    <select id="selectInciSidoList" resultType="com.klid.api.dashboard.dto.InstitutionRankDTO">
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    WITH inst AS (
+                    SELECT inst_cd, inst_nm, NVL(REPLACE(local_cd, 170, 75), '0') local_cd
+                    FROM tsminst
+                    WHERE local_cd = (SELECT local_cd FROM tsminst WHERE inst_cd=#{instCd}) AND INST_CD NOT IN (SELECT com_code2
+                    FROM COMM_CODE
+                    WHERE com_code1 = '4002' AND code_lvl = '2')
+                    AND INST_CD <![CDATA[ <> ]]> 1200000 AND INST_CD <![CDATA[ <> ]]> 1100000 ),
+                    tree AS ( SELECT inst_cd
+                    FROM tsminst
+                    CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                    START WITH inst_cd = #{instCd} ),
+                    pri AS ( SELECT NVL(inst_nm, '합계')     inst_nm,
+                    DECODE(inst_cd, '', '0', inst_cd) local_cd,
+                    nvl(total_cnt, 0) AS     total_cnt,
+                    nvl(end_cnt, 0) AS     end_cnt,
+                    nvl(ing_cnt, 0) AS     ing_cnt
+                    FROM (
+            <choose>
+                <when test="topInstView == 'main'">
+                    SELECT INCI_TRNS_RCPT_INST_CD AS dmg_inst_cd,
+                    NVL( COUNT(TRANS_INCI_PRCS_STAT), 0) total_cnt,
+                    NVL( COUNT( DECODE(TRANS_INCI_PRCS_STAT, '13', 1, '12', 1, '15', 1, '17', 1, NULL)), 0) end_cnt,
+                    NVL( COUNT( DECODE(TRANS_INCI_PRCS_STAT, '13', NULL,'12', NULL, '15', NULL, '17', NULL, 1)), 0) ing_cnt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    <choose>
+                        <when test="dateType == 'inci_acpn_dt'">
+                            AND TO_DATE(inci_acpn_dt, 'yyyymmddhh24miss')
+                        </when>
+                        <otherwise>
+                            AND TO_DATE(inci_upd_dt, 'yyyymmddhh24miss')
+                        </otherwise>
+                    </choose>
+                    BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE(#{endDt},'yyyymmddhh24miss')
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND (d.INCI_TRNS_RCPT_INST_CD = #{instCd} OR dmg_inst_cd = #{instCd})
+                    AND d.INCI_TRNS_RCPT_SIDO_INST_CD NOT IN (SELECT * FROM tree
+                    WHERE INST_cd <![CDATA[ <> ]]> #{instCd})
+                    GROUP BY INCI_TRNS_RCPT_INST_CD
+                    UNION ALL
+                    SELECT DCL_INST_CD AS dmg_inst_cd,
+                    NVL( COUNT(TRANS_INCI_PRCS_STAT), 0) total_cnt,
+                    NVL( COUNT( DECODE(TRANS_INCI_PRCS_STAT, '13', 1, '12', 1, '15', 1, '17', 1, NULL)), 0) end_cnt,
+                    NVL( COUNT( DECODE(TRANS_INCI_PRCS_STAT, '13', NULL,'12', NULL, '15', NULL, '17', NULL, 1)), 0) ing_cnt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    <choose>
+                        <when test="dateType == 'inci_acpn_dt'">
+                            AND TO_DATE(inci_acpn_dt, 'yyyymmddhh24miss')
+                        </when>
+                        <otherwise>
+                            AND TO_DATE(inci_upd_dt, 'yyyymmddhh24miss')
+                        </otherwise>
+                    </choose>
+                    BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE(#{endDt},'yyyymmddhh24miss')
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    AND d.DCL_INST_CD IN (#{instCd})
+                    AND d.INCI_TRNS_RCPT_SIDO_INST_CD NOT IN (SELECT * FROM tree
+                    WHERE INST_cd <![CDATA[ <> ]]> #{instCd})
+                    GROUP BY DCL_INST_CD
+                    UNION ALL
+                </when>
+            </choose>
+                    SELECT INCI_TRNS_RCPT_SIDO_INST_CD AS dmg_inst_cd,
+                    NVL( COUNT(TRANS_SIDO_PRCS_STAT), 0) total_cnt,
+                    NVL( COUNT( DECODE(TRANS_SIDO_PRCS_STAT, '13', 1, '12',  1, '15', 1, '17', 1, NULL)), 0) end_cnt,
+                    NVL( COUNT( DECODE(TRANS_SIDO_PRCS_STAT, '13', NULL,'12', NULL,'15',  NULL, '17', NULL, 1)), 0) ing_cnt
+                    FROM TBZLEDGE d
+                    WHERE 1=1
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    <choose>
+                        <when test="dateType == 'inci_acpn_dt'">
+                            AND TO_DATE(inci_acpn_dt, 'yyyymmddhh24miss')
+                        </when>
+                        <otherwise>
+                            AND TO_DATE(inci_upd_dt, 'yyyymmddhh24miss')
+                        </otherwise>
+                    </choose>
+                    BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE(#{endDt},'yyyymmddhh24miss')
+                    AND (d.INCI_TRNS_RCPT_INST_CD IN (SELECT * FROM tree
+                    WHERE INST_cd <![CDATA[ <> ]]> #{instCd})
+                    OR d.INCI_TRNS_RCPT_SIDO_INST_CD IN (SELECT * FROM tree
+                    WHERE INST_CD <![CDATA[ <> ]]> #{instCd}))
+                    GROUP BY INCI_TRNS_RCPT_SIDO_INST_CD) T1, inst T2
+                    WHERE T2.INST_CD=t1.dmg_inst_cd (+)
+            <choose>
+                <when test="topInstView != 'main'">
+                    AND t2.inst_cd <![CDATA[ <> ]]> #{instCd}
+                </when>
+            </choose>
+                    ORDER BY TO_NUMBER(local_cd), DECODE(inst_nm, (SELECT inst_nm FROM tsminst WHERE inst_cd  =  #{instCd}), 2)
+                    )
+                    SELECT inst_nm AS name,
+                    local_cd AS instCd,
+                    sum(total_cnt) AS y,
+                    sum(end_cnt)   AS end_cnt,
+                    sum(ing_cnt)   AS ing_cnt
+                    FROM pri
+                    GROUP BY INST_NM, local_cd
+            <choose>
+                <when test="topInstView == 'main'">
+                    ORDER BY y DESC, local_cd ASC
+                </when>
+                <otherwise>
+                    ORDER BY local_cd ASC
+                </otherwise>
+            </choose>
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    SELECT B.INST_CD AS instCd, B.INST_NM AS name, COUNT(A.DMG_INST_CD) AS y
+                    FROM (
+                    SELECT DMG_INST_CD
+                    FROM TBZLEDGE D
+                    WHERE 1=1
+                    <choose>
+                        <when test="dateType == 'inci_acpn_dt'">
+                            AND TO_DATE(inci_acpn_dt, 'yyyymmddhh24miss')
+                        </when>
+                        <otherwise>
+                            AND TO_DATE(inci_upd_dt, 'yyyymmddhh24miss')
+                        </otherwise>
+                    </choose>
+                    BETWEEN TO_DATE(#{startDt},'yyyymmddhh24miss') AND TO_DATE( #{endDt},'yyyymmddhh24miss')+1
+                    AND INCI_TRNS_RCPT_SIDO_INST_CD = #{instCd}
+                    AND inci_ttl NOT LIKE '%훈련%'
+                    AND inci_ttl NOT LIKE '%확인%'
+                    ) A,
+                    (SELECT INST_CD, INST_NM
+                    FROM TSMINST
+                    WHERE 1=1
+                    AND INST_CD=#{instCd}
+                    ) B
+                    WHERE A.DMG_INST_CD(+)=B.INST_CD
+                    GROUP BY B.INST_CD, B.INST_NM
+                    ORDER BY y DESC, instCd ASC
+                </when>
+            </choose>
+        </if>
+    </select>
+
+</mapper>

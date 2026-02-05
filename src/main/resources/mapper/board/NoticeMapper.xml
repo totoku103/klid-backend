@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.board.notice.persistence.NoticeMapper">
+
+    <select id="getMainNoticeList" resultType="com.klid.api.board.notice.dto.NoticeListItemDTO">
+        SELECT
+        *
+        FROM (
+        SELECT
+        A.BULTN_NO AS bultnNo,
+        NVL(A.BULTN_TITLE,' ') AS bultnTitle,
+        NVL(TO_CHAR(TO_DATE(A.REG_DATE, 'yyyymmdd HH24MISS'),'YYYY-MM-DD'),' ') AS regDate,
+        A.BULTN_CONT
+        FROM
+        BULTN A
+        LEFT JOIN TSMINST B ON A.ORGAN_CODE = B.INST_CD
+        WHERE
+        1 = 1
+        AND A.USE_YN = 'Y'
+        AND A.BULTN_TYPE = 'notice'
+        <if test="sAuthMain != null and sAuthMain != ''">
+            <choose>
+                <when test="sAuthMain == 'AUTH_MAIN_3'">
+                    AND
+                    (
+                    A.ORGAN_CODE IN (
+                    SELECT inst_cd FROM tsminst
+                    CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                    START WITH inst_cd = #{sInstCd}
+                    )
+                    OR A.ORGAN_CODE = 1100000
+                    )
+                    AND  A.OPEN_SCOPE LIKE '%3%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_4'">
+                    AND
+                    (
+                    A.ORGAN_CODE IN (
+                    SELECT inst_cd FROM tsminst
+                    CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                    START WITH inst_cd = #{sInstCd}
+                    )
+                    OR A.ORGAN_CODE = 1100000 OR A.ORGAN_CODE = #{sPntInstCd}
+                    )
+                    AND A.OPEN_SCOPE LIKE '%4%'
+                </when>
+                <when test="sAuthMain == 'AUTH_MAIN_2'">
+                    AND  A.OPEN_SCOPE LIKE '%2%'
+                </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+        </if>
+        ORDER BY
+        A.BULTN_NO DESC
+        )WHERE
+        ROWNUM <![CDATA[ <= ]]>  #{listSize}
+    </select>
+
+</mapper>

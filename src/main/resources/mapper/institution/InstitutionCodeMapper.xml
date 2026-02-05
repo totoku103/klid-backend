@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.webapp.main.logs.institution.persistence.InstitutionCodeMapper">
+    <!-- 2시간 캐시 -->
+    <cache eviction="LRU" flushInterval="6900000" size="10" readOnly="true"/>
+
+    <select id="selectCTRSInstitutionCodeList"
+            resultType="com.klid.webapp.main.logs.institution.dto.InstitutionCodeResDto"
+            useCache="true">
+        WITH DEPTH_1 AS (SELECT INST_CD, INST_NM, LOCAL_CD, PNT_INST_CD FROM TSMINST where INST_CD = '1100000'),
+             DEPTH_2 AS (SELECT INST_CD, INST_NM, LOCAL_CD, PNT_INST_CD
+                         FROM TSMINST
+                         WHERE INST_LEVEL = 1
+                           AND LOCAL_CD > 1
+                           AND USE_YN = 'Y'
+                           AND INST_CD NOT IN (SELECT COM_CODE2
+                                               FROM COMM_CODE
+                                               WHERE COM_CODE1 = '4002'
+                                                 AND CODE_LVL = '2')),
+             DEPTH_3 AS (SELECT INST_CD, INST_NM, LOCAL_CD, PNT_INST_CD
+                         FROM TSMINST
+                         WHERE USE_YN = 'Y'
+                           AND REGEXP_LIKE(INST_NM, '(시|군|구)$')
+                           AND INST_CD NOT IN (SELECT INST_CD FROM DEPTH_2)),
+             HQ_T AS (SELECT TSMINST.LOCAL_CD AS LOCAL_CD,
+                             INST_CD || '-H'  AS INST_CD,
+                             INST_NM || '본청'  AS INST_NM,
+                             TO_CHAR(INST_CD) AS PNT_INST_CD
+                      FROM TSMINST
+                      WHERE INST_LEVEL = 1
+                        AND LOCAL_CD > 1
+                        AND USE_YN = 'Y'
+                        AND INST_CD NOT IN (SELECT COM_CODE2
+                                            FROM COMM_CODE
+                                            WHERE COM_CODE1 = '4002'
+                                              AND CODE_LVL = '2')),
+             TOTAL_T AS (SELECT LOCAL_CD, TO_CHAR(INST_CD) AS INST_CD, INST_NM, TO_CHAR(PNT_INST_CD) AS PNT_INST_CD
+                         FROM DEPTH_1
+                         UNION ALL
+                         SELECT LOCAL_CD, TO_CHAR(INST_CD) AS INST_CD, INST_NM, TO_CHAR(PNT_INST_CD) AS PNT_INST_CD
+                         FROM DEPTH_2
+                         UNION ALL
+                         SELECT LOCAL_CD, TO_CHAR(INST_CD) AS INST_CD, INST_NM, TO_CHAR(PNT_INST_CD) AS PNT_INST_CD
+                         FROM DEPTH_3
+                         UNION ALL
+                         SELECT LOCAL_CD, INST_CD, INST_NM, PNT_INST_CD
+                         FROM HQ_T)
+        SELECT LEVEL,
+               TOTAL_T.INST_CD     AS INSTITUTION_CODE,
+               TOTAL_T.INST_NM     AS INSTITUTION_NAME,
+               TOTAL_T.PNT_INST_CD AS PARENT_INSTITUTION_CODE
+        FROM TOTAL_T
+        START WITH TOTAL_T.PNT_INST_CD IS NULL
+        CONNECT BY PRIOR TOTAL_T.INST_CD = TOTAL_T.PNT_INST_CD
+        ORDER SIBLINGS BY
+            CASE
+                WHEN TOTAL_T.LOCAL_CD = 11 THEN 0
+                ELSE 1
+                END,
+            CASE
+                WHEN INST_CD LIKE '%-H' THEN 0
+                ELSE 1
+                END,
+            TOTAL_T.LOCAL_CD
+    </select>
+
+    <select id="selectOtherInstitutionCodeList"
+            resultType="com.klid.webapp.main.logs.institution.dto.InstitutionCodeResDto"
+            useCache="true">
+        SELECT LEVEL,
+               INST_T.ORG_CD       AS INSTITUTION_CODE,
+               INST_T.ORG_NM       AS INSTITUTION_NAME,
+               INST_T.ORG_UPPER_CD AS PARENT_INSTITUTION_CODE
+        FROM SITE_ORG_LIST INST_T
+        WHERE INST_T.SYSTEM_TYPE = #{systemType}
+          AND INST_T.ORG_USE_YN = 'Y'
+          AND INST_T.YMD_REF_ID = (SELECT MAX(TO_NUMBER(SITE_ORG_LIST.YMD_REF_ID))
+                                   FROM SITE_ORG_LIST
+                                   WHERE ORG_USE_YN = 'Y'
+                                       AND SYSTEM_TYPE = #{systemType}
+        )
+        START WITH INST_T.ORG_UPPER_CD IS NULL
+        CONNECT BY NOCYCLE PRIOR INST_T.ORG_CD = INST_T.ORG_UPPER_CD
+    </select>
+
+</mapper>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.monitoring.persistence.MonitoringMapper">
+
+    <!-- 홈페이지 모니터링 통계 -->
+    <select id="selectMainForgeryCnt" resultType="com.klid.api.monitoring.dto.MonitoringStatsDTO">
+        SELECT
+            NVL( SUM( sub.healthNormalCnt ), 0 ) AS healthNormalCnt,
+            NVL( SUM( sub.healthErrCnt ), 0 ) AS healthErrCnt,
+            NVL( SUM( sub.urlNormalCnt ), 0 ) AS urlNormalCnt,
+            NVL( SUM( sub.urlErrCnt ), 0 ) AS urlErrCnt
+        FROM(
+            SELECT
+                    SUM( CASE WHEN last_res = 200 THEN 1 ELSE 0 END ) AS healthNormalCnt,
+                    SUM( CASE WHEN last_res != 200 THEN 1 ELSE 0 END ) AS healthErrCnt,
+                    0 AS urlNormalCnt, 0 AS urlErrCnt
+            FROM hm_hc_url
+                WHERE INST_CD IN (
+                  SELECT inst_cd FROM tsminst
+                  CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                  START WITH inst_cd = #{sInstCd}
+                )
+                 AND USE_YN=1
+
+            UNION ALL
+
+            SELECT
+                0 AS healthNormalCnt, 0 AS healthErrCnt,
+                SUM( CASE WHEN last_res != 4 OR last_res != 5 THEN 1 ELSE 0 END ) AS urlNormalCnt,
+                SUM( CASE WHEN last_res = 4 OR last_res = 5  THEN 1 ELSE 0 END ) AS urlErrCnt
+             FROM forgery_url
+             WHERE INST_CD IN (
+                  SELECT inst_cd FROM tsminst
+                  CONNECT BY PRIOR inst_cd = pnt_inst_cd
+                  START WITH inst_cd = #{sInstCd}
+                )
+        )sub
+    </select>
+
+    <!-- 홈페이지 모니터링 상세 -->
+    <select id="selectMainForgeryHm" resultType="com.klid.api.monitoring.dto.MonitoringDetailDTO">
+        WITH tree AS
+        (
+            SELECT	INST_CD
+            FROM TSMINST
+            WHERE 1=1
+            AND inst_cd != 4560000	<!-- 연기군 제외 -->
+            <if test="sInstCd == '1100000'">
+                AND INST_LEVEL = 1
+            </if>
+            CONNECT BY
+            PRIOR INST_CD = PNT_INST_CD
+            START WITH
+            INST_CD = #{sInstCd}
+        )
+        SELECT * FROM
+        (
+        SELECT
+        decode(INST_NM, '행정안전부', 1, '개발원', 2, '서울', 3, '부산', 4,'대구', 5,'인천', 6,'광주', 7,'대전', 8,'울산', 9,'세종', 10,'경기', 11,'강원', 12,'충북', 13,'충남', 14,'전북', 15,'전남', 16,'경북', 17,'경남', 18,'제주', 19, 20) AS srt,
+                    INST_NM AS instNm,
+                    instCd,
+                    LOCAL_CD AS localCd,
+                    PNT_INST_CD AS pntInstCd,
+                   SUM(HM_CNT) AS hmCnt,
+                   SUM(FO_CNT) AS foCnt
+        FROM   (
+                SELECT INST_NM,
+                    instCd,
+                    LOCAL_CD,
+                    PNT_INST_CD,
+                    SUM(LAST_RES) AS HM_CNT,
+                     0 AS FO_CNT
+            FROM  (
+                        SELECT
+                        DISTINCT c.inst_NM AS INST_NM,
+                        c.inst_cd AS instCd, LOCAL_CD, PNT_INST_CD,
+                        DECODE( NVL( B.LAST_RES, 200 ), 200, 0, 1 ) LAST_RES
+                        FROM
+                        TSMINST A,
+                        HM_HC_URL B,
+                        tsminst_leaf c
+                        WHERE a.INST_CD IN (SELECT * FROM tree)
+                        AND B.inst_cd = #{sInstCd}
+                        AND a.inst_cd = c.inst_cd
+                        AND c.sub_CD = B.INST_CD (+)
+                        AND A.inst_cd NOT IN (
+                        1400000,
+                        1500000,
+                        1600000
+                        )
+                        UNION ALL
+                        SELECT
+                        DISTINCT c.inst_NM AS INST_NM,
+                        c.inst_cd AS instCd, LOCAL_CD, PNT_INST_CD,
+                        DECODE( NVL( B.LAST_RES, 200 ), 200, 0, 1 ) LAST_RES
+                        FROM
+                        TSMINST A,
+                        HM_HC_URL B,
+                        tsminst_leaf c
+                        WHERE a.INST_CD IN (SELECT * FROM tree)
+                        AND A.inst_cd != #{sInstCd}
+                        AND a.inst_cd = c.inst_cd
+                        AND c.sub_CD = B.INST_CD (+)
+                        AND A.inst_cd NOT IN (
+                        1400000,
+                        1500000,
+                        1600000
+                        )
+                    )
+            GROUP BY INST_NM,LOCAL_CD,PNT_INST_CD,instCd
+                UNION ALL
+            SELECT INST_NM,
+                    instCd,
+                    LOCAL_CD,
+                    PNT_INST_CD,
+                    0 AS HM_CNT,
+                    SUM(LAST_RES) AS FO_CNT
+            FROM  (
+                        SELECT
+                        DISTINCT c.inst_NM AS INST_NM,
+                        c.inst_cd AS instCd, a.LOCAL_CD, a.PNT_INST_CD,
+                        DECODE( NVL( B.LAST_RES, 200 ), 5, 1, 4, 1, 0 ) LAST_RES
+                        FROM
+                        TSMINST A,
+                        FORGERY_URL B,
+                        tsminst_leaf c
+                        WHERE
+                        A.INST_CD IN (SELECT * FROM tree)
+                        AND B.inst_cd = #{sInstCd}
+                        AND a.inst_cd = c.inst_cd
+                        AND c.sub_CD = B.INST_CD (+)
+                        AND A.inst_cd NOT IN (
+                        1400000,
+                        1500000,
+                        1600000
+                        )
+                        UNION ALL
+                        SELECT
+                        DISTINCT c.inst_NM AS INST_NM,
+                        c.inst_cd AS instCd, a.LOCAL_CD, a.PNT_INST_CD,
+                        DECODE( NVL( B.LAST_RES, 200 ), 5, 1, 4, 1, 0 ) LAST_RES
+                        FROM
+                        TSMINST A,
+                        FORGERY_URL B,
+                        tsminst_leaf c
+                        WHERE
+                        A.INST_CD IN (SELECT * FROM tree)
+                        AND A.inst_cd != #{sInstCd}
+                        AND a.inst_cd = c.inst_cd
+                        AND c.sub_CD = B.INST_CD (+)
+                        AND A.inst_cd NOT IN (
+                        1400000,
+                        1500000,
+                        1600000
+                        )
+                     )
+            GROUP BY INST_NM,LOCAL_CD,PNT_INST_CD,instCd
+             )
+            GROUP  BY INST_NM,LOCAL_CD, PNT_INST_CD,instCd
+        ORDER  BY LOCAL_CD ASC, PNT_INST_CD ASC
+        )SUB
+        ORDER BY SUB.srt ASC, sub.LOCAL_CD, sub.instCd
+    </select>
+
+</mapper>

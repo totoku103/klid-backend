@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.board.qna.persistence.QnAMapper">
+
+    <select id="getMainQnaList" resultType="com.klid.api.board.qna.dto.QnAListItemDTO">
+        SELECT
+        *
+        FROM (
+        SELECT
+            A.BULTN_NO AS bultnNo,
+            NVL(A.BULTN_TITLE,' ') AS bultnTitle,
+            NVL(TO_CHAR(TO_DATE(A.REG_DATE, 'yyyymmdd HH24MISS'),'YYYY-MM-DD'),' ') AS regDate,
+            NVL(A.IS_SECRET,' ') AS isSecret,
+            A.USER_ID AS userId
+        FROM
+            BULTN A
+        LEFT JOIN TSMINST B ON A.ORGAN_CODE = B.INST_CD
+        WHERE
+        1 = 1
+        AND A.USE_YN = 'Y'
+        AND A.BULTN_TYPE = 'qna'
+        AND A.LEVEL_NO=0
+        AND A.ORGAN_CODE IN (
+            SELECT inst_cd FROM tsminst
+            CONNECT BY PRIOR inst_cd = pnt_inst_cd
+            START WITH inst_cd = #{sInstCd}
+        )
+        ORDER BY
+        A.BULTN_NO DESC
+        )WHERE
+        ROWNUM <![CDATA[ <= ]]>  #{listSize}
+    </select>
+
+</mapper>
