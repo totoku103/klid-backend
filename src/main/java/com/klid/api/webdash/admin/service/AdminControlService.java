@@ -125,6 +125,10 @@ public class AdminControlService {
     }
 
     public List<SysErrorDTO> getSysErrorStatus(final Map<String, Object> paramMap) {
+        final Object hostNm = paramMap.get("hostNm");
+        if (hostNm == null || hostNm.toString().isBlank()) {
+            throw new IllegalArgumentException("hostNm 파라미터는 필수입니다.");
+        }
         return mapper.selectSysErrorStatus(paramMap);
     }
 

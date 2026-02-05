@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.klid.webapp.main.logs.institution.persistence.InstitutionCodeMapper">
+<mapper namespace="com.klid.api.logs.institution.persistence.InstitutionCodeMapper">
     <!-- 2시간 캐시 -->
     <cache eviction="LRU" flushInterval="6900000" size="10" readOnly="true"/>
 
     <select id="selectCTRSInstitutionCodeList"
-            resultType="com.klid.webapp.main.logs.institution.dto.InstitutionCodeResDto"
+            resultType="com.klid.api.logs.common.dto.InstitutionCodeResDTO"
             useCache="true">
         WITH DEPTH_1 AS (SELECT INST_CD, INST_NM, LOCAL_CD, PNT_INST_CD FROM TSMINST where INST_CD = '1100000'),
              DEPTH_2 AS (SELECT INST_CD, INST_NM, LOCAL_CD, PNT_INST_CD
@@ -65,7 +65,7 @@
     </select>
 
     <select id="selectOtherInstitutionCodeList"
-            resultType="com.klid.webapp.main.logs.institution.dto.InstitutionCodeResDto"
+            resultType="com.klid.api.logs.common.dto.InstitutionCodeResDTO"
             useCache="true">
         SELECT LEVEL,
                INST_T.ORG_CD       AS INSTITUTION_CODE,

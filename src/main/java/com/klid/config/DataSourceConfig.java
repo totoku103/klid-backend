@@ -124,10 +124,12 @@ public class DataSourceConfig {
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         org.springframework.core.io.Resource[] webappResources = resolver.getResources("classpath:oracle/com/klid/webapp/**/*.xml");
         org.springframework.core.io.Resource[] apiResources = resolver.getResources("classpath:sql/com/klid/api/**/*.xml");
+        org.springframework.core.io.Resource[] mapperResources = resolver.getResources("classpath:mapper/**/*.xml");
 
-        org.springframework.core.io.Resource[] allResources = new org.springframework.core.io.Resource[webappResources.length + apiResources.length];
+        org.springframework.core.io.Resource[] allResources = new org.springframework.core.io.Resource[webappResources.length + apiResources.length + mapperResources.length];
         System.arraycopy(webappResources, 0, allResources, 0, webappResources.length);
         System.arraycopy(apiResources, 0, allResources, webappResources.length, apiResources.length);
+        System.arraycopy(mapperResources, 0, allResources, webappResources.length + apiResources.length, mapperResources.length);
 
         sessionFactory.setMapperLocations(allResources);
         sessionFactory.setConfigLocation(
