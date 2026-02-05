@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.api.board.accident.persistence.AccidentListMapper">
+
+    <resultMap type="com.klid.api.board.accident.dto.AccidentListItemDTO" id="accidentListItemResultMap">
+        <result property="accdTypCd"            column="ACCD_TYP_CD"/>
+        <result property="dclCrgr"              column="DCL_CRGR"/>
+        <result property="dclInstCd"            column="DCL_INST_CD"/>
+        <result property="dmgInstCd"            column="DMG_INST_CD"/>
+        <result property="inciAcpnDt"           column="INCI_ACPN_DT"/>
+        <result property="inciDclCont"          column="INCI_DCL_CONT"/>
+        <result property="inciDt"               column="INCI_DT"/>
+        <result property="inciDttNm"            column="INCI_DTT_NM"/>
+        <result property="inciInvsCont"         column="INCI_INVS_CONT"/>
+        <result property="inciNo"               column="INCI_NO"/>
+        <result property="inciPrcsStat"         column="INCI_PRCS_STAT"/>
+        <result property="inciPrty"             column="INCI_PRTY"/>
+        <result property="inciTtl"              column="INCI_TTL"/>
+        <result property="inciUpdDt"            column="INCI_UPD_DT"/>
+        <result property="transInciPrcsStat"    column="TRANS_INCI_PRCS_STAT"/>
+        <result property="transSidoPrcsStat"    column="TRANS_SIDO_PRCS_STAT"/>
+        <result property="weekYn"               column="WEEK_YN"/>
+        <result property="dclInstName"          column="dclInstName"/>
+        <result property="dmgInstName"          column="dmgInstName"/>
+        <result property="accdTypName"          column="accdTypName"/>
+        <result property="inciPrcsStatName"     column="inciPrcsStatName"/>
+        <result property="transInciPrcsStatName" column="transInciPrcsStatName"/>
+        <result property="transSidoPrcsStatName" column="transSidoPrcsStatName"/>
+        <result property="inciPrtyName"         column="inciPrtyName"/>
+        <result property="netDivName"           column="netDivName"/>
+        <result property="remarks"              column="remarks"/>
+        <result property="tranSigunName"        column="tranSigunName"/>
+        <result property="inciTtlDtt"           column="INCI_TTL_DTT"/>
+        <result property="siEndDt"              column="siEndDt"/>
+        <result property="acpnMthdName"         column="acpnMthdName"/>
+        <result property="dmgHpNo"              column="DMG_HP_NO"/>
+        <result property="dclHpNo"              column="DCL_HP_NO"/>
+    </resultMap>
+
+    <select id="selectAccidentList" resultMap="accidentListItemResultMap">
+        SELECT * FROM
+        (
+            SELECT
+            a.ACCD_TYP_CD,
+            a.DCL_CRGR,
+            a.DCL_INST_CD,
+            a.DMG_INST_CD,
+            a.DMG_HP_NO,
+            a.DCL_HP_NO,
+            TO_DATE(a.INCI_ACPN_DT,'YYYY-MM-DD HH24:MI:SS') AS INCI_ACPN_DT,
+            a.INCI_DCL_CONT,
+            TO_DATE(a.INCI_DT,'YYYY-MM-DD HH24:MI:SS') AS INCI_DT,
+            a.INCI_DTT_NM,
+            a.INCI_INVS_CONT,
+            a.INCI_NO,
+            a.INCI_PRCS_STAT,
+            a.INCI_PRTY,
+            a.INCI_TTL,
+            TO_DATE(a.INCI_UPD_DT,'YYYY-MM-DD HH24:MI:SS') AS INCI_UPD_DT,
+            a.TRANS_INCI_PRCS_STAT,
+            a.TRANS_SIDO_PRCS_STAT,
+            (
+            SELECT t.inst_nm FROM TSMINST t WHERE t.use_yn = 'Y' AND t.inst_cd = a.dcl_Inst_Cd
+            ) AS dclInstName,
+            (
+            SELECT t.inst_nm FROM TSMINST t WHERE t.use_yn = 'Y' AND t.inst_cd = a.dmg_Inst_Cd
+            ) AS dmgInstName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '3002' AND c.com_code2 = a.accd_typ_cd
+            ) AS accdTypName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '3001' AND c.com_code2 = a.inci_prcs_stat
+            ) AS inciPrcsStatName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '3001' AND c.com_code2 = a.trans_inci_prcs_stat
+            ) AS transInciPrcsStatName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '3001' AND c.com_code2 = a.trans_sido_prcs_stat
+            ) AS transSidoPrcsStatName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '3006' AND '00'||c.com_code2 = a.inci_prty
+            ) AS inciPrtyName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '4004' and c.com_code2 = a.net_div
+            ) AS netDivName,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = '4006' and TO_NUMBER(c.com_code2,'9') = a.remarks
+            ) AS remarks,
+            NVL((
+            SELECT inst_nm FROM TSMINST WHERE inst_cd = a.INCI_TRNS_RCPT_SIDO_INST_CD AND USE_YN = 'Y'
+            ),'-') AS tranSigunName,
+            (CASE
+                WHEN a.WEEK_YN = 0 THEN '주중'
+                ELSE '주말'
+            END) AS WEEK_YN,
+            INCI_TTL || '[' || INCI_DTT_NM || ']' as INCI_TTL_DTT,
+            TO_DATE(SUB.HSTY_CRT_DT,'YYYY-MM-DD HH24:MI:SS') AS siEndDt,
+            (
+            SELECT code_name FROM COMM_CODE c WHERE c.use_yn = 'Y' AND c.code_lvl=2 and c.com_code1 = 3004 and '00' || c.com_code2 = a.acpn_Mthd
+            ) AS acpnMthdName
+            FROM TBZLEDGE a
+            LEFT join(
+                SELECT
+                h.inci_no,
+                max(h.HSTY_CRT_DT) HSTY_CRT_DT
+                FROM TBHHISTO h
+                INNER JOIN TSMINST t ON h.inst_cd = t.inst_cd
+                AND t.INST_LEVEL = 1 AND t.DEPTH = 1
+                WHERE 1=1
+                AND h.ttl LIKE '%종결되었습니다.'
+                group by inci_no
+            )SUB ON SUB.inci_no = a.inci_no
+            WHERE 1=1
+            <if test="sAuthMain != null and sAuthMain != ''">
+                <choose>
+                    <when test="sAuthMain == 'AUTH_MAIN_3'">
+                        AND
+                        (INCI_TRNS_RCPT_INST_CD IN (1100000, #{sInstCd})
+                        OR (INCI_TRNS_RCPT_SIDO_INST_CD IN (SELECT inst_cd FROM tsminst
+                        CONNECT BY PRIOR inst_cd=pnt_inst_cd
+                        START WITH inst_cd= #{sInstCd}
+                        ))
+                        OR (DCL_INST_CD IN (#{sInstCd}) )
+                        )
+                        AND INCI_ACPN_DT between #{startDt} and #{endDt}
+                        AND TRANS_SIDO_PRCS_STAT != 99
+                        AND (TRANS_INCI_PRCS_STAT > 0 OR TRANS_SIDO_PRCS_STAT > 0)
+                    </when>
+                    <when test="sAuthMain == 'AUTH_MAIN_4'">
+                        AND INCI_TRNS_RCPT_SIDO_INST_CD =#{sInstCd}
+                        AND INCI_ACPN_DT BETWEEN #{startDt} AND #{endDt}
+                        AND TRANS_SIDO_PRCS_STAT <![CDATA[ > ]]> 0
+                        AND TRANS_SIDO_PRCS_STAT != 99
+                    </when>
+                    <when test="sAuthMain == 'AUTH_MAIN_2'">
+                        AND a.inci_no LIKE 'CT%'
+                        AND length(a.inci_no) <![CDATA[ < ]]>  16
+                    </when>
+                    <otherwise>
+                        AND 2=2
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="date1 != null and date1 != ''">
+                <choose>
+                    <when test="srchDateType == 'inciAcpnDt'">
+                        AND a.INCI_ACPN_DT BETWEEN #{startDt} AND #{endDt}
+                    </when>
+                    <when test="srchDateType == 'inciUpdDt'">
+                        AND a.INCI_UPD_DT BETWEEN #{startDt} AND #{endDt}
+                    </when>
+                    <when test="srchDateType == 'siEndDt'">
+                        AND SUB.HSTY_CRT_DT BETWEEN #{startDt} AND #{endDt}
+                    </when>
+                    <otherwise>
+                        and 1=1
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="netDiv != null and netDiv != ''">
+                and a.NET_DIV = #{netDiv}
+            </if>
+            <if test="recoInciCd != null and recoInciCd != ''">
+                AND a.RECO_INCI_CD = #{recoInciCd}
+            </if>
+            <if test="inciPrcsStatCd != null and inciPrcsStatCd != ''">
+                AND a.INCI_PRCS_STAT = #{inciPrcsStatCd}
+            </if>
+            <if test="transInciPrcsStatCd != null and transInciPrcsStatCd != ''">
+                AND a.TRANS_INCI_PRCS_STAT = #{transInciPrcsStatCd}
+            </if>
+            <if test="transSidoPrcsStatCd != null and transSidoPrcsStatCd != ''">
+                AND a.TRANS_SIDO_PRCS_STAT = #{transSidoPrcsStatCd}
+            </if>
+            <if test="accdTypCd != null and accdTypCd != ''">
+                AND a.ACCD_TYP_CD = #{accdTypCd}
+            </if>
+            <if test="inciPrtyCd != null and inciPrtyCd != ''">
+                AND a.INCI_PRTY = #{inciPrtyCd}
+            </if>
+            <if test="inciTtl != null and inciTtl != ''">
+                AND (UPPER(a.INCI_TTL) LIKE '%' ||UPPER( #{inciTtl}) || '%' OR UPPER(a.INCI_DTT_NM) LIKE '%' ||UPPER( #{inciTtl}) || '%')
+            </if>
+            <if test="inciNo != null and inciNo != ''">
+                AND UPPER(a.INCI_NO) LIKE'%' ||UPPER( #{inciNo}) || '%'
+            </if>
+            <if test="weekYn != null and weekYn != ''">
+                AND a.WEEK_YN = #{weekYn}
+            </if>
+            <if test="InciDclCont != null">
+                AND
+                (
+                <foreach collection="InciDclCont" item="item" separator="OR" >
+                    UPPER(a.INCI_DCL_CONT) LIKE '%' ||UPPER( #{item} )|| '%'
+                </foreach>
+                )
+            </if>
+            <if test="InciInvsCont != null">
+                AND
+                (
+                <foreach collection="InciInvsCont" item="item" separator="OR" >
+                    UPPER(a.INCI_INVS_CONT) LIKE '%' ||UPPER( #{item}) || '%'
+                </foreach>
+                )
+            </if>
+            <if test="InciBelowCont != null">
+                AND
+                (
+                <foreach collection="InciBelowCont" item="item" separator="OR" >
+                    UPPER(a.INCI_BELOW_CONT) LIKE '%' ||UPPER( #{item}) || '%'
+                </foreach>
+                )
+            </if>
+            <if test="attIp != null and attIp != ''">
+                AND a.INCI_NO IN (
+                    SELECT INCI_NO FROM TBZATTIP WHERE IP_ADDR LIKE '%' || #{attIp} || '%'
+                )
+            </if>
+            <if test="dmgIp != null and dmgIp != ''">
+                AND a.INCI_NO IN (
+                    SELECT INCI_NO FROM TBZDCLIP WHERE IP_ADDR LIKE '%' || #{dmgIp} || '%'
+                )
+            </if>
+            <if test="srchAcpnMthdList != null">
+                AND a.ACPN_MTHD IN
+                <foreach collection="srchAcpnMthdList" item="item" open="(" close=")" separator="," >
+                    #{item}
+                </foreach>
+            </if>
+        ) result
+        WHERE 1=1
+        <if test="totalTitle != null and totalTitle != ''">
+          AND (
+                UPPER(INCI_NO) LIKE '%' || UPPER(#{totalTitle}) || '%' OR
+                UPPER(INCI_TTL) LIKE '%' || UPPER(#{totalTitle}) || '%' OR
+                UPPER(dmgInstName) LIKE '%' || UPPER(#{totalTitle}) || '%' OR
+                UPPER(dclInstName) LIKE '%' || UPPER(#{totalTitle}) || '%' OR
+                (
+                INCI_NO IN (
+                    SELECT INCI_NO FROM TBZDCLIP WHERE IP_ADDR LIKE '%' || #{totalTitle} || '%'
+                    )
+                ) OR
+                (
+                INCI_NO IN (
+                    SELECT INCI_NO FROM TBZATTIP WHERE IP_ADDR  LIKE '%' || #{totalTitle} || '%'
+                    )
+                )
+            )
+        </if>
+        <if test="dmgInstName != null and dmgInstName != ''">
+          AND dmgInstName LIKE '%' || #{dmgInstName} || '%'
+        </if>
+        <if test="dclInstName != null and dclInstName != ''">
+          AND dclInstName LIKE '%' || #{dclInstName} || '%'
+        </if>
+        ORDER BY INCI_ACPN_DT DESC, inci_no
+    </select>
+
+    <delete id="deleteAccident">
+        DELETE FROM TBZLEDGE
+        WHERE INCI_NO = #{inciNo}
+    </delete>
+
+</mapper>
