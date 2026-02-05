@@ -51,6 +51,8 @@ public class SecurityConfig {
                                 // OPTIONS는 CORS 프리플라이트 요청에 필요하므로 허용
                                 // 정적 리소스 허용
                                 .requestMatchers("/lib/**", "/js/**", "/img/**", "/css/**", "/webjars/**").permitAll()
+                                // WebSocket 엔드포인트 허용
+                                .requestMatchers("/ws/**").permitAll()
                                 .requestMatchers("/WEB-INF/**").permitAll()
                                 // 로그인 관련
                                 .requestMatchers("/", "/login.do", "/error.do").permitAll()

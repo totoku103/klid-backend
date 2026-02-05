@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klid.webapp.realtimeNotify.sms.persistence.RealtimeNotifySmsMapper">
+
+    <!-- SMS 메시지 등록 (NRMSG_DATA 테이블) -->
+    <insert id="insertSmsMessage" parameterType="map">
+        INSERT INTO NRMSG_DATA (
+            MSG_KEY,
+            PHONE,
+            CALLBACK,
+            XMS_TEXT,
+            XMS_SUBJECT,
+            USER_ID,
+            MSG_STATE,
+            MSG_TYPE_1,
+            CONTENTS_TYPE_1,
+            CENTER_KEY,
+            MSG_PRIORITY,
+            SENT_COUNT,
+            INPUT_DATE,
+            RES_DATE
+        ) VALUES (
+            NRMSG_DATA_SEQ.NEXTVAL,
+            #{phone},
+            #{callback},
+            #{xmsText},
+            #{xmsSubject},
+            #{userId},
+            1,
+            'SMS',
+            'SMS',
+            1,
+            3,
+            0,
+            SYSDATE,
+            SYSDATE
+        )
+    </insert>
+
+    <!-- SMS 발송 상태 조회 -->
+    <select id="selectSmsStatus" parameterType="map" resultType="map">
+        SELECT
+            MSG_KEY as msgKey,
+            PHONE as phone,
+            CALLBACK as callback,
+            XMS_TEXT as xmsText,
+            XMS_SUBJECT as xmsSubject,
+            USER_ID as userId,
+            MSG_STATE as msgState,
+            MSG_TYPE_1 as msgType,
+            INPUT_DATE as inputDate,
+            RES_DATE as resDate,
+            SEND_DATE as sendDate,
+            RESULT as result,
+            RESULT_DATE as resultDate
+        FROM NRMSG_DATA
+        WHERE MSG_KEY = #{msgKey}
+    </select>
+
+</mapper>
