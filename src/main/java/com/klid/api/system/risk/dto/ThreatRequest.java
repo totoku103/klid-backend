@@ -11,6 +11,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ThreatRequest {
+    // XML 매퍼 필드
+    private String pastThreat;
+    private String nowThreat;
+    private String threatCont;
+
+    // 기존 필드 (호환성)
     private String threatLevel;
     private String threatDesc;
     private String startDate;

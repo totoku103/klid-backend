@@ -13,9 +13,15 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class SmsGroupRequest {
+    private Long smsGroupSeq;
+    private Long smsParentGroupSeq;
+    private String smsGroupName;
+    private Integer groupDepth;
+    private String useYn;
+    private List<String> userIds;
+
+    // 기존 필드 (호환성)
     private String groupId;
     private String groupName;
     private String groupDesc;
-    private String useYn;
-    private List<String> userIds;
 }

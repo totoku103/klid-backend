@@ -11,6 +11,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class PeriodRequest {
+    // XML 매퍼 필드
+    private Integer isPeriod;
+    private String period1;
+    private String period2;
+    private String period3;
+    private String instCd;
+
+    // 기존 필드 (호환성)
     private String periodType;
     private String startDate;
     private String endDate;
