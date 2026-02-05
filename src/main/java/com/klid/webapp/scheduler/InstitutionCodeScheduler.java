@@ -2,9 +2,9 @@ package com.klid.webapp.scheduler;
 
 
 import lombok.extern.slf4j.Slf4j;
-import com.klid.webapp.common.enums.ThirdPartySystemTypes;
-import com.klid.webapp.main.logs.institution.dto.InstitutionCodeResDto;
-import com.klid.webapp.main.logs.institution.service.InstitutionCodeService;
+import com.klid.api.logs.common.dto.InstitutionCodeResDTO;
+import com.klid.api.logs.common.dto.ThirdPartySystemType;
+import com.klid.api.logs.common.service.InstitutionCodeService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ public class InstitutionCodeScheduler {
 
     private final InstitutionCodeService institutionCodeService;
 
-    public InstitutionCodeScheduler(InstitutionCodeService institutionCodeService) {
+    public InstitutionCodeScheduler(final InstitutionCodeService institutionCodeService) {
         this.institutionCodeService = institutionCodeService;
     }
 
@@ -33,20 +33,20 @@ public class InstitutionCodeScheduler {
      */
     @Scheduled(cron = "0 0 0/2 * * *")
     public void fetchInstitutionCodeList() {
-        String currentTime = LocalDateTime.now().format(formatter);
-        log.info("=== 기관 코드 스케줄러 시작 - " + currentTime + " ===");
+        final String currentTime = LocalDateTime.now().format(formatter);
+        log.info("=== 기관 코드 스케줄러 시작 - {} ===", currentTime);
 
         try {
-            final List<InstitutionCodeResDto> vmsCodes = institutionCodeService.getOtherInstitutionCodeList(ThirdPartySystemTypes.VMS);
-            log.info("VMS 기관 코드 조회 완료: " + vmsCodes.size() + "건");
+            final List<InstitutionCodeResDTO> vmsCodes = institutionCodeService.getOtherInstitutionCodeList(ThirdPartySystemType.VMS);
+            log.info("VMS 기관 코드 조회 완료: {}건", vmsCodes.size());
 
-            final List<InstitutionCodeResDto> ctssCode = institutionCodeService.getOtherInstitutionCodeList(ThirdPartySystemTypes.CTSS);
-            log.info("CTSS 기관 코드 조회 완료: " + ctssCode.size() + "건");
+            final List<InstitutionCodeResDTO> ctssCode = institutionCodeService.getOtherInstitutionCodeList(ThirdPartySystemType.CTSS);
+            log.info("CTSS 기관 코드 조회 완료: {}건", ctssCode.size());
 
             log.info("=== 기관 코드 스케줄러 정상 완료 ===");
 
         } catch (Exception e) {
-            log.error("기관 코드 조회 중 오류 발생: " + e.getMessage(), e);
+            log.error("기관 코드 조회 중 오류 발생: {}", e.getMessage(), e);
         }
     }
 
