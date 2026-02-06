@@ -16,6 +16,7 @@ public class AttachFileDTO {
     private String fileType;
     private Long fileSize;
     private String attachPath;
+    private String athPath;
     private LocalDateTime insertDate;
     private LocalDateTime updateDate;
     private String memo;
