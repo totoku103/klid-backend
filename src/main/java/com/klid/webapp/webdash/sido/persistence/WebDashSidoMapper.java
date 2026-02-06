@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("webDashSidoMapper")
+@Repository
 public interface WebDashSidoMapper {
 
     /** 공지사항리스트 */

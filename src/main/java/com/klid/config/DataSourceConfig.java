@@ -3,14 +3,17 @@ package com.klid.config;
 import com.klid.webapp.common.DataSourceType;
 import com.klid.webapp.common.RoutingDataSource;
 import jakarta.annotation.Nullable;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -20,14 +23,24 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.sql.DataSource;
+import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = {"com.klid.webapp.**.persistence", "com.klid.api.**.persistence"})
+@RequiredArgsConstructor
+@MapperScans({
+        @MapperScan(basePackages = "com.klid.webapp.**.persistence"),
+        @MapperScan(basePackages = "com.klid.api.**.persistence",
+                nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
+})
 public class DataSourceConfig {
 
     @Value("${spring.datasource.driver-class-name}")
@@ -43,8 +56,7 @@ public class DataSourceConfig {
     private String password;
 
     @Nullable
-    @Autowired(required = false)
-    private P6SpyConfig p6SpyConfig;
+    private final P6SpyConfig p6SpyConfig;
 
 
     @Bean
@@ -122,16 +134,23 @@ public class DataSourceConfig {
         sessionFactory.setDataSource(dataSource());
 
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        org.springframework.core.io.Resource[] webappResources = resolver.getResources("classpath:oracle/com/klid/webapp/**/*.xml");
-        org.springframework.core.io.Resource[] apiResources = resolver.getResources("classpath:sql/com/klid/api/**/*.xml");
-        org.springframework.core.io.Resource[] mapperResources = resolver.getResources("classpath:mapper/**/*.xml");
 
-        org.springframework.core.io.Resource[] allResources = new org.springframework.core.io.Resource[webappResources.length + apiResources.length + mapperResources.length];
-        System.arraycopy(webappResources, 0, allResources, 0, webappResources.length);
-        System.arraycopy(apiResources, 0, allResources, webappResources.length, apiResources.length);
-        System.arraycopy(mapperResources, 0, allResources, webappResources.length + apiResources.length, mapperResources.length);
+        final String[] mapperPatterns = {
+                "classpath:oracle/com/klid/webapp/**/*.xml",
+                "classpath:sql/com/klid/api/**/*.xml",
+                "classpath:mapper/**/*.xml"
+        };
 
-        sessionFactory.setMapperLocations(allResources);
+        final List<org.springframework.core.io.Resource> allResources = new ArrayList<>();
+        for (final String pattern : mapperPatterns) {
+            try {
+                allResources.addAll(Arrays.asList(resolver.getResources(pattern)));
+            } catch (FileNotFoundException e) {
+                log.debug("Mapper resource pattern not found, skipping: {}", pattern);
+            }
+        }
+
+        sessionFactory.setMapperLocations(allResources.toArray(new org.springframework.core.io.Resource[0]));
         sessionFactory.setConfigLocation(
                 resolver.getResource("classpath:config/mybatis-config.xml")
         );

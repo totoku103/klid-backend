@@ -2,13 +2,11 @@ package com.klid.api.admin.menu.persistence;
 
 import com.klid.api.admin.menu.dto.MenuMgmtDTO;
 import com.klid.api.admin.menu.dto.MenuMgmtSearchDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component("apiMenuMgmtMapper")
-@Mapper
+@Repository
 public interface MenuMgmtMapper {
     List<MenuMgmtDTO> selectPageList(MenuMgmtSearchDTO searchDTO);
 

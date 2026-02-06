@@ -12,11 +12,11 @@ import com.klid.webapp.common.file.persistence.FileDownloadMapper;
 import com.klid.webapp.common.file.persistence.FileUploadMapper;
 import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.context.MessageSource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.ibatis.session.ResultContext;
@@ -37,22 +37,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service("fileDownloadService")
+@Service
 @Slf4j
 public class FileDownloadServiceImpl extends MsgService implements FileDownloadService {
 
+	private final FileDownloadMapper mapper;
+	private final FileUploadMapper fileUploadMapper;
+	private final AccidentApplyMapper applyMapper;
+	private final UserConfMapper userMapper;
 
-	@Resource(name = "fileDownloadMapper")
-	public FileDownloadMapper mapper;
-
-	@Resource(name = "fileUploadMapper")
-	public FileUploadMapper fileUploadMapper;
-
-	@Resource(name = "accidentApplyMapper")
-	AccidentApplyMapper applyMapper;
-
-	@Resource(name = "userConfMapper")
-	private UserConfMapper userMapper;
+	public FileDownloadServiceImpl(MessageSource messageSource, FileDownloadMapper mapper, FileUploadMapper fileUploadMapper, AccidentApplyMapper applyMapper, UserConfMapper userMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.fileUploadMapper = fileUploadMapper;
+		this.applyMapper = applyMapper;
+		this.userMapper = userMapper;
+	}
 
 	@Override
 	public List<AttachfileDto> searchFileName(Criterion criterion) {

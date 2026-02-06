@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("fileUploadMapper")
+@Repository
 public interface FileUploadMapper {
 	void insertFileInfo(Map<String, Object> param);
 

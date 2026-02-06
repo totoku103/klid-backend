@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("instMgmtMapper")
+@Repository
 public interface InstMgmtMapper {
 
 	/** 기관관리 리스트 조회 */

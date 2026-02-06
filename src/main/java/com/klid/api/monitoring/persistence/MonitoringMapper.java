@@ -2,12 +2,12 @@ package com.klid.api.monitoring.persistence;
 
 import com.klid.api.monitoring.dto.MonitoringDetailDTO;
 import com.klid.api.monitoring.dto.MonitoringStatsDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface MonitoringMapper {
 
     MonitoringStatsDTO selectMainForgeryCnt(

@@ -5,7 +5,7 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,11 +15,14 @@ import java.util.Map;
 @Service("userConfService")
 public class UserConfServiceImpl extends MsgService implements UserConfService {
 
-	@Resource(name = "userConfMapper")
-	private UserConfMapper mapper;
+	private final UserConfMapper mapper;
+	private final UserActHistMapper userActHistMapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public UserConfServiceImpl(MessageSource messageSource, UserConfMapper mapper, UserActHistMapper userActHistMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
 
 	@Override
 	public ReturnData getUserAddrList(Criterion criterion)  {

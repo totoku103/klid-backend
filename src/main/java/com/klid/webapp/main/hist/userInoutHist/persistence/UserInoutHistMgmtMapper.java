@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("userInoutHistMgmtMapper")
+@Repository
 public interface UserInoutHistMgmtMapper {
 
     List<UserInoutHistMgmtDto> selectLogUserList(Map<String, Object> paramMap);

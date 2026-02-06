@@ -21,7 +21,7 @@ import java.io.UnsupportedEncodingException;
  * <p>외부 시스템에서의 SSO 리다이렉트 처리를 담당합니다.</p>
  */
 @Slf4j
-@Service("apiThirdPartyRedirectService")
+@Service
 @RequiredArgsConstructor
 public class ThirdPartyRedirectService {
 

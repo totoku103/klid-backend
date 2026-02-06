@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportWeeklyStateMapper")
+@Repository
 public interface ReportWeeklyStateMapper {
 
 	List<ReportWeeklyStateDto> getRotationList(Map<String, Object> paramMap);

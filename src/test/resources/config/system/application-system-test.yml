@@ -1,0 +1,12 @@
+# System Configuration (Test Profile)
+app:
+  system:
+    homepath: /tmp/klid-test/reportTemplate
+    file:
+      upload-path: /tmp/klid-test/upload_dir/file/
+      report-template: /tmp/klid-test/reportTemplate/
+      upload-help-path: /tmp/klid-test/upload_dir/help/
+    log:
+      name: klid-web-test
+      path: ./log
+      level: DEBUG

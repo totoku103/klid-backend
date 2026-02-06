@@ -6,13 +6,13 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciLocal.service.ReportInciLocalService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -22,19 +22,19 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportInciLocal")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportInciLocalController {
 
-	@Resource(name = "reportInciLocalService")
-	private ReportInciLocalService service;
+	private final ReportInciLocalService service;
 
 	@RequestMapping(value = "getLocalList")
-	public @ResponseBody ReturnData getLocalList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getLocalList(@RequestParam Map<String, Object> reqMap) {
 		return service.getLocalList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getInciSidoList")
-	public @ResponseBody ReturnData getInciSidoList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getInciSidoList(@RequestParam Map<String, Object> reqMap) {
 		try {
 			return service.getInciSidoList(new Criterion(reqMap));
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class ReportInciLocalController {
 	}
 
 	@RequestMapping(value = "saveHighChartImg",method = RequestMethod.POST)
-	public @ResponseBody ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
+	public ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String fname = (String)reqMap.get("fname");
 			String imgData = (String)reqMap.get("imgData");
@@ -63,7 +63,7 @@ public class ReportInciLocalController {
 	}
 
 	@RequestMapping(value = "exportReportInciLocal",method = RequestMethod.POST)
-	public @ResponseBody ReturnData exportReportInciLocal(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportReportInciLocal(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		String filename = AppGlobal.reportTemplate + "new_report_hml.hml";
 
 		HwpmlMaker hmlMaker = new HwpmlMaker(filename, "##", "##");

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("reportDailyMapper")
+@Repository
 public interface ReportDailyMapper {
 
 //	/** 게시판 최근리스트 받아오기 */

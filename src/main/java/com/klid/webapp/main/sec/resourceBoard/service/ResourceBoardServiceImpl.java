@@ -4,8 +4,8 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.sec.resourceBoard.dto.ResourceBoardDto;
 import com.klid.webapp.main.sec.resourceBoard.persistence.ResourceBoardMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +13,15 @@ import java.util.Map;
 @Service("resourceBoardService")
 public class ResourceBoardServiceImpl extends MsgService implements ResourceBoardService {
 
-	@Resource(name = "resourceBoardMapper")
-	private ResourceBoardMapper mapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public ResourceBoardServiceImpl(MessageSource messageSource, ResourceBoardMapper mapper, UserActHistMapper userActHistMapper) {
+				super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
+	private final ResourceBoardMapper mapper;
+
+	private final UserActHistMapper userActHistMapper;
 
 	/** 게시판 최근리스트 받아오기 */
 	@Override

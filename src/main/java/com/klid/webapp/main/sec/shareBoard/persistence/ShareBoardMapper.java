@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("shareBoardMapper")
+@Repository
 public interface ShareBoardMapper {
 
 	/** 게시판 최근리스트 받아오기 */

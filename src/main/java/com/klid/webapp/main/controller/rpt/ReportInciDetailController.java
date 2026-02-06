@@ -13,10 +13,10 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciDetail.service.ReportInciDetailService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,19 +31,19 @@ import java.util.ArrayList;
 import java.util.Map;
 
 @RequestMapping("/api/main/rpt/reportInciDetail")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportInciDetailController {
 
-	@Resource(name = "reportInciDetailService")
-	private ReportInciDetailService service;
+	private final ReportInciDetailService service;
 
 	@RequestMapping(value = "getDetailList")
-	public @ResponseBody ReturnData getDetailList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDetailList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDetailList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "exportReportDailyDownload")
-	public @ResponseBody ReturnData exportReportDailyDownload(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportReportDailyDownload(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
 		try {
 
 			String filename = AppGlobal.getProjectPath()+"/src/main/webapp/WEB-INF/reportTemplate/report_daily_two.hwp";

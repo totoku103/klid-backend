@@ -6,13 +6,13 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyInciState.service.ReportDailyInciStateService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -21,23 +21,23 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportDailyInciState")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportDailyInciStateController {
 
-	@Resource(name = "reportDailyInciStateService")
-	private ReportDailyInciStateService service;
+	private final ReportDailyInciStateService service;
 
 	@RequestMapping(value = "getDailyList")
-	public @ResponseBody ReturnData getDailyList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDailyList(@RequestParam Map<String, Object> reqMap) {
         return service.getDailyList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getDailyTotList")
-	public @ResponseBody ReturnData getDailyTotList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDailyTotList(@RequestParam Map<String, Object> reqMap) {
 			return service.getDailyTotList(new Criterion(reqMap));
 	}
 	@RequestMapping(value = "saveHighChartImg",method = RequestMethod.POST)
-	public @ResponseBody ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
+	public ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String fname = (String)reqMap.get("fname");
 			String imgData = (String)reqMap.get("imgData");
@@ -56,7 +56,7 @@ public class ReportDailyInciStateController {
 	}
 
 	@RequestMapping(value = "makeReportDailyInciStateDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData makeReportDailyInciStateDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData makeReportDailyInciStateDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		String filename = AppGlobal.reportTemplate + "new_report_daily_inci.hml";
 

@@ -13,8 +13,8 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyInciState.persistence.ReportDailyInciStateMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -23,10 +23,14 @@ import java.io.IOException;
 import java.util.*;
 
 @Service("reportDailyInciStateService")
-public class 	ReportDailyInciStateServiceImpl extends MsgService implements ReportDailyInciStateService {
+public class ReportDailyInciStateServiceImpl extends MsgService implements ReportDailyInciStateService {
 
-	@Resource(name = "reportDailyInciStateMapper")
-	private ReportDailyInciStateMapper mapper;
+	private final ReportDailyInciStateMapper mapper;
+
+	public ReportDailyInciStateServiceImpl(MessageSource messageSource, ReportDailyInciStateMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 시도별 일일 사고처리 현황  일일 조회 처리  */
 	@Override

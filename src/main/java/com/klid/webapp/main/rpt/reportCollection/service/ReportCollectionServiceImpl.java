@@ -10,7 +10,6 @@ import com.klid.webapp.main.rpt.reportCollection.dto.*;
 import com.klid.webapp.main.rpt.reportCollection.persistence.ReportCollectionMapper;
 import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMapper;
 import com.klid.webapp.webdash.adminControl.dto.InciCntDto;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -20,6 +19,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Font;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.awt.Color;
 import java.io.File;
@@ -33,11 +33,14 @@ import java.util.List;
 @Service("reportCollectionService")
 public class ReportCollectionServiceImpl extends MsgService implements ReportCollectionService {
 
-	@Resource(name = "reportCollectionMapper")
-	private ReportCollectionMapper mapper;
+	private final ReportCollectionMapper mapper;
+	private final ReportDailyStateMapper dailymapper;
 
-	@Resource(name = "reportDailyStateMapper")
-	private ReportDailyStateMapper dailymapper;
+	public ReportCollectionServiceImpl(MessageSource messageSource, ReportCollectionMapper mapper, ReportDailyStateMapper dailymapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.dailymapper = dailymapper;
+	}
 
 	@Override
 	public ReturnData getRetrieveSecurityHackingDetail(Criterion criterion) {

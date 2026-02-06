@@ -7,42 +7,41 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportSecurityResult.dto.ReportResultListDto;
 import com.klid.webapp.main.rpt.reportSecurityResult.persistence.ReportSecurityResultMapper;
 import com.klid.webapp.main.rpt.reportSecurityResult.service.ReportSecurityResultService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportSecurityResult")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportSecurityResultController {
 
-	@Resource(name = "reportSecurityResultMapper")
-	private ReportSecurityResultMapper mapper;
+	private final ReportSecurityResultMapper mapper;
 
-	@Resource(name = "reportSecurityResultService")
-	private ReportSecurityResultService service;
+	private final ReportSecurityResultService service;
 
 	@RequestMapping(value = "getResultTotal")
-	public @ResponseBody ReturnData getResultTotal(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getResultTotal(@RequestParam Map<String, Object> reqMap) {
 			return service.getResultTotal(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getResultList")
-	public @ResponseBody ReturnData getResultList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getResultList(@RequestParam Map<String, Object> reqMap) {
 		return service.getResultList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getResultExceptlist")
-	public @ResponseBody ReturnData getResultExceptlist(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getResultExceptlist(@RequestParam Map<String, Object> reqMap) {
 			return service.getResultExceptlist(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "makeReportSecurityDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData makeReportDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData makeReportDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		String filename = AppGlobal.reportTemplate + "report_security.hml";
 

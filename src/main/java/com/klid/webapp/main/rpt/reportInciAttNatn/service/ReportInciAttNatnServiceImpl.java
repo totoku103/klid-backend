@@ -14,9 +14,9 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciAttNatn.persistence.ReportInciAttNatnMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.awt.*;
 import java.io.File;
@@ -26,10 +26,14 @@ import java.util.*;
 @Service("reportInciAttNatnService")
 public class ReportInciAttNatnServiceImpl extends MsgService implements ReportInciAttNatnService {
 
+
+	public ReportInciAttNatnServiceImpl(MessageSource messageSource, ReportInciAttNatnMapper mapper) {
+				super(messageSource);
+		this.mapper = mapper;
+	}
 	private Rectangle rectangle = new Rectangle(0, 50,  170, 72);
 
-	@Resource(name = "reportInciAttNatnMapper")
-	private ReportInciAttNatnMapper mapper;
+	private final ReportInciAttNatnMapper mapper;
 
 	/** 시도 그리드 조회 */
 	@Override

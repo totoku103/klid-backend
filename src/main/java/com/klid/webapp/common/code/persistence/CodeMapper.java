@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository(value = "codeMapper")
+@Repository
 public interface CodeMapper {
 
     List<CodeDto> selectCommonCode(Map<String, Object> paramMap);

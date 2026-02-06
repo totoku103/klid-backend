@@ -1,12 +1,12 @@
 package com.klid.api.hist.useract.persistence;
 
 import com.klid.api.hist.useract.dto.UserActHistDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface UserActHistMapper {
     List<UserActHistDTO> selectUserActHist(@Param("srchUserName") String srchUserName,
                                            @Param("srchUserId") String srchUserId,

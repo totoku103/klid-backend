@@ -1,12 +1,12 @@
 package com.klid.api.common.file.persistence;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * 파일 삭제 Mapper
  */
-@Mapper
+@Repository
 public interface FileDeleteMapper {
 
     /**

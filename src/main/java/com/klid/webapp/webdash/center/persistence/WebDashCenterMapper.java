@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("webDashCenterMapper")
+@Repository
 public interface WebDashCenterMapper {
 
      List<WebDashCenterDto> selectAttNationTop5(Map<String, Object> paramMap);

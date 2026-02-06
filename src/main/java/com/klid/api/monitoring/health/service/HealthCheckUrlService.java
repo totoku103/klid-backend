@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * 헬스체크 URL Service
  */
-@Service("apiHealthCheckUrlService")
+@Service
 @RequiredArgsConstructor
 public class HealthCheckUrlService {
 

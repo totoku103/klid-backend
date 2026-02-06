@@ -4,14 +4,18 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.mois.dashConfig.persistence.DashConfigMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 @Service("dashConfigService")
 public class DashConfigServiceImpl extends MsgService implements DashConfigService {
 
-	@Resource(name = "dashConfigMapper")
-	private DashConfigMapper mapper;
+	private final DashConfigMapper mapper;
+
+	public DashConfigServiceImpl(MessageSource messageSource, DashConfigMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 행안부 리스트 받아오기 */
 	@Override

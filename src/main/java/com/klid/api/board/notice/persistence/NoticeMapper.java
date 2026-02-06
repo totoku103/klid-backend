@@ -1,13 +1,13 @@
 package com.klid.api.board.notice.persistence;
 
 import com.klid.api.board.notice.dto.*;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface NoticeMapper {
 
     List<NoticeListItemDTO> getMainNoticeList(

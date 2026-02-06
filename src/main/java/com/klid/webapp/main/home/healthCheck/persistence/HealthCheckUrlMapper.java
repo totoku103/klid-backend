@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("healthCheckUrlMapper")
+@Repository
 public interface HealthCheckUrlMapper {
 	public List<HealthCheckUrlDto> selectHealthCheckUrl(Map<String, Object> paramMap);
 

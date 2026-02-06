@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("menuMgmtMapper")
+@Repository
 public interface MenuMgmtMapper {
 
 	public List<MenuMgmtDto> selectPageList(Map<String, Object> reqMap);

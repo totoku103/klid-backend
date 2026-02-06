@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -28,6 +29,7 @@ import java.util.Set;
  */
 @Component
 @Slf4j
+@Profile("!test")
 public class TwoFactorAuthenticationFilter extends OncePerRequestFilter {
 
     private final AntPathMatcher pathMatcher = new AntPathMatcher();

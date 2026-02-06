@@ -3,13 +3,13 @@ package com.klid.api.board.qna.persistence;
 import com.klid.api.board.qna.dto.QnABoardDTO;
 import com.klid.api.board.qna.dto.QnACommentDTO;
 import com.klid.api.board.qna.dto.QnAListItemDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface QnAMapper {
 
     List<QnAListItemDTO> getMainQnaList(

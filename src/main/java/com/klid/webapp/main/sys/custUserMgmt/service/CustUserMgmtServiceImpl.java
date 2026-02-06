@@ -6,7 +6,7 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.sys.custUserMgmt.dto.CustUserMgmtDto;
 import com.klid.webapp.main.sys.custUserMgmt.persistence.CustUserMgmtMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +14,12 @@ import java.util.List;
 @Service("custUserMgmtService")
 public class CustUserMgmtServiceImpl extends MsgService implements CustUserMgmtService {
 
-	@Resource(name = "custUserMgmtMapper")
-	private CustUserMgmtMapper mapper;
+	private final CustUserMgmtMapper mapper;
+
+	public CustUserMgmtServiceImpl(MessageSource messageSource, CustUserMgmtMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** SMS 사용자 리스트 받아오기 */
 	@Override

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("dashConfigMapper")
+@Repository
 public interface DashConfigMapper {
     /** 행안부 리스트 받아오기 */
     DashConfigDto getDashConfigList(Map<String, Object> paramMap);

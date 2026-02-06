@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportInciPrtyMapper")
+@Repository
 public interface ReportInciPrtyMapper {
 
 	/** 사고유형 그리드 조회*/

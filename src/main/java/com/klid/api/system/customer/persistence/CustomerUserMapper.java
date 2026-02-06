@@ -3,7 +3,7 @@ package com.klid.api.system.customer.persistence;
 import com.klid.api.system.customer.dto.CustomerUserResponse;
 import com.klid.api.system.customer.dto.SmsGroupRequest;
 import com.klid.api.system.customer.dto.SmsGroupResponse;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 외부 사용자 관리 Mapper
  */
-@Mapper
+@Repository
 public interface CustomerUserMapper {
 
     List<CustomerUserResponse> selectSmsUserList(Map<String, Object> params);

@@ -8,7 +8,6 @@ import com.klid.webapp.main.acc.accidentApply.dto.AccidentApplyDto;
 import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import jakarta.annotation.Resource;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
@@ -18,6 +17,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -31,11 +31,14 @@ import java.util.*;
 @Service("accidentApplyService")
 public class AccidentApplyServiceImpl extends MsgService implements AccidentApplyService {
 
-	@Resource(name = "accidentApplyMapper")
-	private AccidentApplyMapper mapper;
+	private final AccidentApplyMapper mapper;
+	private final FileUploadMapper fileUploadMapper;
 
-	@Resource(name = "fileUploadMapper")
-	public FileUploadMapper fileUploadMapper;
+	public AccidentApplyServiceImpl(MessageSource messageSource, AccidentApplyMapper mapper, FileUploadMapper fileUploadMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.fileUploadMapper = fileUploadMapper;
+	}
 
 	/** 신고 목록	 */
 	@Override

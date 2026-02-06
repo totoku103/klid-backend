@@ -3,12 +3,12 @@ package com.klid.api.board.takeover.persistence;
 import com.klid.api.board.takeover.dto.TakeoverBoardDTO;
 import com.klid.api.board.takeover.dto.TakeoverBoardListDTO;
 import com.klid.api.board.takeover.dto.TakeoverReplyDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface TakeoverBoardMapper {
 
     List<TakeoverBoardListDTO> getBoardList(

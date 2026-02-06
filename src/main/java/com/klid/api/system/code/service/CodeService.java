@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 코드 관리 서비스
  */
-@Service("systemCodeService")
+@Service
 @RequiredArgsConstructor
 public class CodeService {
 

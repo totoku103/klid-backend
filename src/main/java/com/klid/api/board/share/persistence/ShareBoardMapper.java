@@ -3,15 +3,13 @@ package com.klid.api.board.share.persistence;
 import com.klid.api.board.share.dto.ShareBoardDTO;
 import com.klid.api.board.share.dto.ShareBoardListDTO;
 import com.klid.api.board.share.dto.ShareBoardSidoCntDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Component("apiShareBoardMapper")
-@Mapper
+@Repository
 public interface ShareBoardMapper {
 
     List<ShareBoardListDTO> getBoardList(

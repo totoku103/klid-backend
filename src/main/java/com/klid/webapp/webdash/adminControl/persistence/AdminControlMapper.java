@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("webdash.adminControlMapper")
+@Repository
 public interface AdminControlMapper {
 
     public IncidentDto selectIncidentStatus(Map<String, Object> paramMap);

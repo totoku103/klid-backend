@@ -4,8 +4,8 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.sys.riskMgmt.persistence.RiskMgmtMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +14,12 @@ import java.util.Map;
 @Service("riskMgmtService")
 public class RiskMgmtServiceImpl extends MsgService implements RiskMgmtService {
 
-	@Resource(name = "riskMgmtMapper")
-	private RiskMgmtMapper mapper;
+	private final RiskMgmtMapper mapper;
+
+	public RiskMgmtServiceImpl(MessageSource messageSource, RiskMgmtMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 	
 	@Override
 	public ReturnData getRiskMgmt(Criterion criterion) {

@@ -17,7 +17,7 @@ import java.util.Map;
  * NRMSG_DATA 테이블에 INSERT하면 Nuri2 Agent가 읽어서 발송
  */
 @Slf4j
-@Service("apiSmsService")
+@Service
 @RequiredArgsConstructor
 public class SmsService {
 

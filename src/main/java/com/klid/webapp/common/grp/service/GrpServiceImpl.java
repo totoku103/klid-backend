@@ -7,18 +7,22 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.grp.persistence.GrpMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service("grpService")
+@Service
 public class GrpServiceImpl extends MsgService implements GrpService {
 
-	@Resource(name="grpMapper")
-	private GrpMapper mapper;
+	private final GrpMapper mapper;
+
+	public GrpServiceImpl(MessageSource messageSource, GrpMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	@Override
 	public ReturnData getGrpDuplCnt(Criterion criterion) {

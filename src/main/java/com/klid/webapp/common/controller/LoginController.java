@@ -8,11 +8,10 @@ import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.enums.ThirdPartySystemTypes;
 import com.klid.webapp.common.login.service.LoginService;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,14 +23,13 @@ import java.util.Map;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/api/login")
 public class LoginController {
 
-    @Resource(name = "loginService")
-    private LoginService service;
+    private final LoginService service;
 
-    @Autowired
-    private ThirdPartyProperty thirdPartyProperty;
+    private final ThirdPartyProperty thirdPartyProperty;
 
     @RequestMapping(value = "isUserAccountLocked", method = RequestMethod.POST)
     public @ResponseBody ReturnData isUserAccountLocked(@RequestBody Map<String, Object> reqMap, HttpServletRequest request) {

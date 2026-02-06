@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportDailyInciStateMapper")
+@Repository
 public interface ReportDailyInciStateMapper {
 
 	List<ReportDailyStateDto> selectReportDayInciProc(Map<String, Object> paramMap);

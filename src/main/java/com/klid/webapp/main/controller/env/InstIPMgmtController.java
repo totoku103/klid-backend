@@ -4,36 +4,36 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.main.env.instIPMgmt.service.InstIPMgmtService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RequestMapping("/api/main/env/instIPMgmt")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class InstIPMgmtController {
 
-	@Resource(name = "instIPMgmtService")
-	private InstIPMgmtService service;
+	private final InstIPMgmtService service;
 
 	/** 기관IP대역 리스트 조회 */
 	@RequestMapping(value = "getInstIPMgmtList")
-	public @ResponseBody ReturnData getInstIPMgmtList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getInstIPMgmtList(@RequestParam Map<String, Object> reqMap) {
 		return service.getInstIPMgmtList(new Criterion(reqMap));
 	}
 
 	/** 기관별 IP정보 리스트 조회  */
 	@RequestMapping(value = "getInstIPMgmtList_instCd")
-	public @ResponseBody ReturnData getInstIPMgmtList_instCd(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData getInstIPMgmtList_instCd(@RequestBody Map<String, Object> reqMap) {
 			return service.getInstIPMgmtList_instCd(new Criterion(reqMap));
 	}
 	
 	/** 기관IP 추가 */
 	@RequestMapping(value = "addInstIPMgmt", method = RequestMethod.POST)
-	public @ResponseBody ReturnData addInstIPMgmt(@RequestBody Map<String, Object> reqMap, HttpServletRequest request) {
+	public ReturnData addInstIPMgmt(@RequestBody Map<String, Object> reqMap, HttpServletRequest request) {
 		//사용자 ID 정보
 		String usrId = SessionManager.getUser().getUserId();
 		reqMap.put("usrId", usrId);
@@ -47,7 +47,7 @@ public class InstIPMgmtController {
 
 	/** 기관IP 수정 */
 	@RequestMapping(value = "saveInstIPMgmt", method = RequestMethod.POST)
-	public @ResponseBody ReturnData saveInstIPMgmt(@RequestBody Map<String, Object> reqMap, HttpServletRequest request) {
+	public ReturnData saveInstIPMgmt(@RequestBody Map<String, Object> reqMap, HttpServletRequest request) {
 		//사용자 ID 정보
 		String usrId = SessionManager.getUser().getUserId();
 		reqMap.put("usrId", usrId);
@@ -61,13 +61,13 @@ public class InstIPMgmtController {
 
 	/** 기관IP 삭제 */
 	@RequestMapping(value = "delInstIPMgmt")
-	public @ResponseBody ReturnData delInstIPMgmt(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData delInstIPMgmt(@RequestBody Map<String, Object> reqMap) {
 			return service.delInstIPMgmt(new Criterion(reqMap));
 	}
 	
 	/** 엑셀 출력 */
 	@RequestMapping(value="export")
-	public @ResponseBody ReturnData export(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData export(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		return service.export(response, new Criterion(reqMap));
 	}
 

@@ -1,12 +1,12 @@
 package com.klid.api.dashboard.persistence;
 
 import com.klid.api.dashboard.dto.*;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface DashboardMapper {
 
     ThreatStatusDTO selectThreatNow(@Param("instCd") String instCd);

@@ -17,8 +17,8 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.acc.accidentApply.service.AccidentApplyService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -30,7 +30,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
@@ -39,75 +39,75 @@ import java.net.UnknownHostException;
 import java.util.*;
 
 @RequestMapping("/api/main/acc/accidentApply")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class AccidentApplyController {
 
-	@Resource(name = "accidentApplyService")
-	private AccidentApplyService service;
+	private final AccidentApplyService service;
 
 	/** 신고 리스트 받아오기 */
 	@RequestMapping(value = "getAccidentList")
-	public @ResponseBody ReturnData getAccidentList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccidentList(@RequestParam Map<String, Object> reqMap) {
 		return service.getAccidentApplyList(new Criterion(reqMap));
 	}
 
 	/** 신고 등록 */
 	@RequestMapping(value = "addAccidentApply", method = RequestMethod.POST)
-	public @ResponseBody ReturnData addAccidentApply(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData addAccidentApply(@RequestBody Map<String, Object> reqMap) {
 		return service.addAccidentApply(new Criterion(reqMap, false));
 	}
 
 	/** 신고 수정 */
 	@RequestMapping(value = "editAccidentApply", method = RequestMethod.POST)
-	public @ResponseBody ReturnData editAccidentApply(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData editAccidentApply(@RequestBody Map<String, Object> reqMap) {
 		return service.editAccidentApply(new Criterion(reqMap, false));
 	}
 
 	/** 신고 삭제 */
 	@RequestMapping(value = "deleteAccidentApply", method = RequestMethod.POST)
-	public @ResponseBody ReturnData deleteAccidentApply(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData deleteAccidentApply(@RequestBody Map<String, Object> reqMap) {
 			return service.deleteAccidentApply(new Criterion(reqMap, false));
 	}
 
 	/** 기관 리스트 받아오기 */
 	@RequestMapping(value = "getAccidenDeptList")
-	public @ResponseBody ReturnData getAccidenDeptList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccidenDeptList(@RequestParam Map<String, Object> reqMap) {
 			return service.getAccidenDeptList(new Criterion(reqMap));
 	}
 
 	/** 기관 리스트 받아오기 */
 	@RequestMapping(value = "getAccidentDetail")
-	public @ResponseBody ReturnData getAccidentDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccidentDetail(@RequestParam Map<String, Object> reqMap) {
 		return service.getAccidentDetail(new Criterion(reqMap));
 	}
 
 	/** 신고접수 처리상태 변경(할당,이관,폐기 등) */
 	@RequestMapping(value = "updateAccidentProcess", method = RequestMethod.POST)
-	public @ResponseBody ReturnData updateAccidentProcess(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData updateAccidentProcess(@RequestBody Map<String, Object> reqMap) {
 		return service.updateAccidentProcess(new Criterion(reqMap, false));
 	}
 
 	/** 신고접수 다중 이관처리 */
 	@RequestMapping(value = "updateMultiAccidentProcess", method = RequestMethod.POST)
-	public @ResponseBody ReturnData updateMultiAccidentProcess(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData updateMultiAccidentProcess(@RequestBody Map<String, Object> reqMap) {
 		return service.updateMultiAccidentProcess(new Criterion(reqMap, false));
 	}
 
 	/** 신고 히스토리 리스트 받아오기 */
 	@RequestMapping(value = "getAccidentHistoryList")
-	public @ResponseBody ReturnData getAccidentHistoryList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccidentHistoryList(@RequestParam Map<String, Object> reqMap) {
 		return service.getAccidentHistoryList(new Criterion(reqMap));
 	}
 
 	/** 이관 지역 리스트 */
 	@RequestMapping(value = "getLocalList")
-	public @ResponseBody ReturnData getLocalList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getLocalList(@RequestParam Map<String, Object> reqMap) {
 		return service.getLocalList(new Criterion(reqMap));
 	}
 
 	/** 개발원 지역 리스트 */
 	@RequestMapping(value = "getPntInst")
-	public @ResponseBody ReturnData getPntInst(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getPntInst(@RequestParam Map<String, Object> reqMap) {
 		try {
 			return service.getPntInst(new Criterion(reqMap));
 		} catch (Exception e) {
@@ -118,7 +118,7 @@ public class AccidentApplyController {
 
 	/** 사고신고 한글 문서만들기 */
 	@RequestMapping(value = "makeAcciHwpDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData makeAcciHwpDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData makeAcciHwpDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		try{
 
 			String filename = AppGlobal.reportTemplate+"acc_report.hwp";
@@ -305,92 +305,92 @@ public class AccidentApplyController {
 
 	/** 엑셀로 사고신고 */
 	@RequestMapping(value = "importExcel")
-	public @ResponseBody ReturnData importExcel(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData importExcel(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
 		return new ReturnData(service.importExcel(new Criterion(reqMap)));
 	}
 
 	/** eml로 사고신고 */
 	@RequestMapping(value = "importEml")
-	public @ResponseBody ReturnData importEml(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData importEml(@RequestParam Map<String, Object> reqMap, HttpServletResponse response) {
 		return new ReturnData(service.importEml(new Criterion(reqMap)));
 	}
 
 	/** 사고접수 - 비고(취약점탐지) 세부내용 */
 	@RequestMapping(value = "getTbzHomepv")
-	public @ResponseBody ReturnData getTbzHomepv(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getTbzHomepv(@RequestParam Map<String, Object> reqMap) {
 		return service.getTbzHomepv(new Criterion(reqMap));
 	}
 
 	/** 사고접수 - 비고(해킹) 세부내용 */
 	@RequestMapping(value = "getTbzHacking")
-	public @ResponseBody ReturnData getTbzHacking(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getTbzHacking(@RequestParam Map<String, Object> reqMap) {
 		return service.getTbzHacking(new Criterion(reqMap));
 	}
 
 	/** 피해 아이피 리스트 */
 	@RequestMapping(value = "getDmgIpList")
-	public @ResponseBody ReturnData getDmgIpList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDmgIpList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDmgIpList(new Criterion(reqMap));
 	}
 
 	/** 공격 아이피 리스트 */
 	@RequestMapping(value = "getAttIpList")
-	public @ResponseBody ReturnData getAttIpList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAttIpList(@RequestParam Map<String, Object> reqMap) {
 			return service.getAttIpList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getTodayStatus")
-	public @ResponseBody ReturnData getTodayStatus(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getTodayStatus(@RequestParam Map<String, Object> reqMap) {
 		return service.getTodayStatus(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getYearStatus")
-	public @ResponseBody ReturnData getYearStatus(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getYearStatus(@RequestParam Map<String, Object> reqMap) {
 			return service.getYearStatus(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getPeriodStatus")
-	public @ResponseBody ReturnData getPeriodStatus(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getPeriodStatus(@RequestParam Map<String, Object> reqMap) {
 			return service.getPeriodStatus(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getInstStatus")
-	public @ResponseBody ReturnData getInstStatus(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getInstStatus(@RequestParam Map<String, Object> reqMap) {
 		return service.getInstStatus(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getAccdTypeStatus")
-	public @ResponseBody ReturnData getAccdTypeStatus(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccdTypeStatus(@RequestParam Map<String, Object> reqMap) {
 		return service.getAccdTypeStatus(new Criterion(reqMap));
 	}
 
 	/** 입력아이피 국가 검색 */
 	@RequestMapping(value = "getIpByNationNm", method = RequestMethod.POST)
-	public @ResponseBody ReturnData checkIp(@RequestParam Map<String, Object> reqMap) throws UnknownHostException {
+	public ReturnData checkIp(@RequestParam Map<String, Object> reqMap) throws UnknownHostException {
 		return service.getIpByNationNm(new Criterion(reqMap));
 	}
 
 	/** 입력아이피 기관 검색 */
 	@RequestMapping(value = "getInstByIP", method = RequestMethod.POST)
-	public @ResponseBody ReturnData getInstByIP(@RequestParam Map<String, Object> reqMap) throws UnknownHostException {
+	public ReturnData getInstByIP(@RequestParam Map<String, Object> reqMap) throws UnknownHostException {
 		return service.getInstByIP(new Criterion(reqMap));
 	}
 
 	/** 엔지니어 - 사고접수 비암호화(이메일) 목록 */
 	@RequestMapping(value = "getEncrySyncList")
-	public @ResponseBody ReturnData getEncrySyncList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getEncrySyncList(@RequestParam Map<String, Object> reqMap) {
 			return service.getEncrySyncList(new Criterion(reqMap));
 	}
 
 	/** 엔지니어 - 사고접수 기존 이메일 정보들 SEED256 암호화 적용 일괄 update */
 	@RequestMapping(value = "updateEncrySync", method = RequestMethod.POST)
-	public @ResponseBody ReturnData updateEncrySync(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData updateEncrySync(@RequestBody Map<String, Object> reqMap) {
 			return service.updateEncrySync(new Criterion(reqMap, false));
 	}
 
 	/** 국정원 마지막 처리자 정보 */
 	@RequestMapping(value = "getNcscInfo")
-	public @ResponseBody ReturnData getNcscInfo(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getNcscInfo(@RequestParam Map<String, Object> reqMap) {
 		try {
 			return service.getNcscInfo(new Criterion(reqMap));
 		} catch (Exception e) {
@@ -400,24 +400,24 @@ public class AccidentApplyController {
 	}
 
 	@RequestMapping(value = "checkEncryText", method = RequestMethod.POST)
-	public @ResponseBody ReturnData checkEncryText(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData checkEncryText(@RequestBody Map<String, Object> reqMap) {
 		return service.checkEncryText(new Criterion(reqMap, false));
 	}
 
 	//
 	@RequestMapping(value = "getAccDuplList")
-	public @ResponseBody ReturnData getAccDuplList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getAccDuplList(@RequestParam Map<String, Object> reqMap) {
 		return service.getAccDuplList(new Criterion(reqMap));
 	}
 
 	/** 멀티이관 사고 종결 여부 체크 */
 	@RequestMapping(value = "getInciMutiEndYn")
-	public@ResponseBody  ReturnData getInciMutiEndYn(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getInciMutiEndYn(@RequestParam Map<String, Object> reqMap) {
 		return service.getInciMutiEndYn(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getNciApi")
-	public @ResponseBody String getNciApi(@RequestParam Map<String, Object> reqMap) {
+	public String getNciApi(@RequestParam Map<String, Object> reqMap) {
 		String ip = "10.46.126.53";
 		String port = "8080";
 		String result = "";

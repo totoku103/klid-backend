@@ -3,8 +3,8 @@ package com.klid.webapp.main.sec.qnaBoard.service;
 import com.klid.webapp.common.*;
 import com.klid.webapp.main.sec.qnaBoard.dto.QnaBoardDto;
 import com.klid.webapp.main.sec.qnaBoard.persistence.QnaBoardMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,12 @@ import java.util.Map;
 @Service("qnaBoardService")
 public class QnaBoardServiceImpl extends MsgService implements QnaBoardService {
 
-	@Resource(name = "qnaBoardMapper")
-	private QnaBoardMapper mapper;
+
+	public QnaBoardServiceImpl(MessageSource messageSource, QnaBoardMapper mapper) {
+				super(messageSource);
+		this.mapper = mapper;
+	}
+	private final QnaBoardMapper mapper;
 
 	/** 게시판 최근리스트 받아오기 */
 	@Override

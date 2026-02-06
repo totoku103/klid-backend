@@ -40,7 +40,7 @@ import java.util.Map;
  * <p>파일 업로드, 다운로드, 삭제 등의 비즈니스 로직을 처리합니다.</p>
  */
 @Slf4j
-@Service("apiFileService")
+@Service
 @RequiredArgsConstructor
 public class FileService {
 

@@ -9,7 +9,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
-@Service("apiAdminControlService")
+@Service
 @RequiredArgsConstructor
 public class AdminControlService {
 

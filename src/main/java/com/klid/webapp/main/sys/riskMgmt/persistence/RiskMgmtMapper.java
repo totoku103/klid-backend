@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("riskMgmtMapper")
+@Repository
 public interface RiskMgmtMapper {
 	RiskMgmtDto selectRiskMgmt(Map<String, Object> paramMap);
 

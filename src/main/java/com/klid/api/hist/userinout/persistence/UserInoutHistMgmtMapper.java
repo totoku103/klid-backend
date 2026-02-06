@@ -1,12 +1,12 @@
 package com.klid.api.hist.userinout.persistence;
 
 import com.klid.api.hist.userinout.dto.UserInoutHistMgmtDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface UserInoutHistMgmtMapper {
     List<UserInoutHistMgmtDTO> selectLogUserList();
 

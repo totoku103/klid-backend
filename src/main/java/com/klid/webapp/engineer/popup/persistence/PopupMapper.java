@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("popupMapper")
+@Repository
 public interface PopupMapper {
 
 	/** page 추가 */

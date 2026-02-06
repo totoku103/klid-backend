@@ -4,14 +4,18 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.hist.userInoutHist.persistence.UserInoutHistMgmtMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 @Service("userInoutHistMgmtService")
 public class UserInoutHistMgmtServiceImpl extends MsgService implements UserInoutHistMgmtService {
 
-    @Resource(name = "userInoutHistMgmtMapper")
-    private UserInoutHistMgmtMapper mapper;
+    private final UserInoutHistMgmtMapper mapper;
+
+    public UserInoutHistMgmtServiceImpl(MessageSource messageSource, UserInoutHistMgmtMapper mapper) {
+        super(messageSource);
+        this.mapper = mapper;
+    }
 
 	@Override
 	public ReturnData getLogUserList(Criterion criterion){

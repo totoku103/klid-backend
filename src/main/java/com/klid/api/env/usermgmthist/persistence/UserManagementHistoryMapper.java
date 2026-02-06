@@ -1,12 +1,12 @@
 package com.klid.api.env.usermgmthist.persistence;
 
 import com.klid.api.env.usermgmthist.dto.*;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface UserManagementHistoryMapper {
     CommUserRequestDTO selectCommUserRequestBySeq(Integer seq);
     List<HistoryGridResDTO> selectUserManagementHistoryGrid(Map<String, Object> params);

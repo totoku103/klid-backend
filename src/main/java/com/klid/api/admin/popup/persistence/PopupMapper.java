@@ -1,11 +1,9 @@
 package com.klid.api.admin.popup.persistence;
 
 import com.klid.api.admin.popup.dto.*;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component("apiPopupMapper")
-@Mapper
+@Repository
 public interface PopupMapper {
 
     int addPage(PageCreateRequest request);

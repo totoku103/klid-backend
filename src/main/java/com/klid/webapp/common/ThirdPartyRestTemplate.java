@@ -2,8 +2,8 @@ package com.klid.webapp.common;
 
 import com.klid.webapp.common.dto.*;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,16 +17,11 @@ import java.util.Map;
 @Component
 @DependsOn(value = {"thirdPartyProperty"})
 @Profile("!local")
+@RequiredArgsConstructor
 @Slf4j
 public class ThirdPartyRestTemplate {
     private final ThirdPartyProperty thirdPartyProperty;
     private final RestTemplate restTemplate;
-
-    @Autowired
-    public ThirdPartyRestTemplate(ThirdPartyProperty thirdPartyProperty, RestTemplate restTemplate) {
-        this.thirdPartyProperty = thirdPartyProperty;
-        this.restTemplate = restTemplate;
-    }
 
     private HttpHeaders getDefaultHeaders() {
         final HttpHeaders headers = new HttpHeaders();

@@ -14,8 +14,8 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDaily.dto.ReportDailyDto;
 import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -27,8 +27,12 @@ import java.util.*;
 @Service("reportDailyStateService")
 public class ReportDailyStateServiceImpl extends MsgService implements ReportDailyStateService {
 
-	@Resource(name = "reportDailyStateMapper")
-	private ReportDailyStateMapper mapper;
+	private final ReportDailyStateMapper mapper;
+
+	public ReportDailyStateServiceImpl(MessageSource messageSource, ReportDailyStateMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 교대 근무자 */
 	@Override

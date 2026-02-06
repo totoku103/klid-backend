@@ -7,11 +7,11 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.main.env.instIPMgmt.dto.InstIPMgmtDto;
 import com.klid.webapp.main.env.instIPMgmt.persistence.InstIPMgmtMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -23,11 +23,14 @@ import java.util.Map;
 @Service("instIPMgmtService")
 public class InstIPMgmtServiceImpl extends MsgService implements InstIPMgmtService {
 
-	@Resource(name = "instIPMgmtMapper")
-	private InstIPMgmtMapper mapper;
+	private final InstIPMgmtMapper mapper;
+	private final UserActHistMapper userActHistMapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public InstIPMgmtServiceImpl(MessageSource messageSource, InstIPMgmtMapper mapper, UserActHistMapper userActHistMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
 
 	@Override
 	public ReturnData getInstIPMgmtList(Criterion criterion){

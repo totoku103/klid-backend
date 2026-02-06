@@ -3,9 +3,9 @@ package com.klid.webapp.main.controller.rpt;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportCollection.service.ReportCollectionService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,70 +14,70 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 @RequestMapping("/api/main/rpt/reportCollection")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportCollectionController {
 
-	@Resource(name = "reportCollectionService")
-	private ReportCollectionService service;
+	private final ReportCollectionService service;
 
 	@RequestMapping(value = "getRetrieveSecurityHackingDetail")
-	public @ResponseBody ReturnData getRetrieveSecurityHackingDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getRetrieveSecurityHackingDetail(@RequestParam Map<String, Object> reqMap) {
 			return service.getRetrieveSecurityHackingDetail(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getSecuListDetail")
-	public @ResponseBody ReturnData getSecuListDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getSecuListDetail(@RequestParam Map<String, Object> reqMap) {
 			return service.getSecuListDetail(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getNoticeListDetail")
-	public @ResponseBody ReturnData getNoticeListDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getNoticeListDetail(@RequestParam Map<String, Object> reqMap) {
 		return service.getNoticeListDetail(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getRetrieveSecurityVulnerabilityDetail")
-	public @ResponseBody ReturnData getRetrieveSecurityVulnerabilityDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getRetrieveSecurityVulnerabilityDetail(@RequestParam Map<String, Object> reqMap) {
 		return service.getRetrieveSecurityVulnerabilityDetail(new Criterion(reqMap));
 	}
 
 	/** 공지사항현황 엑셀 출력 */
 	@RequestMapping(value="exportNoticeList")
-	public @ResponseBody ReturnData exportNoticeList(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportNoticeList(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		return service.exportNoticeList(response, new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getRetrieveIncidentDetail")
-	public @ResponseBody ReturnData getRetrieveIncidentDetail(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getRetrieveIncidentDetail(@RequestParam Map<String, Object> reqMap) {
 			return service.getRetrieveIncidentDetail(new Criterion(reqMap));
 	}
 
 	/** 보안자료실현황 엑셀 출력 */
 	@RequestMapping(value="exportSecuList")
-	public @ResponseBody ReturnData exportSecuList(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportSecuList(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 			return service.exportSecuList(response, new Criterion(reqMap));
 	}
 
 	/** 해킹관리대장 엑셀 출력 */
 	@RequestMapping(value="exportRetrieveSecurityHacking")
-	public @ResponseBody ReturnData exportRetrieveSecurityHacking(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportRetrieveSecurityHacking(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 			return service.exportRetrieveSecurityHacking(response, new Criterion(reqMap));
 	}
 
 	/** 취약점관리대장 엑셀 출력 */
 	@RequestMapping(value="exportRetrieveSecurityVulnerability")
-	public @ResponseBody ReturnData exportRetrieveSecurityVulnerability(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportRetrieveSecurityVulnerability(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 			return service.exportRetrieveSecurityVulnerability(response, new Criterion(reqMap));
 	}
 
 	/** 처리중현황 엑셀 출력 */
 	@RequestMapping(value="exportRetrieveIncidentDetail")
-	public @ResponseBody ReturnData exportRetrieveIncidentDetail(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportRetrieveIncidentDetail(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 			return service.exportRetrieveIncidentDetail(response, new Criterion(reqMap));
 	}
 
 	/** 일일운영현황 엑셀 출력 */
 	@RequestMapping(value="exportReportCtrsDaily")
-	public @ResponseBody ReturnData exportReportCtrsDaily(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportReportCtrsDaily(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 			return service.exportReportCtrsDaily(response, new Criterion(reqMap));
 	}
 }

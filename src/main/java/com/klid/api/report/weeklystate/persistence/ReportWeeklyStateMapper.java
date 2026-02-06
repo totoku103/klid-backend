@@ -1,12 +1,12 @@
 package com.klid.api.report.weeklystate.persistence;
 
 import com.klid.api.report.weeklystate.dto.ReportDailyDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportWeeklyStateMapper {
 
     List<ReportDailyDTO> selectReportWeekType(@Param("sAuthMain") String sAuthMain,

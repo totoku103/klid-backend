@@ -1,12 +1,12 @@
 package com.klid.api.report.incilocal.persistence;
 
 import com.klid.api.report.incilocal.dto.ReportInciLocalDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportInciLocalMapper {
 
     List<ReportInciLocalDTO> selectInciLocalList(@Param("dateType") String dateType,

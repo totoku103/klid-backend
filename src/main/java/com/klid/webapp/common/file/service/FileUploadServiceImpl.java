@@ -5,7 +5,7 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.file.persistence.FileUploadMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,11 +21,15 @@ import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-@Service("fileUploadService")
+@Service
 public class FileUploadServiceImpl extends MsgService implements FileUploadService {
 
-	@Resource(name = "fileUploadMapper")
-	public FileUploadMapper mapper;
+	private final FileUploadMapper mapper;
+
+	public FileUploadServiceImpl(MessageSource messageSource, FileUploadMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	@Override
 	public void fileUploadLocal(MultipartFile multipartFile, String tempFileName) {

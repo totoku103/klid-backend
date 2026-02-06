@@ -1,7 +1,7 @@
 package com.klid.api.system.risk.persistence;
 
 import com.klid.api.system.risk.dto.*;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 위험도 관리 Mapper
  */
-@Mapper
+@Repository
 public interface RiskMapper {
 
     RiskResponse selectRiskMgmt(Map<String, Object> params);

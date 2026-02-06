@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportInciAttNatnMapper")
+@Repository
 public interface ReportInciAttNatnMapper {
 
 	/** 시도 그리드 조회*/

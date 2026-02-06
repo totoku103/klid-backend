@@ -14,9 +14,9 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciPrcsStat.persistence.ReportInciPrcsStatMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.awt.*;
 import java.io.File;
@@ -27,10 +27,14 @@ import java.util.*;
 @Service("reportInciPrcsStatService")
 public class ReportInciPrcsStatServiceImpl extends MsgService implements ReportInciPrcsStatService {
 
+
+	public ReportInciPrcsStatServiceImpl(MessageSource messageSource, ReportInciPrcsStatMapper mapper) {
+				super(messageSource);
+		this.mapper = mapper;
+	}
 	private Rectangle rectangle = new Rectangle(0, 50,  170, 72);
 
-	@Resource(name = "reportInciPrcsStatMapper")
-	private ReportInciPrcsStatMapper mapper;
+	private final ReportInciPrcsStatMapper mapper;
 
 	/** 사고유형 그리드 조회 */
 	@Override

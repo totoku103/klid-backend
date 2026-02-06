@@ -1,0 +1,18 @@
+# Third Party Test Settings
+spring:
+  config:
+    import:
+      - application-third-party.yml
+
+app:
+  ctrs:
+    url:
+      host: http://localhost:8080
+
+  vms:
+    url:
+      host: https://localhost:7443
+
+  ctss:
+    url:
+      host: https://localhost:7443

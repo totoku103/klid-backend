@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("grpMapper")
+@Repository
 public interface GrpMapper {
 
 	void procSpMakeGrpLeaf(Map<String, Object> paramMap);

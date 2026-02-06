@@ -1,0 +1,7 @@
+spring:
+  config:
+    import:
+      - config/system/application-system.yml
+      - config/system/application-system-test.yml
+      - config/jdbc/application-jdbc-test.yml
+      - config/third-party/application-third-party-test.yml

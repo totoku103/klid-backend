@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-@Service("apiWebDashSidoService")
+@Service
 @RequiredArgsConstructor
 public class WebDashSidoService {
 

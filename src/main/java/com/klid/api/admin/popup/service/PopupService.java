@@ -6,7 +6,7 @@ import com.klid.common.AppGlobal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service("apiPopupService")
+@Service
 @RequiredArgsConstructor
 public class PopupService {
 

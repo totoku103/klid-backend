@@ -14,9 +14,9 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDaily.dto.ReportDailyDto;
 import com.klid.webapp.main.rpt.reportWeeklyState.persistence.ReportWeeklyStateMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,8 +27,12 @@ import java.util.*;
 @Service("reportWeeklyStateService")
 public class ReportWeeklyStateServiceImpl extends MsgService implements ReportWeeklyStateService {
 
-	@Resource(name = "reportWeeklyStateMapper")
-	private ReportWeeklyStateMapper mapper;
+	private final ReportWeeklyStateMapper mapper;
+
+	public ReportWeeklyStateServiceImpl(MessageSource messageSource, ReportWeeklyStateMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 일일 실적 사고처리 현황 조회 */
 	@Override

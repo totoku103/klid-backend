@@ -5,11 +5,11 @@ import com.klid.common.util.XLSFileBuilder;
 import com.klid.webapp.common.*;
 import com.klid.webapp.main.env.nationIPMgmt.dto.NationIPMgmtDto;
 import com.klid.webapp.main.env.nationIPMgmt.persistence.NationIPMgmtMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,8 +19,12 @@ import java.util.*;
 @Service("nationIPMgmtService")
 public class NationIPMgmtServiceImpl extends MsgService implements NationIPMgmtService {
 
-	@Resource(name = "nationIPMgmtMapper")
-	private NationIPMgmtMapper mapper;
+	private final NationIPMgmtMapper mapper;
+
+	public NationIPMgmtServiceImpl(MessageSource messageSource, NationIPMgmtMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 국가 리스트 조회 */
 	@Override

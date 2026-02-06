@@ -9,7 +9,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
-@Service("apiWebDashCenterService")
+@Service
 @RequiredArgsConstructor
 public class WebDashCenterService {
 

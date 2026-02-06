@@ -1,12 +1,12 @@
 package com.klid.api.report.incitype.persistence;
 
 import com.klid.api.report.incitype.dto.ReportInciTypeDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportInciTypeMapper {
 
     List<ReportInciTypeDTO> selectInciTypeList(@Param("sAuthMain") String sAuthMain,

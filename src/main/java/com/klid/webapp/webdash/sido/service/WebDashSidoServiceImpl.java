@@ -4,14 +4,18 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.sido.persistence.WebDashSidoMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 @Service("webDashSidoService")
 public class WebDashSidoServiceImpl extends MsgService implements WebDashSidoService {
 
-	@Resource(name = "webDashSidoMapper")
-	private WebDashSidoMapper mapper;
+	private final WebDashSidoMapper mapper;
+
+	public WebDashSidoServiceImpl(MessageSource messageSource, WebDashSidoMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 공지사항리스트 */
 	@Override

@@ -4,14 +4,18 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciDetail.persistence.ReportInciDetailMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 @Service("reportInciDetailService")
 public class ReportInciDetailServiceImpl extends MsgService implements ReportInciDetailService {
 
-	@Resource(name = "reportInciDetailMapper")
-	private ReportInciDetailMapper mapper;
+
+	public ReportInciDetailServiceImpl(MessageSource messageSource, ReportInciDetailMapper mapper) {
+				super(messageSource);
+		this.mapper = mapper;
+	}
+	private final ReportInciDetailMapper mapper;
 
 	/** 상세조회 */
 	@Override

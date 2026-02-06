@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("userConfMapper")
+@Repository
 public interface UserConfMapper {
 	//사용자 연락처 목록
 	public List<UserDto> selectUserAddrList(Map<String, Object> paramMap);

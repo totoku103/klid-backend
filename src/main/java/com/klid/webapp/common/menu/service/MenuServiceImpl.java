@@ -10,7 +10,7 @@ import com.klid.webapp.common.menu.dto.SimpleMenuDTO;
 import com.klid.webapp.common.menu.helper.IMenuHelper;
 import com.klid.webapp.common.menu.helper.NetisMenuHelper;
 import com.klid.webapp.common.menu.persistence.MenuMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -22,10 +22,13 @@ import java.util.Map;
 @Service("menuService")
 public class MenuServiceImpl extends MsgService implements MenuService {
 
-    @Resource(name = "menuMapper")
-    private MenuMapper mapper;
-
+    private final MenuMapper mapper;
     private IMenuHelper menuHelper;
+
+    public MenuServiceImpl(MessageSource messageSource, MenuMapper mapper) {
+        super(messageSource);
+        this.mapper = mapper;
+    }
 
     private void setSiteMenuHelper() {
         menuHelper = new NetisMenuHelper();

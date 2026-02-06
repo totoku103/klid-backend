@@ -81,7 +81,7 @@ public class UserManagementController {
     }
 
     @GetMapping(value = "users")
-    public @ResponseBody ReturnData getUserConfList(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getUserConfList(@RequestParam Map<String, Object> reqMap) {
         validateOperatorAndAdminAuthorization();
         return userConfService.getUserConfList(new Criterion(reqMap));
     }

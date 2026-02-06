@@ -6,13 +6,13 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportInciPrcsStat.service.ReportInciPrcsStatService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -22,19 +22,19 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportInciPrcsStat")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportInciPrcsStatController {
 
-	@Resource(name = "reportInciPrcsStatService")
-	private ReportInciPrcsStatService service;
+	private final ReportInciPrcsStatService service;
 
 	@RequestMapping(value = "getPrcsStatList")
-	public @ResponseBody ReturnData getPrcsStatList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getPrcsStatList(@RequestParam Map<String, Object> reqMap) {
 		return service.getPrcsStatList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "saveHighChartImg",method = RequestMethod.POST)
-	public @ResponseBody ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
+	public ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String fname = (String)reqMap.get("fname");
 			String imgData = (String)reqMap.get("imgData");
@@ -53,7 +53,7 @@ public class ReportInciPrcsStatController {
 	}
 
 	@RequestMapping(value = "exportReportInciPrcsStat",method = RequestMethod.POST)
-	public @ResponseBody ReturnData exportReportInciPrcsStat(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData exportReportInciPrcsStat(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		String filename = AppGlobal.reportTemplate + "new_report_hml.hml";
 
 		HwpmlMaker hmlMaker = new HwpmlMaker(filename, "##", "##");

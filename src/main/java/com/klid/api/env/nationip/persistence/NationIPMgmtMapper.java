@@ -1,12 +1,12 @@
 package com.klid.api.env.nationip.persistence;
 
 import com.klid.api.env.nationip.dto.NationIPMgmtDTO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface NationIPMgmtMapper {
     List<NationIPMgmtDTO> selectNationMgmtList(Map<String, Object> params);
     NationIPMgmtDTO selectNationMgmtInfo(Map<String, Object> params);

@@ -6,22 +6,24 @@ import com.klid.webapp.common.code.dto.CustUserDto;
 import com.klid.webapp.common.code.persistence.CodeMapper;
 import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("codeService")
+@Service
 public class CodeServiceImpl extends MsgService implements CodeService {
 
-	@Resource(name = "codeMapper")
-	private CodeMapper mapper;
+	private final CodeMapper mapper;
+	private final AccidentApplyMapper accidentApplyMapper;
+	private final UserActHistMapper userActHistMapper;
 
-	@Resource(name = "accidentApplyMapper")
-	private AccidentApplyMapper accidentApplyMapper;
-
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public CodeServiceImpl(MessageSource messageSource, CodeMapper mapper, AccidentApplyMapper accidentApplyMapper, UserActHistMapper userActHistMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.accidentApplyMapper = accidentApplyMapper;
+		this.userActHistMapper = userActHistMapper;
+	}
 
 	@Override
 	public ReturnData getCommonCode(Criterion criterion)  {

@@ -1,11 +1,11 @@
 package com.klid.api.report.incidetail.persistence;
 
 import com.klid.api.report.incidetail.dto.ReportInciDetailDTO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportInciDetailMapper {
 
     List<ReportInciDetailDTO> selectInciDetail();

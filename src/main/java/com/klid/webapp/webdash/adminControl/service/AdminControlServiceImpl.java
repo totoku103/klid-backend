@@ -4,7 +4,7 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.adminControl.dto.InciCntDto;
 import com.klid.webapp.webdash.adminControl.persistence.AdminControlMapper;
-import jakarta.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service("webdash.adminControlService")
+@RequiredArgsConstructor
 public class AdminControlServiceImpl implements AdminControlService {
 
-    @Resource(name = "webdash.adminControlMapper")
-    private AdminControlMapper mapper;
+    private final AdminControlMapper mapper;
 
     @Override
     public ReturnData getIncidentStatus(Criterion criterion) {

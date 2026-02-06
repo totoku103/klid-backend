@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 일일 보고서 Service
  */
-@Service("apiReportDailyService")
+@Service
 @RequiredArgsConstructor
 public class ReportDailyService {
 

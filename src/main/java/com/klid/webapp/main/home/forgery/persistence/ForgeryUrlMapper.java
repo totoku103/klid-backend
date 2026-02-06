@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("forgeryUrlMapper")
+@Repository
 public interface ForgeryUrlMapper {
 	public List<InstIPMgmtDto> selectForgeryUrl(Map<String, Object> paramMap);
 

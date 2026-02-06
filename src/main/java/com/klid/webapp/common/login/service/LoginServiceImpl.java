@@ -12,11 +12,11 @@ import com.klid.webapp.common.login.persistence.LoginMapper;
 import com.klid.webapp.common.menu.service.MenuService;
 import com.klid.webapp.common.policy.service.PolicyConfService;
 import com.klid.webapp.main.env.userConf.service.UserConfService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -26,23 +26,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service("loginService")
+@Service
 public class LoginServiceImpl extends MsgService implements LoginService {
 
     public final static String SESSION_ATTRIBUTE_LEGACY = "SESSION_ATTRIBUTE_LEGACY";
 
-    @Resource(name = "loginMapper")
-    private LoginMapper mapper;
+    private final LoginMapper mapper;
+    private final PolicyConfService policyConfService;
+    private final MenuService menuService;
+    private final UserConfService userConfservice;
 
-    @Resource(name = "policyConfService")
-
-    private PolicyConfService policyConfService;
-
-    @Resource(name = "menuService")
-    private MenuService menuService;
-
-    @Resource(name = "userConfService")
-    private UserConfService userConfservice;
+    public LoginServiceImpl(MessageSource messageSource, LoginMapper mapper, PolicyConfService policyConfService, MenuService menuService, UserConfService userConfservice) {
+        super(messageSource);
+        this.mapper = mapper;
+        this.policyConfService = policyConfService;
+        this.menuService = menuService;
+        this.userConfservice = userConfservice;
+    }
 
     @Override
     public ReturnData isUserAccountLocked(Criterion criterion) {

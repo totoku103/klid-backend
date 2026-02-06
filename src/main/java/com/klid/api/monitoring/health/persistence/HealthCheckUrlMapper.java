@@ -1,8 +1,7 @@
 package com.klid.api.monitoring.health.persistence;
 
 import com.klid.api.monitoring.health.dto.HealthCheckUrlDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -10,8 +9,7 @@ import java.util.Map;
 /**
  * 헬스체크 URL Mapper
  */
-@Component("apiHealthCheckUrlMapper")
-@Mapper
+@Repository
 public interface HealthCheckUrlMapper {
 
     /**

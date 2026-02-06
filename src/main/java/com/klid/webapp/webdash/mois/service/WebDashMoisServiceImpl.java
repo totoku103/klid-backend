@@ -4,9 +4,9 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.mois.persistence.WebDashMoisMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.json.JSONObject;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,8 +17,12 @@ import java.util.Map;
 @Service("webDashMoisService")
 public class WebDashMoisServiceImpl extends MsgService implements WebDashMoisService {
 
-	@Resource(name = "webDashMoisMapper")
-	private WebDashMoisMapper mapper;
+	private final WebDashMoisMapper mapper;
+
+	public WebDashMoisServiceImpl(MessageSource messageSource, WebDashMoisMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 
 	/** 사이버 위기경보 */
 	@Override

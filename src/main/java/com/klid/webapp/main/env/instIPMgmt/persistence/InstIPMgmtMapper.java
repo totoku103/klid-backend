@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("instIPMgmtMapper")
+@Repository
 public interface InstIPMgmtMapper {
 
 	/** 기관IP대역 리스트 조회 */

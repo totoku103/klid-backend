@@ -3,12 +3,12 @@ package com.klid.api.report.securityresult.persistence;
 import com.klid.api.report.securityresult.dto.ReportResultExceptlistDTO;
 import com.klid.api.report.securityresult.dto.ReportResultListDTO;
 import com.klid.api.report.securityresult.dto.ReportResultTotalDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportSecurityResultMapper {
 
     ReportResultTotalDTO selectResultTotal(@Param("startDt") String startDt,

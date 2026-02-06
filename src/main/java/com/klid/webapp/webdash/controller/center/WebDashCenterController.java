@@ -4,8 +4,8 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.center.service.WebDashCenterService;
-import jakarta.annotation.Resource;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,16 +14,15 @@ import java.util.Calendar;
 import java.util.Map;
 
 @RequestMapping("/api/webdash/center/webDashCenter")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class WebDashCenterController {
 
-    @Resource(name = "webDashCenterService")
-    private WebDashCenterService service;
+    private final WebDashCenterService service;
 
     //공격국가 TOP5
     @RequestMapping(value = "getAttNationTop5")
-    public @ResponseBody
-    ReturnData getIncidentStatus(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getIncidentStatus(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -41,8 +40,7 @@ public class WebDashCenterController {
     }
     //유형별차트
     @RequestMapping(value = "getTypeChart")
-    public @ResponseBody
-    ReturnData getTypeChart(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getTypeChart(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -59,8 +57,7 @@ public class WebDashCenterController {
     }
     
     @RequestMapping(value = "getEvtChart")
-    public @ResponseBody
-    ReturnData getEvtChart(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getEvtChart(@RequestParam Map<String, Object> reqMap) {
         try {
             return service.getEvtChart(new Criterion(reqMap, false));
         } catch (Exception e) {
@@ -70,8 +67,7 @@ public class WebDashCenterController {
     }
 
     @RequestMapping(value = "getEvtAllChart")
-    public @ResponseBody
-    ReturnData getEvtAllChart(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getEvtAllChart(@RequestParam Map<String, Object> reqMap) {
         try {
             return service.getEvtAllChart(new Criterion(reqMap, false));
         } catch (Exception e) {

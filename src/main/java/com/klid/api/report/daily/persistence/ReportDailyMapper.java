@@ -1,12 +1,12 @@
 package com.klid.api.report.daily.persistence;
 
 import com.klid.api.report.daily.dto.ReportDailyDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface ReportDailyMapper {
 
     ReportDailyDTO selectReportDayStat(@Param("occrDt") String occrDt,

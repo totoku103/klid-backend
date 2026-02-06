@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("custUserMgmtMapper")
+@Repository
 public interface CustUserMgmtMapper {
 
     /** SMS 사용자 리스트 받아오기 */

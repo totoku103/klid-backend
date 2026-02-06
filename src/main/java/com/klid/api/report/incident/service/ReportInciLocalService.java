@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 사고 지역별 보고서 Service
  */
-@Service("apiReportInciLocalService")
+@Service
 @RequiredArgsConstructor
 public class ReportInciLocalService {
 

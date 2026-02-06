@@ -4,8 +4,8 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.adminControl.service.AdminControlService;
-import jakarta.annotation.Resource;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,14 +14,14 @@ import java.util.Calendar;
 import java.util.Map;
 
 @RequestMapping("/api/webdash/adminControl")
-@Controller("webdash.adminControlController")
+@RestController("webdash.adminControlController")
+@RequiredArgsConstructor
 public class AdminControlController {
 
-    @Resource(name = "webdash.adminControlService")
-    private AdminControlService service;
+    private final AdminControlService service;
 
     @RequestMapping(value = "getIncidentStatus")
-    public @ResponseBody ReturnData getIncidentStatus(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getIncidentStatus(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -39,7 +39,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getInciCnt")
-    public @ResponseBody ReturnData getInciCnt(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getInciCnt(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -56,7 +56,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getTbzledgeCnt")
-    public @ResponseBody ReturnData getTbzledgeCnt(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getTbzledgeCnt(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -73,7 +73,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getLocalInciCnt")
-    public @ResponseBody ReturnData getLocalInciCnt(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getLocalInciCnt(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 
@@ -90,7 +90,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getLocalStatus")
-    public @ResponseBody ReturnData getLocalStatus(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getLocalStatus(@RequestParam Map<String, Object> reqMap) {
         try {
             return service.getLocalStatus(new Criterion(reqMap, false));
         } catch (Exception e) {
@@ -100,7 +100,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getUrlStatus")
-    public @ResponseBody ReturnData getUrlStatus(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getUrlStatus(@RequestParam Map<String, Object> reqMap) {
         try {
             return service.getUrlStatus(new Criterion(reqMap, false));
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getSysErrorStatus")
-    public @ResponseBody ReturnData getSysErrorStatus(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getSysErrorStatus(@RequestParam Map<String, Object> reqMap) {
         try {
             return service.getSysErrorStatus(new Criterion(reqMap, false));
         } catch (Exception e) {
@@ -120,7 +120,7 @@ public class AdminControlController {
     }
 
     @RequestMapping(value = "getInciTypeCnt")
-    public @ResponseBody ReturnData getInciTypeCnt(@RequestParam Map<String, Object> reqMap) {
+    public ReturnData getInciTypeCnt(@RequestParam Map<String, Object> reqMap) {
         try {
             Criterion criterion = new Criterion(reqMap, false);
 

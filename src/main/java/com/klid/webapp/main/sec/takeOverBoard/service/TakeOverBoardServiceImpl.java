@@ -4,8 +4,8 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.sec.takeOverBoard.persistence.TakeOverBoardMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +13,12 @@ import java.util.Map;
 @Service("takeOverBoardService")
 public class TakeOverBoardServiceImpl extends MsgService implements TakeOverBoardService {
 
-	@Resource(name = "takeOverBoardMapper")
-	private TakeOverBoardMapper mapper;
+
+	public TakeOverBoardServiceImpl(MessageSource messageSource, TakeOverBoardMapper mapper) {
+				super(messageSource);
+		this.mapper = mapper;
+	}
+	private final TakeOverBoardMapper mapper;
 
 	/** 인수인계 리스트 조회 */
 	@Override

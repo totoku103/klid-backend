@@ -1,14 +1,14 @@
 package com.klid.webapp.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 
 import java.util.Locale;
 
+@RequiredArgsConstructor
 public class MsgService {
 
-	@Autowired
-	private MessageSource messageSource;
+	private final MessageSource messageSource;
 	
 	protected String getMessage(String code) {
 		return getMessage(code, null);

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportSecurityResultMapper")
+@Repository
 public interface ReportSecurityResultMapper {
 
 	List<ReportResultTotalDto> selectResultTotal(Map<String, Object> paramMap);

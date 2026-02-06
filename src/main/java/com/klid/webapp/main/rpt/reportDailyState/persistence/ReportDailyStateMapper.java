@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("reportDailyStateMapper")
+@Repository
 public interface ReportDailyStateMapper {
 
 	/**일일 실적 사고처리 현황  누계 조회*/

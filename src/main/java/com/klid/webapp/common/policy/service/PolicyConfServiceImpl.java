@@ -6,7 +6,7 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.dto.PolicyDto;
 import com.klid.webapp.common.dto.PolicyInfoDto;
 import com.klid.webapp.common.policy.persistence.PolicyConfMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,9 +14,13 @@ import java.util.List;
 
 @Service("policyConfService")
 public class PolicyConfServiceImpl extends MsgService implements PolicyConfService {
-	
-	@Resource(name = "policyConfMapper")
-	private PolicyConfMapper mapper;
+
+	private final PolicyConfMapper mapper;
+
+	public PolicyConfServiceImpl(MessageSource messageSource, PolicyConfMapper mapper) {
+		super(messageSource);
+		this.mapper = mapper;
+	}
 	
 	/* 정책 조회  */
 	@Override

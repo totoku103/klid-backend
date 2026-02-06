@@ -13,15 +13,15 @@ import com.klid.webapp.common.file.service.FileDownloadService;
 import com.klid.webapp.common.file.service.FileUploadService;
 import com.klid.webapp.main.sec.shareBoard.dto.ShareBoardDto;
 import com.klid.webapp.main.sec.shareBoard.service.ShareBoardService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
@@ -36,7 +36,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RequestMapping("/api/file")
-@Controller
+@RestController
+@RequiredArgsConstructor
 @Slf4j
 public class FileController {
 
@@ -47,20 +48,15 @@ public class FileController {
 	public static String xlsFileName = null;
 	public static String xlsExtName = null;
 
-	@Resource(name = "fileDownloadService")
-	public FileDownloadService downloadService;
+	private final FileDownloadService downloadService;
 
-	@Resource(name = "fileUploadService")
-	public FileUploadService uploadService;
+	private final FileUploadService uploadService;
 
-	@Resource(name = "fileDeleteService")
-	public FileDeleteService deleteService;
+	private final FileDeleteService deleteService;
 
-	@Resource(name = "shareBoardService")
-	public ShareBoardService shareBoardService;
+	private final ShareBoardService shareBoardService;
 
-	@Resource(name = "codeService")
-	public CodeService codeService;
+	private final CodeService codeService;
 
 	@RequestMapping("download")
 	public void fileDownload(@RequestParam("fileNo") long fileNo, HttpServletResponse response, HttpServletRequest request) {
@@ -165,7 +161,6 @@ public class FileController {
 	}
 	
 	@RequestMapping("delete")
-	@ResponseBody
 	public ReturnData fileDelete(@RequestParam Map<String, Object> reqMap) {
 
 		List<AttachfileDto> list = downloadService.searchFileName(new Criterion(reqMap));
@@ -253,7 +248,7 @@ public class FileController {
 
 	@RequestMapping(value="exportGrid.do")
 	@SuppressWarnings("unchecked")
-	public @ResponseBody ReturnData exportGrid(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> reqMap) {
+	public ReturnData exportGrid(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> reqMap) {
 		try{
 			return downloadService.exportGrid(new Criterion(reqMap));
 		} catch(Exception e) {
@@ -300,7 +295,7 @@ public class FileController {
 	 * Highchart를 export 폴더에 저장
 	 */
 	@RequestMapping(value="saveHighchart.do")
-	public @ResponseBody ReturnData  saveHighchart(@RequestBody Map<String, Object> reqMap) {
+	public ReturnData  saveHighchart(@RequestBody Map<String, Object> reqMap) {
 		try{
 			String fname = reqMap.get("fname").toString();
 			String imgData = reqMap.get("imgData").toString();
@@ -412,7 +407,7 @@ public class FileController {
 
 	//사고접수용 양식파일 다운로드
 	@RequestMapping(value = "accEmlCsvDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData fileEmlAccDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData fileEmlAccDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		Map<String, String> resultMap = new HashMap<>();
 		if(reqMap.get("type").toString().equals("csv")){
@@ -430,7 +425,6 @@ public class FileController {
 	}
 
 	@RequestMapping("accDelete")
-	@ResponseBody
 	public ReturnData fileAccDelete(@RequestParam Map<String, Object> reqMap) {
 
 		List<AttachfileDto> list = downloadService.searchAccFileName(new Criterion(reqMap));
@@ -515,7 +509,7 @@ public class FileController {
 
 	//홈페이지용 양식파일 다운로드
 	@RequestMapping(value = "homeXlsDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData homeXlsDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData homeXlsDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		Map<String, String> resultMap = new HashMap<>();
 		resultMap.put("filePath", "/export/home.xls");

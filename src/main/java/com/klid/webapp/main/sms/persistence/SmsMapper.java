@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Repository("smsMapper")
+@Repository
 public interface SmsMapper {
 	void insertSmsHist(Map<String, Object> paramMap);
 

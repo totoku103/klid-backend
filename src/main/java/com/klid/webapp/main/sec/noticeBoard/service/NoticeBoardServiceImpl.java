@@ -6,8 +6,8 @@ import com.klid.webapp.common.code.persistence.CodeMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.sec.noticeBoard.dto.NoticeBoardDto;
 import com.klid.webapp.main.sec.noticeBoard.persistence.NoticeBoardMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,14 +16,18 @@ import java.util.Map;
 @Service("noticeBoardService")
 public class NoticeBoardServiceImpl extends MsgService implements NoticeBoardService {
 
-	@Resource(name = "noticeBoardMapper")
-	private NoticeBoardMapper mapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public NoticeBoardServiceImpl(MessageSource messageSource, NoticeBoardMapper mapper, UserActHistMapper userActHistMapper, CodeMapper codeMapper) {
+				super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+		this.codeMapper = codeMapper;
+	}
+	private final NoticeBoardMapper mapper;
 
-	@Resource(name = "codeMapper")
-	private CodeMapper codeMapper;
+	private final UserActHistMapper userActHistMapper;
+
+	private final CodeMapper codeMapper;
 
 	/** 게시판 최근리스트 받아오기 */
 	@Override

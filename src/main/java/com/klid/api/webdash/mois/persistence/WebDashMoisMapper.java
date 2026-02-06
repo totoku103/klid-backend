@@ -1,13 +1,11 @@
 package com.klid.api.webdash.mois.persistence;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Component("apiWebDashMoisMapper")
-@Mapper
+@Repository
 public interface WebDashMoisMapper {
 
     Object getThreatNow(Map<String, Object> paramMap);

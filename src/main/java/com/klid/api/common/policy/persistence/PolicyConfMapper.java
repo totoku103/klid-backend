@@ -1,8 +1,8 @@
 package com.klid.api.common.policy.persistence;
 
 import com.klid.api.common.policy.dto.PolicyDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * 정책 설정 Mapper
  */
-@Mapper
+@Repository
 public interface PolicyConfMapper {
 
     /**

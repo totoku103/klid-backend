@@ -9,10 +9,10 @@ import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMap
 import com.klid.webapp.main.rpt.reportWeeklyState.service.ReportWeeklyStateService;
 import com.klid.webapp.main.sec.noticeBoard.dto.NoticeBoardDto;
 import com.klid.webapp.main.sec.noticeBoard.persistence.NoticeBoardMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
@@ -21,50 +21,48 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportWeeklyState")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportWeeklyStateController {
 
-	@Resource(name = "reportWeeklyStateService")
-	private ReportWeeklyStateService service;
+	private final ReportWeeklyStateService service;
 
-	@Resource(name = "noticeBoardMapper")
-	private NoticeBoardMapper mapper;
+	private final NoticeBoardMapper mapper;
 
-	@Resource(name = "reportDailyStateMapper")
-	private ReportDailyStateMapper dailymapper;
+	private final ReportDailyStateMapper dailymapper;
 
 	@RequestMapping(value = "getRotationList")
-	public @ResponseBody ReturnData getRotationList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getRotationList(@RequestParam Map<String, Object> reqMap) {
 			return service.getRotationList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getWeeklyList")
-	public @ResponseBody ReturnData getWeeklyList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getWeeklyList(@RequestParam Map<String, Object> reqMap) {
 		return service.getWeeklyList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getTypeAccidentList_before")
-	public @ResponseBody ReturnData getWeeklyList_before(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getWeeklyList_before(@RequestParam Map<String, Object> reqMap) {
 		return service.getTypeAccidentList_before(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getWeeklyTotList")
-	public @ResponseBody ReturnData getWeeklyTotList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getWeeklyTotList(@RequestParam Map<String, Object> reqMap) {
 		return service.getWeeklyTotList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getTypeAccidentList")
-	public @ResponseBody ReturnData getTypeAccidentList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getTypeAccidentList(@RequestParam Map<String, Object> reqMap) {
 		return service.getTypeAccidentList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getDetectionList")
-	public @ResponseBody ReturnData getDetectionList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDetectionList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDetectionList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "makeReportWeeklyDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData makeReportWeeklyDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData makeReportWeeklyDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		List<NoticeBoardDto> boardList = mapper.getPeriodBoardList(reqMap);
 

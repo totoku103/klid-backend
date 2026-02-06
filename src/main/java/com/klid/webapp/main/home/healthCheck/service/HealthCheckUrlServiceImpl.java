@@ -7,11 +7,11 @@ import com.klid.webapp.common.controller.FileController;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.home.healthCheck.dto.HealthCheckUrlDto;
 import com.klid.webapp.main.home.healthCheck.persistence.HealthCheckUrlMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -22,11 +22,14 @@ import java.util.*;
 @Service("healthCheckUrlService")
 public class HealthCheckUrlServiceImpl extends MsgService implements HealthCheckUrlService {
 
-	@Resource(name = "healthCheckUrlMapper")
-	private HealthCheckUrlMapper mapper;
+	private final HealthCheckUrlMapper mapper;
+	private final UserActHistMapper userActHistMapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public HealthCheckUrlServiceImpl(MessageSource messageSource, HealthCheckUrlMapper mapper, UserActHistMapper userActHistMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
 
 	@Override
 	public ReturnData getHealthCheckUrl(Criterion criterion) {

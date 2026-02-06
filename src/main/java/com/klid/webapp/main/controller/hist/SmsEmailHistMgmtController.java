@@ -3,9 +3,9 @@ package com.klid.webapp.main.controller.hist;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.hist.smsEmailHist.service.SmsEmailHistMgmtService;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,33 +14,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 @RequestMapping("/api/main/hist/smsEmailHist")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class SmsEmailHistMgmtController {
 
-	@Resource(name = "smsEmailHistMgmtService")
-	private SmsEmailHistMgmtService service;
+	private final SmsEmailHistMgmtService service;
 
 	@RequestMapping(value = "getSmsHist")
-	public @ResponseBody
-	ReturnData getSmsHist(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getSmsHist(@RequestParam Map<String, Object> reqMap) {
 		return service.getSmsHist(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getEmailHist")
-	public @ResponseBody
-	ReturnData getEmailHist(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getEmailHist(@RequestParam Map<String, Object> reqMap) {
 		return service.getEmailHist(new Criterion(reqMap));
 	}
 	
 	/** 엑셀 출력 (SMS) */
 	@RequestMapping(value="export_sms")
-	public @ResponseBody ReturnData export_sms(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData export_sms(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		return service.export_sms(response, new Criterion(reqMap));
 	}
 	
 	/** 엑셀 출력 (E-MAIL) */
 	@RequestMapping(value="export_email")
-	public @ResponseBody ReturnData export_email(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData export_email(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		return service.export_email(response, new Criterion(reqMap));
 	}
 }

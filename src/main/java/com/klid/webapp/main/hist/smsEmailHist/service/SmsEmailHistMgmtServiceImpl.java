@@ -9,10 +9,10 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.hist.smsEmailHist.dto.SmsEmailHistMgmtDto;
 import com.klid.webapp.main.hist.smsEmailHist.persistence.SmsEmailHistMgmtMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -24,8 +24,12 @@ import java.util.Map;
 @Service("smsEmailHistMgmtService")
 public class SmsEmailHistMgmtServiceImpl extends MsgService implements SmsEmailHistMgmtService {
 
-    @Resource(name = "smsEmailHistMgmtMapper")
-    private SmsEmailHistMgmtMapper mapper;
+    private final SmsEmailHistMgmtMapper mapper;
+
+    public SmsEmailHistMgmtServiceImpl(MessageSource messageSource, SmsEmailHistMgmtMapper mapper) {
+        super(messageSource);
+        this.mapper = mapper;
+    }
 
     @Override
     public ReturnData getSmsHist(Criterion criterion){

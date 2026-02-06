@@ -2,13 +2,13 @@ package com.klid.api.common.login.persistence;
 
 import com.klid.api.common.login.dto.UserDTO;
 import com.klid.api.common.login.dto.UserLogDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * 로그인 Mapper
  */
-@Mapper
+@Repository
 public interface LoginMapper {
 
     /**

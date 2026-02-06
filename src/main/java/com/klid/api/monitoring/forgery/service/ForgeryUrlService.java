@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 위변조 URL Service
  */
-@Service("apiForgeryUrlService")
+@Service
 @RequiredArgsConstructor
 public class ForgeryUrlService {
 

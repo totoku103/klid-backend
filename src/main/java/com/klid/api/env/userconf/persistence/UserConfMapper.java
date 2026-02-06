@@ -2,12 +2,12 @@ package com.klid.api.env.userconf.persistence;
 
 import com.klid.api.env.userconf.dto.CodeDTO;
 import com.klid.api.env.userconf.dto.UserDTO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Mapper
+@Repository
 public interface UserConfMapper {
     List<UserDTO> selectUserAddrList(Map<String, Object> params);
     List<UserDTO> selectUserConfList(Map<String, Object> params);

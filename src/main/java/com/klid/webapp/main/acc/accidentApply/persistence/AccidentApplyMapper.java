@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("accidentApplyMapper")
+@Repository
 public interface AccidentApplyMapper {
 	/** 신고 목록	 */
 	List<AccidentApplyDto> getAccidentApplyList(Map<String, Object> paramMap);

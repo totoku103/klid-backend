@@ -2,15 +2,13 @@ package com.klid.api.board.resource.persistence;
 
 import com.klid.api.board.resource.dto.ResourceBoardDTO;
 import com.klid.api.board.resource.dto.ResourceBoardListDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Component("apiResourceBoardMapper")
-@Mapper
+@Repository
 public interface ResourceBoardMapper {
 
     List<ResourceBoardListDTO> getBoardList(

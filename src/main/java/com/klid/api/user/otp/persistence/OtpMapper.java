@@ -1,9 +1,9 @@
 package com.klid.api.user.otp.persistence;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-@Mapper
+@Repository
 public interface OtpMapper {
     String selectOtpSecretKeyByUserIdAndIpAddr(@Param("userId") String userId,
                                                 @Param("ipAddr") String ipAddr);

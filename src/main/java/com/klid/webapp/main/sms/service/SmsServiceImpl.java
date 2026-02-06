@@ -7,7 +7,7 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.main.sms.dto.SmsInfoDto;
 import com.klid.webapp.main.sms.persistence.SmsMapper;
-import jakarta.annotation.Resource;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -20,8 +20,12 @@ import java.util.*;
 @Service("smsService")
 public class SmsServiceImpl extends MsgService implements SmsService {
 
-    @Resource(name="smsMapper")
-    private SmsMapper mapper;
+    private final SmsMapper mapper;
+
+    public SmsServiceImpl(MessageSource messageSource, SmsMapper mapper) {
+        super(messageSource);
+        this.mapper = mapper;
+    }
 
     @Override
     public ReturnData addSmsMessage(Criterion criterion) {

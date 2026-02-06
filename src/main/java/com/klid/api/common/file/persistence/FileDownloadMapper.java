@@ -1,13 +1,13 @@
 package com.klid.api.common.file.persistence;
 
 import com.klid.api.common.file.dto.AttachFileDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * 파일 다운로드 Mapper
  */
-@Mapper
+@Repository
 public interface FileDownloadMapper {
 
     /**

@@ -1,8 +1,7 @@
 package com.klid.api.monitoring.forgery.persistence;
 
 import com.klid.api.monitoring.forgery.dto.ForgeryUrlDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -10,8 +9,7 @@ import java.util.Map;
 /**
  * 위변조 URL Mapper
  */
-@Component("apiForgeryUrlMapper")
-@Mapper
+@Repository
 public interface ForgeryUrlMapper {
 
     /**

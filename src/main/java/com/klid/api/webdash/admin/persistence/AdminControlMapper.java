@@ -1,14 +1,12 @@
 package com.klid.api.webdash.admin.persistence;
 
 import com.klid.api.webdash.admin.dto.*;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Component("apiAdminControlMapper")
-@Mapper
+@Repository
 public interface AdminControlMapper {
 
     IncidentDTO selectIncidentStatus(Map<String, Object> paramMap);

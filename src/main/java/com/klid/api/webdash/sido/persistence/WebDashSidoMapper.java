@@ -1,12 +1,10 @@
 package com.klid.api.webdash.sido.persistence;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@Component("apiWebDashSidoMapper")
-@Mapper
+@Repository
 public interface WebDashSidoMapper {
 
     Object getNoticeList(Map<String, Object> paramMap);

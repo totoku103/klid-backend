@@ -4,8 +4,8 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.sec.shareBoard.dto.ShareBoardDto;
 import com.klid.webapp.main.sec.shareBoard.persistence.ShareBoardMapper;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.context.MessageSource;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,11 +14,15 @@ import java.util.Map;
 @Service("shareBoardService")
 public class ShareBoardServiceImpl extends MsgService implements ShareBoardService {
 
-	@Resource(name = "shareBoardMapper")
-	private ShareBoardMapper mapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public ShareBoardServiceImpl(MessageSource messageSource, ShareBoardMapper mapper, UserActHistMapper userActHistMapper) {
+				super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
+	private final ShareBoardMapper mapper;
+
+	private final UserActHistMapper userActHistMapper;
 
 	/** 게시판 최근리스트 받아오기 */
 	@Override

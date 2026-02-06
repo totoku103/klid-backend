@@ -6,11 +6,11 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.main.env.instMgmt.dto.InstMgmtDto;
 import com.klid.webapp.main.env.instMgmt.persistence.InstMgmtMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -22,11 +22,14 @@ import java.util.Map;
 @Service("instMgmtService")
 public class InstMgmtServiceImpl extends MsgService implements InstMgmtService {
 
-	@Resource(name = "instMgmtMapper")
-	private InstMgmtMapper mapper;
+	private final InstMgmtMapper mapper;
+	private final UserActHistMapper userActHistMapper;
 
-	@Resource(name = "userActHistMapper")
-	private UserActHistMapper userActHistMapper;
+	public InstMgmtServiceImpl(MessageSource messageSource, InstMgmtMapper mapper, UserActHistMapper userActHistMapper) {
+		super(messageSource);
+		this.mapper = mapper;
+		this.userActHistMapper = userActHistMapper;
+	}
 
 	@Override
 	public ReturnData getInstMgmtList(Criterion criterion) {

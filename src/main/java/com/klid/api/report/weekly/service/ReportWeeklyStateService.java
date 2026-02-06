@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 주간 상태 보고서 Service
  */
-@Service("apiReportWeeklyStateService")
+@Service
 @RequiredArgsConstructor
 public class ReportWeeklyStateService {
 

@@ -5,9 +5,9 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.center.dto.WebDashCenterDto;
 import com.klid.webapp.webdash.center.persistence.WebDashCenterMapper;
-import jakarta.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.json.JSONObject;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -15,8 +15,12 @@ import java.util.*;
 @Service("webDashCenterService")
 public class WebDashCenterServiceImpl extends MsgService implements WebDashCenterService {
 
-    @Resource(name = "webDashCenterMapper")
-    private WebDashCenterMapper mapper;
+    private final WebDashCenterMapper mapper;
+
+    public WebDashCenterServiceImpl(MessageSource messageSource, WebDashCenterMapper mapper) {
+        super(messageSource);
+        this.mapper = mapper;
+    }
 
     @Override
     public ReturnData getAttNationTop5(Criterion criterion) {

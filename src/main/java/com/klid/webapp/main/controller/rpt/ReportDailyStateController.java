@@ -7,52 +7,51 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyState.service.ReportDailyStateService;
 import com.klid.webapp.main.sec.noticeBoard.dto.NoticeBoardDto;
 import com.klid.webapp.main.sec.noticeBoard.persistence.NoticeBoardMapper;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportDailyState")
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class ReportDailyStateController {
 
-	@Resource(name = "reportDailyStateService")
-	private ReportDailyStateService service;
+	private final ReportDailyStateService service;
 
-	@Resource(name = "noticeBoardMapper")
-	private NoticeBoardMapper mapper;
+	private final NoticeBoardMapper mapper;
 
 	@RequestMapping(value = "getRotationList")
-	public @ResponseBody ReturnData getRotationList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getRotationList(@RequestParam Map<String, Object> reqMap) {
 		return service.getRotationList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getDailyList")
-	public @ResponseBody ReturnData getDailyList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDailyList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDailyList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getDailyTotList")
-	public @ResponseBody ReturnData getDailyTotList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDailyTotList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDailyTotList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getTypeAccidentList")
-	public @ResponseBody ReturnData getTypeAccidentList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getTypeAccidentList(@RequestParam Map<String, Object> reqMap) {
 			return service.getTypeAccidentList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "getDetectionList")
-	public @ResponseBody ReturnData getDetectionList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getDetectionList(@RequestParam Map<String, Object> reqMap) {
 		return service.getDetectionList(new Criterion(reqMap));
 	}
 
 	@RequestMapping(value = "makeReportDailyStateDownload", method = RequestMethod.POST)
-	public @ResponseBody ReturnData makeReportDailyStateDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
+	public ReturnData makeReportDailyStateDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 
 		List<NoticeBoardDto> boardList = mapper.getPeriodBoardList(reqMap);
 

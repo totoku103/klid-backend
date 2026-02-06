@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("webDashMoisMapper")
+@Repository
 public interface WebDashMoisMapper {
     /** 사이버 위기경보 */
     List<WebDashMoisDto> getThreatNow(Map<String, Object> paramMap);

@@ -2,7 +2,7 @@ package com.klid.api.common.group.persistence;
 
 import com.klid.api.common.group.dto.AuthGroupDTO;
 import com.klid.api.common.group.dto.GroupDTO;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * 그룹 관리 MyBatis Mapper
  */
-@Mapper
+@Repository
 public interface GroupMapper {
 
     void procSpMakeGrpLeaf(Map<String, Object> paramMap);

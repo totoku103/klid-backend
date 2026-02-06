@@ -5,8 +5,8 @@ import com.klid.common.CommonController;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.engineer.menuMgmt.service.MenuMgmtService;
-import jakarta.annotation.Resource;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 
 @RequestMapping("/api/engineer/menuMgmt")
-@Controller("engineer.menuMgmtController")
+@RestController("engineer.menuMgmtController")
+@RequiredArgsConstructor
 public class MenuMgmtController extends CommonController {
-	
-	@Resource(name="menuMgmtService")
-	private MenuMgmtService service;
+
+	private final MenuMgmtService service;
 
 	
 	@RequestMapping(value="getPageList")
-	public @ResponseBody ReturnData getPageList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getPageList(@RequestParam Map<String, Object> reqMap) {
 		Criterion criterion = new Criterion(reqMap);
 		criterion.addParam("siteName", AppGlobal.webSiteName);
 			
@@ -30,7 +30,7 @@ public class MenuMgmtController extends CommonController {
 	}
 	
 	@RequestMapping(value="getPageGroupList")
-	public @ResponseBody ReturnData getPageGroupList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getPageGroupList(@RequestParam Map<String, Object> reqMap) {
 		Criterion criterion = new Criterion(reqMap);
 		criterion.addParam("siteName", AppGlobal.webSiteName);
 
@@ -38,7 +38,7 @@ public class MenuMgmtController extends CommonController {
 	}
 	
 	@RequestMapping(value="getMenuList")
-	public @ResponseBody ReturnData getMenuList(@RequestParam Map<String, Object> reqMap) {
+	public ReturnData getMenuList(@RequestParam Map<String, Object> reqMap) {
 		Criterion criterion = new Criterion(reqMap);
 		criterion.addParam("siteName", AppGlobal.webSiteName);
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository("nationIPMgmtMapper")
+@Repository
 public interface NationIPMgmtMapper {
 
 	/** 국가 리스트 조회 */
