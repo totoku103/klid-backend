@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.charshape;
 /**
  * 외곽선 종류
  * 
- * @author neolord
  */
 public enum OutterLineSort {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.header;
 /**
  * 머리글/꼬리글 적용 페이지 종류
  * 
- * @author neolord
  */
 public enum HeaderFooterApplyPage {
 	/**

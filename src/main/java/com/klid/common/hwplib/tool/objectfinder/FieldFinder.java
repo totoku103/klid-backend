@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.tool.objectfinder;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.HWPFile;
 import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
 import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
 /**
  * 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class FieldFinder {
 	/**

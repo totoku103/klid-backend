@@ -1,9 +1,9 @@
 package com.klid.common.hwplib.tool.paragraphadder.docinfo;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.docinfo.FaceName;
 import com.klid.common.hwplib.object.docinfo.facename.FontTypeInfo;
+
+import java.util.ArrayList;
 
 public class FaceNameAdder {
 	private DocInfoAdder docInfoAdder;

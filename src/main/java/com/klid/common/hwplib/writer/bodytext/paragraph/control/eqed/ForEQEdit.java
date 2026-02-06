@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.eqed;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.bodytext.control.equation.EQEdit;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.StringUtil;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 수식 정보 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForEQEdit {
 	/**

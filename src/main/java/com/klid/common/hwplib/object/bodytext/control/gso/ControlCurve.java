@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bodytext.control.gso;
 
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentCurve;
+import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 
 /**
  * 곡선 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlCurve extends GsoControl {
 	/**

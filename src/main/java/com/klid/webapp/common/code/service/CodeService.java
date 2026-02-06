@@ -1,20 +1,4 @@
-/**
- * Program Name	: LoginService.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 3. 2.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.code.service;
-
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
@@ -65,6 +49,5 @@ public interface CodeService {
 	ReturnData getDashTextCode(Criterion criterion);
 
 	ReturnData getNoticeSrcType(Criterion criterion);
-
 
 }

@@ -1,29 +1,9 @@
-/**
- * Program Name : NoticeDto.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 14.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.sec.noticeBoard.dto;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * @author kdj
- *
- */
 public class NoticeDto {
 	private int boardNo;
 	private String userId;

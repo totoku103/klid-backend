@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 이미지 채우기 유형
  * 
- * @author neolord
  */
 public enum ImageFillType {
 	/**

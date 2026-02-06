@@ -1,17 +1,11 @@
 package com.klid.common.hwplib.object.docinfo;
 
+import com.klid.common.hwplib.object.docinfo.charshape.*;
 import com.klid.common.hwplib.object.etc.Color4Byte;
-import com.klid.common.hwplib.object.docinfo.charshape.CharOffsets;
-import com.klid.common.hwplib.object.docinfo.charshape.CharShapeProperty;
-import com.klid.common.hwplib.object.docinfo.charshape.CharSpaces;
-import com.klid.common.hwplib.object.docinfo.charshape.FaceNameIds;
-import com.klid.common.hwplib.object.docinfo.charshape.Ratios;
-import com.klid.common.hwplib.object.docinfo.charshape.RelativeSizes;
 
 /**
  * 글자 모양을 나타내는 레코드
  * 
- * @author neolord
  */
 public class CharShape {
 	/**

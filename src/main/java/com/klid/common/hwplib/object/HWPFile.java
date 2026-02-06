@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.object;
 
-import com.klid.common.hwplib.object.bodytext.BodyText;
-import com.klid.common.hwplib.object.fileheader.FileHeader;
 import com.klid.common.hwplib.object.bindata.BinData;
+import com.klid.common.hwplib.object.bodytext.BodyText;
 import com.klid.common.hwplib.object.docinfo.DocInfo;
+import com.klid.common.hwplib.object.fileheader.FileHeader;
 
 /**
  * HWP File를 나타내는 객체
  * 
- * @author neolord
  */
 public class HWPFile {
 	/**

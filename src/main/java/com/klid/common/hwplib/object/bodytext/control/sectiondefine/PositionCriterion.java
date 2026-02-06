@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 위치 기준
  * 
- * @author neolord
  */
 public enum PositionCriterion {
 	/**

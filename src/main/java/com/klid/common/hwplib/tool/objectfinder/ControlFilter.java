@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.tool.objectfinder;
 
+import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
-import com.klid.common.hwplib.object.bodytext.Section;
 
 /**
  * 원하는 컨트롤을 찾기 위한 조건을 입력할 수 있는 인터페이스
  * 
- * @author neolord
  */
 public interface ControlFilter {
 	/**

@@ -1,8 +1,8 @@
 package com.klid.webapp.common;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.common.dto.*;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Profile;

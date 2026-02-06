@@ -1,7 +1,7 @@
 package com.klid.common.hwplib.reader.bodytext;
 
-import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
+import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.reader.bodytext.paragraph.ForParagraph;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 문단 리스트를 읽는 객체
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.polygon.PositionXY;
+
+import java.util.ArrayList;
 
 /**
  * 다각형 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentPolygon {
 	/**

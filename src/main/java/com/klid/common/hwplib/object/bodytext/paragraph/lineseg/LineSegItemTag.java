@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 각 중의 align 정보의 태그 정보에 대한 객체
  * 
- * @author neolord
  */
 public class LineSegItemTag {
 	/**

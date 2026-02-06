@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 글꼴에 대한 속성 객체
  * 
- * @author neolord
  */
 public class FaceNameProperty {
 	/**

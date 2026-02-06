@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.paragraph.header.ParaHeader;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 문단 헤더 레코드를 읽는 객체
  * 
- * @author neolord
  */
 public class ForParaHeader {
 	/**

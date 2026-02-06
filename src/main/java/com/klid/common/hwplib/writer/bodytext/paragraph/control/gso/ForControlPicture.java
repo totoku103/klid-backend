@@ -1,7 +1,5 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlPicture;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentPicture;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.InnerMargin;
@@ -10,10 +8,11 @@ import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.ForPictureEffect;
 import com.klid.common.hwplib.writer.docinfo.borderfill.ForFillInfo;
 
+import java.io.IOException;
+
 /**
  * 그림 컨트롤의 나머지 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPicture {
 	/**

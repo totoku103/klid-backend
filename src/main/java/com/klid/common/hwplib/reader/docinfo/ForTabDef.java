@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.reader.docinfo;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.docinfo.TabDef;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.object.docinfo.tabdef.TabInfo;
 import com.klid.common.hwplib.object.docinfo.tabdef.TabSort;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 탭 정의 레코드를 읽는다.
  * 
- * @author neolord
  */
 public class ForTabDef {
 	/**

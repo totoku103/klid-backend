@@ -3,7 +3,6 @@ package com.klid.common.hwplib.util.binary;
 /**
  * 이진 연산을 하는 객체
  * 
- * @author neolord
  */
 public class BitFlag {
 	/**

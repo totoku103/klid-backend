@@ -1,37 +1,17 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.hist;
 
-
-import java.util.Map;
-
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.main.hist.smsEmailHist.service.SmsEmailHistMgmtService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.main.hist.smsEmailHist.service.SmsEmailHistMgmtService;
+import java.util.Map;
 
 @RequestMapping("/api/main/hist/smsEmailHist")
 @Controller
@@ -39,7 +19,6 @@ public class SmsEmailHistMgmtController {
 
 	@Resource(name = "smsEmailHistMgmtService")
 	private SmsEmailHistMgmtService service;
-
 
 	@RequestMapping(value = "getSmsHist")
 	public @ResponseBody

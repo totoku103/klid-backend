@@ -1,66 +1,25 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.acc;
 
-import java.io.*;
-import java.net.URLEncoder;
-import java.net.UnknownHostException;
-import java.util.*;
-
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletResponse;
-
 import com.klid.common.AppGlobal;
+import com.klid.common.Base64Coder;
 import com.klid.common.SEED_KISA256;
 import com.klid.common.hwplib.object.HWPFile;
 import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.reader.HWPReader;
 import com.klid.common.hwplib.tool.objectfinder.FieldFinder;
 import com.klid.common.hwplib.tool.objectfinder.SetFieldResult;
 import com.klid.common.hwplib.writer.HWPWriter;
-import org.apache.commons.lang3.time.DateFormatUtils;
-
-import org.json.JSONException;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Controller;
-
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.acc.accidentApply.service.AccidentApplyService;
-
-
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.entity.mime.HttpMultipartMode;
@@ -69,15 +28,16 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
+import org.json.JSONException;
+import org.json.simple.JSONObject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-import com.klid.common.Base64Coder;
+import java.io.*;
+import java.net.URLEncoder;
+import java.net.UnknownHostException;
+import java.util.*;
 
-
-
-/**
- * @author imhojong
- *
- */
 @RequestMapping("/api/main/acc/accidentApply")
 @Controller
 public class AccidentApplyController {
@@ -133,7 +93,6 @@ public class AccidentApplyController {
 		return service.updateMultiAccidentProcess(new Criterion(reqMap, false));
 	}
 
-
 	/** 신고 히스토리 리스트 받아오기 */
 	@RequestMapping(value = "getAccidentHistoryList")
 	public @ResponseBody ReturnData getAccidentHistoryList(@RequestParam Map<String, Object> reqMap) {
@@ -161,7 +120,6 @@ public class AccidentApplyController {
 	@RequestMapping(value = "makeAcciHwpDownload", method = RequestMethod.POST)
 	public @ResponseBody ReturnData makeAcciHwpDownload(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {
 		try{
-
 
 			String filename = AppGlobal.reportTemplate+"acc_report.hwp";
 			HWPFile hwpFile = HWPReader.fromFile(filename);
@@ -418,8 +376,6 @@ public class AccidentApplyController {
 		return service.getInstByIP(new Criterion(reqMap));
 	}
 
-
-
 	/** 엔지니어 - 사고접수 비암호화(이메일) 목록 */
 	@RequestMapping(value = "getEncrySyncList")
 	public @ResponseBody ReturnData getEncrySyncList(@RequestParam Map<String, Object> reqMap) {
@@ -506,7 +462,6 @@ public class AccidentApplyController {
 
 			jo.put("responseInfo", j);
 
-
 			CloseableHttpClient client = HttpClients.createDefault();
 			HttpPost httppost = new HttpPost(url);
 
@@ -516,7 +471,6 @@ public class AccidentApplyController {
 			build.addTextBody("key", key);
 			build.addTextBody("type",type);
 			build.addTextBody("obj", URLEncoder.encode(jo.toJSONString(),"UTF-8"));
-
 
 			httppost.setEntity(build.build());
 			CloseableHttpResponse res = client.execute(httppost);
@@ -541,7 +495,6 @@ public class AccidentApplyController {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 		return result;
 	}

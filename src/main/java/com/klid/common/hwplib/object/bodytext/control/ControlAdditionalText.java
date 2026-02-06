@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderAddit
 /**
  * 덧말 컨트롤
  * 
- * @author neolord
  */
 public class ControlAdditionalText extends Control {
 	/**

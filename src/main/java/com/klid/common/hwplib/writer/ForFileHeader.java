@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.fileheader.FileHeader;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.binary.BitFlag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
+
 /**
  * 파일 헤더를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForFileHeader {
 	/**

@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * OLE 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentOLE {
 	/**

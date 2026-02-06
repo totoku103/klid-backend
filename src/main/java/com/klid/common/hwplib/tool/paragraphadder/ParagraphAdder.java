@@ -1,11 +1,11 @@
 package com.klid.common.hwplib.tool.paragraphadder;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.HWPFile;
-import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
+import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.tool.paragraphadder.docinfo.DocInfoAdder;
+
+import java.util.ArrayList;
 
 public class ParagraphAdder {
 	private HWPFile targetHWPFile;

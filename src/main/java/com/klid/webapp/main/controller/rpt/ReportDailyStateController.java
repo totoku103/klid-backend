@@ -1,19 +1,3 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.rpt;
 
 import com.klid.common.AppGlobal;
@@ -23,12 +7,12 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyState.service.ReportDailyStateService;
 import com.klid.webapp.main.sec.noticeBoard.dto.NoticeBoardDto;
 import com.klid.webapp.main.sec.noticeBoard.persistence.NoticeBoardMapper;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletResponse;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -176,7 +160,6 @@ public class ReportDailyStateController {
 		hmlMaker.setParam("instB8", String.valueOf(stringToComma((int)grid.get(8).get("inci_type_inst2"))));
 		hmlMaker.setParam("instC8", String.valueOf(stringToComma((int)grid.get(8).get("inci_type_inst3"))));
 		hmlMaker.setParam("t_sum8", String.valueOf(stringToComma((int)grid.get(8).get("sums"))));
-
 
 		if(reqMap.get("reportType").equals("1")){
 			hmlMaker.setParam("gook_cnt", String.valueOf(stringToComma((int)grid.get(0).get("ncsc_code_cnt") + (int)grid.get(0).get("ncsc_etc_cnt"))));

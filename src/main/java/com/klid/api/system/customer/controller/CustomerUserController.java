@@ -1,6 +1,5 @@
 package com.klid.api.system.customer.controller;
 
-import com.klid.api.system.customer.dto.CustomerUserRequest;
 import com.klid.api.system.customer.dto.CustomerUserResponse;
 import com.klid.api.system.customer.dto.SmsGroupRequest;
 import com.klid.api.system.customer.dto.SmsGroupResponse;

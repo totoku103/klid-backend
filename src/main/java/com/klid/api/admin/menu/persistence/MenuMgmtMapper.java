@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * 메뉴 관리 Mapper
- */
 @Component("apiMenuMgmtMapper")
 @Mapper
 public interface MenuMgmtMapper {

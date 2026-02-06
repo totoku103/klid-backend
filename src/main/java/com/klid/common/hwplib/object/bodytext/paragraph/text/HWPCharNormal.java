@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 /**
  * 일반 Character
  * 
- * @author neolord
  */
 public class HWPCharNormal extends HWPChar {
 	/**

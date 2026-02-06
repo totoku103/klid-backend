@@ -1,26 +1,7 @@
-/**
- * Program Name	: PageDto.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 28.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.menu.dto;
 
 import java.util.List;
 
-/**
- * @author jung
- *
- */
 public class PageDto {
 	private long pageNo;
 	private String pageName;

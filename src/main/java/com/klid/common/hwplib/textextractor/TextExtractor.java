@@ -8,7 +8,6 @@ import java.io.UnsupportedEncodingException;
 /**
  * 한글 파일에서 텍스트를 추출하는 객체
  * 
- * @author neolord
  */
 public class TextExtractor {
 	/**

@@ -1,18 +1,3 @@
-/**
- * Program Name	: MsgService.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 3. 2.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +5,6 @@ import org.springframework.context.MessageSource;
 
 import java.util.Locale;
 
-/**
- * @author jung
- *
- */
 public class MsgService {
 
 	@Autowired

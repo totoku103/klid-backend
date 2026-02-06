@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.caption;
 /**
  * 캡션 방향
  * 
- * @author neolord
  */
 public enum CaptionDirection {
 	/**

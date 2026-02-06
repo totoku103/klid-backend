@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.charshape;
 /**
  * 밑줄 종류
  * 
- * @author neolord
  */
 public enum UnderLineSort {
 	/**

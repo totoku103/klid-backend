@@ -1,18 +1,3 @@
-/**
- * Program Name	: HtmlEscapingObjectMapperFactory.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2016. 11. 23.
- * 
- * Programmer Name 	: jjung
- *
- * Copyright 2016 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
 import com.fasterxml.jackson.core.SerializableString;
@@ -23,10 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.FactoryBean;
 
-/**
- * @author jjung
- *
- */
 public class HtmlEscapingObjectMapperFactory implements FactoryBean<ObjectMapper> {
 
 	private final ObjectMapper objectMapper;
@@ -63,7 +44,6 @@ public class HtmlEscapingObjectMapperFactory implements FactoryBean<ObjectMapper
             asciiEscapes['"'] = CharacterEscapes.ESCAPE_CUSTOM;
             asciiEscapes['\''] = CharacterEscapes.ESCAPE_CUSTOM;
         }
-
 
         @Override
         public int[] getEscapeCodesForAscii() {

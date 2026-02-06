@@ -1,32 +1,19 @@
 package com.klid.common.hwplib.tool.objectfinder;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.HWPFile;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
+import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
+import com.klid.common.hwplib.object.bodytext.Section;
+import com.klid.common.hwplib.object.bodytext.control.*;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
 import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
-import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
-import com.klid.common.hwplib.object.bodytext.Section;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+
+import java.util.ArrayList;
 
 /**
  * 원하는 컨트롤을 찾기 위한 객체
  * 
- * @author neolord
  */
 public class ControlFinder {
 	/**

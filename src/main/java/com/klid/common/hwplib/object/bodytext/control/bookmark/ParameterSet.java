@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 파라미터 셋 객체
  * 
- * @author neolord
  */
 public class ParameterSet {
 	/**

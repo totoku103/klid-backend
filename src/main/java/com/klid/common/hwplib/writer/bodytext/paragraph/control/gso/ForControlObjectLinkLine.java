@@ -1,11 +1,11 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.bodytext.control.gso.ControlObjectLinkLine;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentLineForObjectLinkLine;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlObjectLinkLine;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 public class ForControlObjectLinkLine {
 	/**

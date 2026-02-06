@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.object.docinfo;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.docinfo.tabdef.TabDefProperty;
 import com.klid.common.hwplib.object.docinfo.tabdef.TabInfo;
+
+import java.util.ArrayList;
 
 /**
  * 탭 정의에 대한  레코드
  * 
- * @author neolord
  */
 public class TabDef {
 	/**

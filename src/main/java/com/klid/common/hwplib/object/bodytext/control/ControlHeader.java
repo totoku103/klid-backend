@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 머리말 컨트롤
  * 
- * @author neolord
  */
 public class ControlHeader extends Control {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadow
 /**
  * 그림자 종류
  * 
- * @author neolord
  */
 public enum ShadowType {
 	/**

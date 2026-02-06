@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.textbox.ListHeaderProp
 /**
  * 숨은 설명을 위한 문단 리스트 헤더
  * 
- * @author neolord
  */
 public class ListHeaderForHiddenComment {
 	/**

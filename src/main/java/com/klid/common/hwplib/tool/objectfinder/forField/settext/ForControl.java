@@ -1,15 +1,8 @@
 package com.klid.common.hwplib.tool.objectfinder.forField.settext;
 
-import com.klid.common.hwplib.object.bodytext.control.table.Cell;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
+import com.klid.common.hwplib.object.bodytext.control.*;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.tool.objectfinder.SetFieldResult;
 import com.klid.common.hwplib.tool.objectfinder.TextBuffer;
@@ -18,7 +11,6 @@ import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
 /**
  * 컨트롤에 포함된 필드의 텍스트를 설정하는 기능을 포함한 클래스
  * 
- * @author 박성균
  */
 public class ForControl {
 	/**

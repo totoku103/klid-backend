@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.writer;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.etc.UnknownRecord;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 알수 없는 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForUnknown {
 	/**

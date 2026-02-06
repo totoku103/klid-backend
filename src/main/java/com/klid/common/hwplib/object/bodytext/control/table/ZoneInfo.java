@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.table;
 /**
  * 영역 속성
  * 
- * @author neolord
  */
 public class ZoneInfo {
 	/**

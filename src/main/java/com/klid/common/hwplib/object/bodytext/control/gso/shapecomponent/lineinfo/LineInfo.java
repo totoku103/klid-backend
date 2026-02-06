@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 테두리 선 정보
  * 
- * @author neolord
  */
 public class LineInfo {
 	/**

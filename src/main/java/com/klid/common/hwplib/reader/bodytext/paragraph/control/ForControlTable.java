@@ -1,23 +1,22 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
+import com.klid.common.hwplib.object.bodytext.control.ControlTable;
 import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl.ForCell;
-import com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl.ForTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForCtrlData;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForCaption;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForCtrlHeaderGso;
+import com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl.ForCell;
+import com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl.ForTable;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * 표 컨트롤을 읽기 위한 객체
  * 
- * @author 박성균
  */
 public class ForControlTable {
 	/**

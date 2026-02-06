@@ -1,9 +1,8 @@
 package com.klid.webapp.common.file.service;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface FileUploadService {
 	public void fileUploadLocal(MultipartFile multipartFile, String tempFileName);

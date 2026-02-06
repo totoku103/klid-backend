@@ -4,7 +4,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.render
  * 행렬을 나타내는 객체. 각 행렬는 원소가 double로 표현되는 3 X 3 matrix로 구현된다. 마지막 행은 항상 [0,0,1]이기
  * 떄문에 생략되어 실제 6개의 원소만 저장한다.
  * 
- * @author neolord
  */
 public class Matrix {
 	/**

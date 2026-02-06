@@ -1,37 +1,14 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.sys;
 
-import java.util.Map;
-
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.common.code.service.CodeService;
 import jakarta.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.common.code.service.CodeService;
+import java.util.Map;
 
-/**
- * @author imhojong
- *
- */
 @RequestMapping("/api/main/sys")
 @Controller
 public class CodeMgmtController {
@@ -72,7 +49,6 @@ public class CodeMgmtController {
     public @ResponseBody ReturnData delWeekDay(@RequestBody Map<String, Object> reqMap) {
         return service.delWeekDay(new Criterion(reqMap, false));
     }
-
 
     // 외부사용자 조회
     @RequestMapping(value="getCustUserList")

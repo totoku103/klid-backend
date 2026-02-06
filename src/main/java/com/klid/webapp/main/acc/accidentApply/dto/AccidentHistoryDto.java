@@ -1,9 +1,5 @@
 package com.klid.webapp.main.acc.accidentApply.dto;
 
-/**
- * @author imhojong
- *
- */
 public class AccidentHistoryDto {
 	private int histNo;
 	private int grpNo;

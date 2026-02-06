@@ -1,9 +1,9 @@
 package com.klid.api.logs.connect.controller;
 
+import com.klid.api.logs.common.dto.InstitutionSummaryGridResDTO;
 import com.klid.api.logs.connect.dto.InstitutionChartDTO;
 import com.klid.api.logs.connect.dto.InstitutionSearchReqDTO;
 import com.klid.api.logs.connect.service.UserConnectLogInstitutionService;
-import com.klid.api.logs.common.dto.InstitutionSummaryGridResDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

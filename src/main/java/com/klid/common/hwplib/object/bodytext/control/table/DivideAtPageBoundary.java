@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.table;
 /**
  * 쪽 경계에서 나눔 방법
  * 
- * @author neolord
  */
 public enum DivideAtPageBoundary {
 	/**

@@ -1,20 +1,19 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterItem;
+import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterSet;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterType;
+import com.klid.common.hwplib.object.bodytext.control.gso.textbox.ListHeaderForTextBox;
 import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForParameterSet;
-import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterItem;
-import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterSet;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.ListHeaderForTextBox;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 글상자를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForTextBox {
 	/**

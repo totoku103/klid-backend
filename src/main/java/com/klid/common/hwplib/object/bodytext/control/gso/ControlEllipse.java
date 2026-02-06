@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bodytext.control.gso;
 
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentEllipse;
+import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 
 /**
  * 타원 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlEllipse extends GsoControl {
 	/**

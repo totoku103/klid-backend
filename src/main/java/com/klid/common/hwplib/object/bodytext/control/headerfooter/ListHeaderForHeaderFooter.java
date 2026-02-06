@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.textbox.ListHeaderProp
 /**
  * 머리말/꼬리말을 위한 문단 리스트 헤더 레코드
  * 
- * @author neolord
  */
 public class ListHeaderForHeaderFooter {
 	/**

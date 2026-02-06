@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 /**
  * 사각형 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlRectangle extends GsoControl {
 	/**

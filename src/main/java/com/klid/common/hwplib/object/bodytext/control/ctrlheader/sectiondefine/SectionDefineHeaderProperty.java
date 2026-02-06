@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 구역 정의 컨트롤의 속성 객체
  * 
- * @author neoloed
  */
 public class SectionDefineHeaderProperty {
 	/**

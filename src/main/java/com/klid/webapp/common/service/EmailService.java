@@ -1,6 +1,5 @@
 package com.klid.webapp.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.ThirdPartyRestTemplate;
@@ -9,7 +8,7 @@ import com.klid.webapp.common.dto.ThirdPartyAuthEmailSendCryptResDto;
 import com.klid.webapp.common.dto.ThirdPartyBaseResDto;
 import com.klid.webapp.common.dto.UserLastActionDto;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
-import com.klid.webapp.main.rpt.reportCollection.persistence.ReportCollectionMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;

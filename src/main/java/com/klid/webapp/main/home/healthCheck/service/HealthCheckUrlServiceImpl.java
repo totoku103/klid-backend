@@ -1,28 +1,4 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.home.healthCheck.service;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.*;
-
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
 
 import com.klid.common.AppGlobal;
 import com.klid.common.util.XLSFileBuilder;
@@ -30,12 +6,18 @@ import com.klid.webapp.common.*;
 import com.klid.webapp.common.controller.FileController;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.home.healthCheck.dto.HealthCheckUrlDto;
+import com.klid.webapp.main.home.healthCheck.persistence.HealthCheckUrlMapper;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletOutputStream;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Service;
 
-import com.klid.webapp.main.home.healthCheck.persistence.HealthCheckUrlMapper;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
 
 @Service("healthCheckUrlService")
 public class HealthCheckUrlServiceImpl extends MsgService implements HealthCheckUrlService {

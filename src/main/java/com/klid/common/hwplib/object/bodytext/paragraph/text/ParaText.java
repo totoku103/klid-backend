@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * 문단의 텍스트 레코드
  * 
- * @author neolord
  */
 public class ParaText {
 	/**
@@ -227,7 +226,6 @@ public class ParaText {
 		}
     	processEndOfParagraph();
     }
-
 
 	/**
 	 * 표 컨트롤를 추가하기 위한  확장 컨트롤 문자를 추가한다.

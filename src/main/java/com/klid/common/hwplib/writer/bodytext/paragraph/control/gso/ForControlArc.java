@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentArc;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.ForTextBox;
+
+import java.io.IOException;
 
 /**
  * 호 컨트롤의 나머지 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlArc {
 	/**

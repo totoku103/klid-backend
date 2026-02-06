@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 스타일의 속성 객체
  * 
- * @author neolord
  */
 public class StyleProperty {
 	/**

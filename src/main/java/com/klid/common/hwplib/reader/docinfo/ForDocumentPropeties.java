@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.docinfo;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.docinfo.DocumentPropeties;
 import com.klid.common.hwplib.object.docinfo.documentproperties.CaretPosition;
 import com.klid.common.hwplib.object.docinfo.documentproperties.StartNumber;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 문서 속성 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForDocumentPropeties {
 	/**

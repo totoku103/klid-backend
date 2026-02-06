@@ -1,49 +1,31 @@
-/**
- * Program Name	: LoginServiceImpl.java
- * <p>
- * Version		:  1.0
- * <p>
- * Creation Date	: 2015. 1. 28.
- * <p>
- * Programmer Name 	: Bae Jung Yeo
- * <p>
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- * P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.login.service;
+
+import com.klid.common.OtpApi;
+import com.klid.common.SEED_KISA256;
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.MsgService;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.common.SessionManager;
+import com.klid.webapp.common.dto.PolicyInfoDto;
+import com.klid.webapp.common.dto.UserDto;
+import com.klid.webapp.common.login.persistence.LoginMapper;
+import com.klid.webapp.common.menu.service.MenuService;
+import com.klid.webapp.common.policy.service.PolicyConfService;
+import com.klid.webapp.main.env.userConf.service.UserConfService;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
-import com.klid.common.OtpApi;
-import com.klid.webapp.common.*;
-import com.klid.webapp.main.env.userConf.service.UserConfService;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.klid.common.SEED_KISA256;
-import com.klid.webapp.common.dto.PolicyInfoDto;
-import com.klid.webapp.common.dto.UserDto;
-import com.klid.webapp.common.login.persistence.LoginMapper;
-import com.klid.webapp.common.menu.service.MenuService;
-import com.klid.webapp.common.policy.service.PolicyConfService;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-/**
- * @author jung
- */
 @Service("loginService")
 public class LoginServiceImpl extends MsgService implements LoginService {
 
@@ -61,7 +43,6 @@ public class LoginServiceImpl extends MsgService implements LoginService {
 
     @Resource(name = "userConfService")
     private UserConfService userConfservice;
-
 
     @Override
     public ReturnData isUserAccountLocked(Criterion criterion) {
@@ -150,18 +131,13 @@ public class LoginServiceImpl extends MsgService implements LoginService {
                     mapper.insertUserLog(criterion.getCondition());
                 }
 
-
             }
-
-
-
 
 				/*//권한,메뉴 세팅
 				UserDto userDto = mapper.selectUserInfo(criterion.getCondition());
 				criterion.addParam("auth", userDto.getAuth());
 				criterion.addParam("authGrpNo", userDto.getAuthMain());
 				SessionManager.setUser(userDto, menuService.getSiteMenuList(criterion).getResultData());
-
 
 				// 사용자 접근이력 저장
 				String usrIp = request.getRemoteAddr();

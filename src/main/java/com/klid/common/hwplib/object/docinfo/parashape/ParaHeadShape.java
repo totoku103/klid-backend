@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.parashape;
 /**
  * 문단 머리 모양의 종류
  * 
- * @author neolord
  */
 public enum ParaHeadShape {
 	/**

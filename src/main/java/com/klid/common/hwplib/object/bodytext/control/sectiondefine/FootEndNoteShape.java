@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 미주/각주 모양 정보에 대한 레코드
  * 
- * @author neolord
  */
 public class FootEndNoteShape {
 	/**

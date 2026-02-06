@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderIndex
 /**
  * 찾아보기 표식 컨트롤
  * 
- * @author neolord
  */
 public class ControlIndexMark extends Control {
 	/**

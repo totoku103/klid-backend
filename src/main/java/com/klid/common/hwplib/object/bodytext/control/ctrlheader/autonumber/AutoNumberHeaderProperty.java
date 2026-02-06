@@ -6,7 +6,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 자동번호 컨트롤의 속성 객체
  * 
- * @author neolord
  */
 public class AutoNumberHeaderProperty {
 	/**

@@ -1,6 +1,5 @@
 package com.klid.webapp.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
@@ -13,6 +12,7 @@ import com.klid.webapp.common.menu.persistence.MenuMapper;
 import com.klid.webapp.common.menu.service.MenuService;
 import com.klid.webapp.common.policy.service.PolicyConfService;
 import com.klid.webapp.main.env.userConf.service.UserConfService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

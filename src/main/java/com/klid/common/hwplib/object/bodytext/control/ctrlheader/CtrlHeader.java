@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader;
 /**
  * 컨트롤 헤더 객체들을 위한 부모 클래스
  * 
- * @author neolord
  */
 public class CtrlHeader {
 	/**

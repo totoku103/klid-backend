@@ -1,19 +1,17 @@
 package com.klid.common.hwplib.util.compoundFile.writer;
 
+import com.klid.common.hwplib.object.fileheader.FileVersion;
+import org.apache.poi.poifs.filesystem.DirectoryEntry;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.klid.common.hwplib.object.fileheader.FileVersion;
-
-import org.apache.poi.poifs.filesystem.DirectoryEntry;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-
 /**
  * MS Compound File을 쓰기 위한 객체. Apache POI 라이브러리를 사용함
  * 
- * @author neolord
  */
 public class CompoundFileWriter {
 	/**

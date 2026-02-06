@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
 /**
  * 수식 컨트롤
  * 
- * @author neolord
  */
 public class ControlEquation extends Control {
 	/**

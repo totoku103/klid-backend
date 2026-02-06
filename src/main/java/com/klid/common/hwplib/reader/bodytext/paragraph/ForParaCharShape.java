@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 문단의 글자 모양 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForParaCharShape {
 	/**

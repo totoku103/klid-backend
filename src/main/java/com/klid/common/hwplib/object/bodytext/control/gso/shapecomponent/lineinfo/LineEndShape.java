@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.linein
 /**
  * 선 끝 모양
  * 
- * @author neolord
  */
 public enum LineEndShape {
 	/**

@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.docinfo.facename.FontTypeInfo;
 /**
  * 글꼴 레코드
  * 
- * @author neolord
  */
 public class FaceName {
 	/**

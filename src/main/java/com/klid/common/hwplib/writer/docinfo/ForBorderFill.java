@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.writer.docinfo;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.docinfo.BorderFill;
 import com.klid.common.hwplib.object.docinfo.borderfill.EachBorder;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.docinfo.borderfill.ForFillInfo;
 
+import java.io.IOException;
+
 /**
  * 테두리/배경 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForBorderFill {
 	/**

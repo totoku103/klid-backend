@@ -1,9 +1,6 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
-import com.klid.common.HttpRequestUtils;
 import com.klid.common.IntegrationSessionManager;
-import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.SessionManager;
@@ -14,6 +11,7 @@ import com.klid.webapp.common.dto.ThirdPartyAuthPrimaryPlainResDto;
 import com.klid.webapp.common.enums.ThirdPartySystemTypes;
 import com.klid.webapp.common.service.OtpService;
 import com.klid.webapp.common.service.PrimaryVmsServiceI;
+import lombok.extern.slf4j.Slf4j;
 import me.totoku103.crypto.java.sha2.Sha512;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;

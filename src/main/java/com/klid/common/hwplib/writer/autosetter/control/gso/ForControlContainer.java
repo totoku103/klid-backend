@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.writer.autosetter.control.gso;
 
-import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentContainer;
+import com.klid.common.hwplib.writer.autosetter.InstanceID;
 
 /**
  * 묶음 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlContainer {
 	/**

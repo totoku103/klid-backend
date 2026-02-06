@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.documentproperties;
 /**
  * 캐럿의 위치 정보
  * 
- * @author neolord
  */
 public class CaretPosition {
 	/**

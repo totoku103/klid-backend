@@ -1,12 +1,11 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.klid.webapp.common.UserInfoNotFoundException;
 import com.klid.webapp.common.UserInfoStatusCheckException;
-import com.klid.webapp.common.dto.ThirdPartyBaseResDto;
 import com.klid.webapp.common.dto.CtrsRedirectCryptoReqDto;
 import com.klid.webapp.common.dto.CtrsRedirectPlainReqDto;
+import com.klid.webapp.common.dto.ThirdPartyBaseResDto;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
 import com.klid.webapp.common.service.PrimaryCtrsService;
@@ -14,8 +13,12 @@ import com.klid.webapp.common.service.ThirdPartyCryptoService;
 import com.klid.webapp.common.service.ThirdPartyRedirectService;
 import com.klid.webapp.main.thirdparty.redirect.dto.SimpleSaveTokenInfoDto;
 import com.klid.webapp.main.thirdparty.redirect.service.TokenInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
 

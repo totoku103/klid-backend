@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.secd;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.FootEndNoteShape;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 각주/미주 모양 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForFootEndNoteShape {
 	/**

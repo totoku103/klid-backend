@@ -1,19 +1,18 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.object.bodytext.control.ControlField;
+import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderField;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForCtrlData;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 필드 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlField {
 	/**

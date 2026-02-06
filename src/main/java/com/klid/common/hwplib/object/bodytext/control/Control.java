@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeader;
 /**
  * 컨트롤에 대한 추상 객체
  * 
- * @author neolord
  */
 public abstract class Control {
 	/**

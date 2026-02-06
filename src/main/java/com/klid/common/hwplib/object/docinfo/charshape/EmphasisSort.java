@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.charshape;
 /**
  * 강조점 종류
  * 
- * @author neolord
  */
 public enum EmphasisSort {
 	/**

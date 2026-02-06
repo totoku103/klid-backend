@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 표의 행을 나타내는 객체
  * 
- * @author neolord
  */
 public class Row {
 	/**

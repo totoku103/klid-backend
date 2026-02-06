@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 표의 셀을 나타내는 객체
  * 
- * @author neolord
  */
 public class Cell {
 	/**

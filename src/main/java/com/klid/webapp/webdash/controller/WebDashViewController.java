@@ -1,33 +1,13 @@
-/**
- * Program Name	: webDashViewController.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 27.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.webdash.controller;
 
 import com.klid.common.CommonController;
 import com.klid.webapp.common.SessionManager;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jakarta.servlet.http.HttpServletRequest;
-
-/**
- * @author jung
- *
- */
 @RequestMapping("/webdash")
 @Controller
 public class WebDashViewController extends CommonController {

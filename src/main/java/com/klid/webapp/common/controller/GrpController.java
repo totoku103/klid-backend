@@ -1,40 +1,14 @@
-/**
- * Program Name	: GrpController.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 23.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.controller;
+
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.common.grp.service.GrpService;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-import jakarta.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.common.grp.service.GrpService;
-
-/**
- * @author jung
- *
- */
 @RequestMapping("/api/common/grp")
 @Controller
 public class GrpController {

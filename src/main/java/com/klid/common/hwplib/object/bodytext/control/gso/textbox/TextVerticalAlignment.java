@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.textbox;
 /**
  * 텍스트 세로 정렬 방법
  * 
- * @author neolord
  */
 public enum TextVerticalAlignment {
 	/**

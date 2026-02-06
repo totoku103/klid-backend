@@ -1,9 +1,9 @@
 package com.klid.webapp.main.thirdparty.redirect.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.main.thirdparty.redirect.dto.SimpleSaveTokenInfoDto;
 import com.klid.webapp.main.thirdparty.redirect.dto.SimpleTokenInfoDto;
 import com.klid.webapp.main.thirdparty.redirect.persistence.TokenInfoMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service

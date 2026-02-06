@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.facename;
 /**
  * 글꼴 유형 정보에 대한 객체
  * 
- * @author neolord
  */
 public class FontTypeInfo {
 	/**

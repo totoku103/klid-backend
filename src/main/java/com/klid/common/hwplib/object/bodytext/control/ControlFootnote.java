@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 각주(FootNote) 컨트롤
  * 
- * @author neolord
  */
 public class ControlFootnote extends Control {
 	/**

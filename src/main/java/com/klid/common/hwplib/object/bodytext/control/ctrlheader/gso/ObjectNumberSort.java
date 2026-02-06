@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 개체가 속하는 번호 범주
  * 
- * @author neolord
  */
 public enum ObjectNumberSort {
 	/**

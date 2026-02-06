@@ -2,9 +2,6 @@ package com.klid.webapp.common.code.dto;
 
 import java.io.Serializable;
 
-/**
- * Created by devbong on 2018-07-05.
- */
 public class CustUserDto implements Serializable {
 
     private int seqNo;

@@ -1,23 +1,16 @@
 package com.klid.common.hwplib.tool.objectfinder.forField.gettext;
 
-import java.io.UnsupportedEncodingException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
 import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
-import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
+import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * 그리기 개체에서 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class ForGso {
 	/**

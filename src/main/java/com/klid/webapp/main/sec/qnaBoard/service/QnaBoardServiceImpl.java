@@ -1,35 +1,14 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.sec.qnaBoard.service;
+
+import com.klid.webapp.common.*;
+import com.klid.webapp.main.sec.qnaBoard.dto.QnaBoardDto;
+import com.klid.webapp.main.sec.qnaBoard.persistence.QnaBoardMapper;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import jakarta.annotation.Resource;
-
-import com.klid.webapp.common.*;
-import com.klid.webapp.main.sec.qnaBoard.dto.QnaBoardDto;
-import org.springframework.stereotype.Service;
-
-import com.klid.webapp.main.sec.qnaBoard.persistence.QnaBoardMapper;
-
-/**
- * @author dongju
- *
- */
 @Service("qnaBoardService")
 public class QnaBoardServiceImpl extends MsgService implements QnaBoardService {
 

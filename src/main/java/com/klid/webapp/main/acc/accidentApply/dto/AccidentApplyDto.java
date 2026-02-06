@@ -1,9 +1,5 @@
 package com.klid.webapp.main.acc.accidentApply.dto;
 
-/**
- * @author imhojong
- *
- */
 public class AccidentApplyDto {
 	private String accdTypCd;	//사고유형코드  3002
 	private String acpnMthd;	//접수방법   3004
@@ -105,7 +101,6 @@ public class AccidentApplyDto {
 	private String dmgNatnNm; //피해국가명
 	private String attNatnNm; //공격국가명
 	private String dmgInstNm; //피해기관명
-
 
 	private int instCd;
 	private int nationCd;

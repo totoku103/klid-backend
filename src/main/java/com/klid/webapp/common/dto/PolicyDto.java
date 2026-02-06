@@ -2,9 +2,6 @@ package com.klid.webapp.common.dto;
 
 import java.io.Serializable;
 
-/**
- * Created by devbong on 2018-07-05.
- */
 public class PolicyDto implements Serializable {
     private String policyKind;
     private String policyName;

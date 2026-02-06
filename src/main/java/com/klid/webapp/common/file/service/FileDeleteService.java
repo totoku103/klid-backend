@@ -1,10 +1,10 @@
 package com.klid.webapp.common.file.service;
 
-import java.util.List;
-
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.file.dto.AttachfileDto;
+
+import java.util.List;
 
 public interface FileDeleteService {
 

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.style;
 /**
  * 스타일 종류
  * 
- * @author neolord
  */
 public enum StyleSort {
 	/**

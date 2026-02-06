@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 영역 태그 정보에 대한 객체
  * 
- * @author neolord
  */
 public class RangeTagItem {
 	/**

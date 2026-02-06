@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 제책 방법
  * 
- * @author neolord
  */
 public enum MakingBookMethod {
 	/**

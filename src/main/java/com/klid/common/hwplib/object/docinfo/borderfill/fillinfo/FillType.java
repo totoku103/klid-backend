@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 채우기 종류
  * 
- * @author neolord
  */
 public class FillType {
 	/**

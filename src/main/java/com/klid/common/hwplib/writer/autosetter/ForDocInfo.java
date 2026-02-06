@@ -8,7 +8,6 @@ import com.klid.common.hwplib.object.docinfo.IDMappings;
 /**
  * DocInfo 스트림을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForDocInfo {
 	/**

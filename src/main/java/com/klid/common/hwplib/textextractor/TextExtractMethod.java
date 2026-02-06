@@ -3,7 +3,6 @@ package com.klid.common.hwplib.textextractor;
 /**
  * 텍스트 추출 방법
  * 
- * @author neolord
  */
 public enum TextExtractMethod {
 	/**

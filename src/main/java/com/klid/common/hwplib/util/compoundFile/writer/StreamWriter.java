@@ -1,5 +1,8 @@
 package com.klid.common.hwplib.util.compoundFile.writer;
 
+import com.klid.common.hwplib.object.fileheader.FileVersion;
+import com.klid.common.hwplib.util.binary.BitFlag;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -8,13 +11,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.Deflater;
 
-import com.klid.common.hwplib.object.fileheader.FileVersion;
-import com.klid.common.hwplib.util.binary.BitFlag;
-
 /**
  * MS Compound 파일의 스트림에 내용을 저장하기 위한 객체
  * 
- * @author neolord
  */
 public class StreamWriter {
 	/**

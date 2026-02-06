@@ -1,7 +1,5 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlField;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderField;
@@ -10,10 +8,11 @@ import com.klid.common.hwplib.util.StringUtil;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.bookmark.ForCtrlData;
 
+import java.io.IOException;
+
 /**
  * 필드 컨트롤을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlField {
 	/**

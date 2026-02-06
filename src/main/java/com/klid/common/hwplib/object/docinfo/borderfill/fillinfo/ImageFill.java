@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 이미지 채우기 객체
  * 
- * @author neolord
  */
 public class ImageFill {
 	/**

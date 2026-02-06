@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 그러데이션 유형
  * 
- * @author neolord
  */
 public enum GradientType {
 	/**

@@ -1,21 +1,16 @@
 package com.klid.common.hwplib.writer.docinfo;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.docinfo.charshape.CharOffsets;
-import com.klid.common.hwplib.object.docinfo.charshape.Ratios;
-import com.klid.common.hwplib.object.docinfo.charshape.RelativeSizes;
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.docinfo.CharShape;
-import com.klid.common.hwplib.object.docinfo.charshape.CharSpaces;
-import com.klid.common.hwplib.object.docinfo.charshape.FaceNameIds;
+import com.klid.common.hwplib.object.docinfo.charshape.*;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 글자 모양 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForCharShape {
 	/**

@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.numbering.ParagraphHeadInfo;
 /**
  * 글머리표에 대한 레코드
  * 
- * @author neolord
  */
 public class Bullet {
 	/**

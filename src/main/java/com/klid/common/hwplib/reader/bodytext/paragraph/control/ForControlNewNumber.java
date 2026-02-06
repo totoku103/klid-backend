@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlNewNumber;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderNewNumber;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 새 번호 지정 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlNewNumber {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.parashape;
 /**
  * 정렬 방식
  * 
- * @author neolord
  */
 public enum Alignment {
 	/**

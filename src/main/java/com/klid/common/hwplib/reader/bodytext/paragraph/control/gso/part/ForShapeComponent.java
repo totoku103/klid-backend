@@ -1,27 +1,26 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentNormal;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.Matrix;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.RenderingInfo;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
-import com.klid.common.hwplib.reader.docinfo.borderfill.ForFillInfo;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControlType;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponent;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentContainer;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentNormal;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.lineinfo.LineInfo;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.lineinfo.OutlineStyle;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.Matrix;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.RenderingInfo;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.ScaleRotateMatrixPair;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowInfo;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowType;
+import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
+import com.klid.common.hwplib.reader.docinfo.borderfill.ForFillInfo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 그리기 개체의 객체 공통 속성 레코드을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForShapeComponent {
 	/**

@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bodytext.control.gso;
 
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentArc;
+import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
 
 /**
  * 호 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlArc extends GsoControl {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.linein
 /**
  * 선 종류
  * 
- * @author neolord
  */
 public enum LineType {
 	/**

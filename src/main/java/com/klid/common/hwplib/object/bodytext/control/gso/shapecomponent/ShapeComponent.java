@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderi
 /**
  * 객체 공통 속성
  * 
- * @author neolord
  */
 public class ShapeComponent {
 	/**

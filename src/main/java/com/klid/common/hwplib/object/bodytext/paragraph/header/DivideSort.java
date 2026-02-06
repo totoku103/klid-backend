@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 단 나누기의 종류에 대한 객체
  * 
- * @author neolord
  */
 public class DivideSort {
 	/**

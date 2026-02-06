@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.linein
 /**
  * Outline style
  * 
- * @author neolord
  */
 public enum OutlineStyle {
 	/**

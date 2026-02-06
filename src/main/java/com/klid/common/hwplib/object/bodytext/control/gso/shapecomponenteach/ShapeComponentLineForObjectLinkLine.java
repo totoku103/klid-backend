@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach;
 /**
  * 객체 연결선 컨트롤을 위한 선 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentLineForObjectLinkLine {
 	/**

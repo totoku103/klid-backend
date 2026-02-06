@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.object.docinfo;
 
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.etc.UnknownRecord;
 import com.klid.common.hwplib.object.RecordHeader;
+import com.klid.common.hwplib.object.etc.UnknownRecord;
+
+import java.util.ArrayList;
 
 /**
  * 문서 정보를 나타내는 객체. HWP파일 내의 "DocInfo" stream에 저장된다.
  * 
- * @author neolord
  */
 public class DocInfo {
 	/**

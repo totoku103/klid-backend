@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso;
 
-import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
 import java.io.IOException;
 
 /**
  * 묶음 컨트롤의 나머지 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlContainer {
 	/**

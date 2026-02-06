@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ell
 /**
  * 타원 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentEllipse {
 	/**

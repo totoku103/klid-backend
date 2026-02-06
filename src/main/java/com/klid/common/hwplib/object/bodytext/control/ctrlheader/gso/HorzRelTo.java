@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 가로 위치의 기준
  * 
- * @author neolord
  */
 public enum HorzRelTo {
 	/**

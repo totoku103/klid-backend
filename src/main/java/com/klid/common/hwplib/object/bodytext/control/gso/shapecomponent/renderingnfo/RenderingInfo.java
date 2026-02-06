@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Rendering 정보
  * 
- * @author neolord
  */
 public class RenderingInfo {
 	/**

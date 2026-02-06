@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderColum
 /**
  * 단 정의 컨트롤에 대한 객체
  * 
- * @author neolord
  */
 public class ControlColumnDefine extends Control {
 	/**

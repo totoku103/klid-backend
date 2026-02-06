@@ -1,22 +1,15 @@
 package com.klid.common.hwplib.writer.autosetter.control.gso;
 
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
 import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
+import com.klid.common.hwplib.writer.autosetter.ForParagraphList;
 import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCaption;
 import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
-import com.klid.common.hwplib.writer.autosetter.ForParagraphList;
 
 /**
  * 각각의 그리기 개체 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForGsoControl {
 	/**

@@ -1,12 +1,11 @@
 package com.klid.webapp.common.file.service;
 
-import java.util.List;
-
-import jakarta.servlet.http.HttpServletResponse;
-
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.file.dto.AttachfileDto;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.util.List;
 
 public interface FileDownloadService {
 	List<AttachfileDto> searchFileName(Criterion criterion);

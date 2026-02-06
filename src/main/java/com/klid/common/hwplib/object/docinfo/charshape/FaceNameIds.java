@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 언어별 참조된 글꼴 ID(FaceID)
  * 
- * @author neolord
  */
 public class FaceNameIds {
 	/**

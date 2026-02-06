@@ -1,54 +1,22 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.rpt;
 
 import com.klid.common.AppGlobal;
-import com.klid.common.CommonMethod;
 import com.klid.common.HwpmlMaker;
-import com.klid.common.hwplib.object.HWPFile;
-import com.klid.common.hwplib.object.bodytext.Section;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.bodytext.control.table.Row;
-import com.klid.common.hwplib.reader.HWPReader;
-import com.klid.common.hwplib.writer.HWPWriter;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.main.rpt.reportInciLocal.service.ReportInciLocalService;
 import com.klid.webapp.main.rpt.reportInciType.service.ReportInciTypeService;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -64,7 +32,6 @@ public class ReportInciTypeController {
 	public @ResponseBody ReturnData getTypeList(@RequestParam Map<String, Object> reqMap) {
 			return service.getTypeList(new Criterion(reqMap));
 	}
-
 
 	@RequestMapping(value = "saveHighChartImg",method = RequestMethod.POST)
 	public @ResponseBody ReturnData saveHighChartImg(@RequestBody Map<String, Object> reqMap, HttpServletRequest request, HttpServletResponse response) {
@@ -86,7 +53,6 @@ public class ReportInciTypeController {
 		}
 
 	}
-
 
 	@RequestMapping(value = "exportReportInciType",method = RequestMethod.POST)
 	public @ResponseBody ReturnData exportReportInciType(@RequestBody Map<String, Object> reqMap, HttpServletResponse response) {

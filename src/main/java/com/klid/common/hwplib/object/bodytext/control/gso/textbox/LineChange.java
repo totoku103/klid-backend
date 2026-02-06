@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.textbox;
 /**
  * 문단의 줄바꿈 방법
  * 
- * @author neolord
  */
 public enum LineChange {
 	/**

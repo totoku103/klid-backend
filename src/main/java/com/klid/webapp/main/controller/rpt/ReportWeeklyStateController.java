@@ -1,63 +1,20 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.rpt;
 
 import com.klid.common.AppGlobal;
 import com.klid.common.HwpmlMaker;
-import com.klid.common.hwplib.object.HWPFile;
-import com.klid.common.hwplib.object.bodytext.Section;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso.*;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.sectiondefine.TextDirection;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.LineChange;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextVerticalAlignment;
-import com.klid.common.hwplib.object.bodytext.control.table.*;
-import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
-import com.klid.common.hwplib.object.bodytext.paragraph.charshape.ParaCharShape;
-import com.klid.common.hwplib.object.bodytext.paragraph.header.ParaHeader;
-import com.klid.common.hwplib.object.bodytext.paragraph.lineseg.LineSegItem;
-import com.klid.common.hwplib.object.bodytext.paragraph.lineseg.ParaLineSeg;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.ParaText;
-import com.klid.common.hwplib.reader.HWPReader;
-import com.klid.common.hwplib.writer.HWPWriter;
 import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDaily.dto.ReportDailyDto;
 import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMapper;
-import com.klid.webapp.main.rpt.reportDailyState.service.ReportDailyStateService;
 import com.klid.webapp.main.rpt.reportWeeklyState.service.ReportWeeklyStateService;
 import com.klid.webapp.main.sec.noticeBoard.dto.NoticeBoardDto;
 import com.klid.webapp.main.sec.noticeBoard.persistence.NoticeBoardMapper;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -69,7 +26,6 @@ public class ReportWeeklyStateController {
 
 	@Resource(name = "reportWeeklyStateService")
 	private ReportWeeklyStateService service;
-
 
 	@Resource(name = "noticeBoardMapper")
 	private NoticeBoardMapper mapper;

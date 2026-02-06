@@ -1,8 +1,8 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control;
 
+import com.klid.common.hwplib.object.bodytext.control.ControlTable;
 import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.ForCaption;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.ForCtrlHeaderGso;
@@ -14,7 +14,6 @@ import java.io.IOException;
 /**
  * 표 컨트롤을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlTable {
 	/**

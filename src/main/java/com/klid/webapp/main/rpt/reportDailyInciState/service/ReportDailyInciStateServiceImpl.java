@@ -1,18 +1,3 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.rpt.reportDailyInciState.service;
 
 import com.klid.common.AppGlobal;
@@ -20,25 +5,7 @@ import com.klid.common.hwplib.object.HWPFile;
 import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso.*;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControlType;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentNormal;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.lineinfo.*;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowInfo;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowType;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentRectangle;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
-import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
-import com.klid.common.hwplib.object.docinfo.BinData;
-import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
-import com.klid.common.hwplib.object.docinfo.bindata.BinDataState;
-import com.klid.common.hwplib.object.docinfo.bindata.BinDataType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.ImageFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.ImageFillType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PictureEffect;
 import com.klid.common.hwplib.reader.HWPReader;
 import com.klid.common.hwplib.writer.HWPWriter;
 import com.klid.webapp.common.Criterion;
@@ -46,20 +13,13 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyInciState.persistence.ReportDailyInciStateMapper;
-import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMapper;
-import org.apache.commons.lang3.StringUtils;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 @Service("reportDailyInciStateService")
@@ -117,8 +77,6 @@ public class 	ReportDailyInciStateServiceImpl extends MsgService implements Repo
 			String filename = AppGlobal.reportTemplate+"report_sido.hwp";
 			HWPFile hwpFile = HWPReader.fromFile(filename);
 			Section section = hwpFile.getBodyText().getSectionList().get(0);
-
-
 
 			Control c = section.getParagraph(2).getControlList().get(0);
 			ControlTable table = (ControlTable) c;

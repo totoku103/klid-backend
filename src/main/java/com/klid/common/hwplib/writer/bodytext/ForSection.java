@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 구역을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForSection {
 	/**

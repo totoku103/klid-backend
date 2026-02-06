@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 문단의 레이아웃 레코드
  * 
- * @author neolord
  */
 public class ParaLineSeg {
 	/**

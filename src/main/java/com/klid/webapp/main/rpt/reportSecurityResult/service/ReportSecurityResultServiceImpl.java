@@ -1,18 +1,3 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.rpt.reportSecurityResult.service;
 
 import com.klid.common.AppGlobal;
@@ -28,10 +13,10 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportSecurityResult.persistence.ReportSecurityResultMapper;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -104,7 +89,6 @@ public class ReportSecurityResultServiceImpl extends MsgService implements Repor
 			rows.get(6).getCellList().get(1).getParagraphList().getParagraph(5).getText().addString("o 통합전산센터 : "+String.valueOf((int)totalGrid.get(0).get("tngCnt")+"건"));
 			rows.get(7).getCellList().get(1).getParagraphList().getParagraph(0).createText();
 			rows.get(7).getCellList().get(1).getParagraphList().getParagraph(0).getText().addString("■ 세 부 처 리 내 용 (* 웜바이러스 제외) : 총 "+String.valueOf((int)totalGrid.get(0).get("webCnt")+ "건 * 첨부파일 참고"));
-
 
 			File file = new File(AppGlobal.homePath + "/export");
 			if(!file.exists())

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.numbering;
 /**
  * 문단의 정렬 종류
  * 
- * @author neolord
  */
 public enum ParagraphAlignment {
 	/**

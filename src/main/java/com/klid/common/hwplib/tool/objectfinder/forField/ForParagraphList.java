@@ -1,23 +1,22 @@
 package com.klid.common.hwplib.tool.objectfinder.forField;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
+import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
 import com.klid.common.hwplib.object.bodytext.control.Control;
+import com.klid.common.hwplib.object.bodytext.control.ControlField;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.tool.objectfinder.SetFieldResult;
+import com.klid.common.hwplib.tool.objectfinder.TextBuffer;
 import com.klid.common.hwplib.tool.objectfinder.forField.gettext.ForControl;
 import com.klid.common.hwplib.tool.paragraphadder.ParaTextSetter;
 import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
-import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
-import com.klid.common.hwplib.object.bodytext.control.ControlField;
-import com.klid.common.hwplib.tool.objectfinder.TextBuffer;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 /**
  * 문단리스트, 문단에서 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

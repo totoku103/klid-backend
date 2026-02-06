@@ -1,9 +1,9 @@
 package com.klid.common.hwplib.tool.paragraphadder.docinfo;
 
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.docinfo.tabdef.TabInfo;
 import com.klid.common.hwplib.object.docinfo.TabDef;
+import com.klid.common.hwplib.object.docinfo.tabdef.TabInfo;
+
+import java.util.ArrayList;
 
 public class TabDefAdder {
 	private DocInfoAdder docInfoAdder;

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.compatibledocument;
 /**
  * 대상 프로그램의 종류
  * 
- * @author neolord
  */
 public enum CompatibleDocumentSort {
 	/**

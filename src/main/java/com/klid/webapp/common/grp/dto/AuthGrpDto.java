@@ -1,26 +1,7 @@
-/**
- * Program Name	: AuthGrpDto.java
- *
- * Version		:  3.0
- *
- * Creation Date	: 2015. 8. 28.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.grp.dto;
 
 import java.io.Serializable;
 
-/**
- * @author jjung
- *
- */
 @SuppressWarnings("serial")
 public class AuthGrpDto implements Serializable {
 	private long grpNo;

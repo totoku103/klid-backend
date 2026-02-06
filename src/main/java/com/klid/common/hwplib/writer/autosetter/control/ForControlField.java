@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.writer.autosetter.control;
 
 import com.klid.common.hwplib.object.bodytext.control.ControlField;
-import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderField;
+import com.klid.common.hwplib.writer.autosetter.InstanceID;
 
 /**
  * 필드 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlField {
 	/**

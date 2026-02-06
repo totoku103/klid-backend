@@ -1,30 +1,14 @@
-/**
- * Program Name : WebDashMoisController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- *
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.webdash.controller.mois;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.mois.service.WebDashMoisService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import jakarta.annotation.Resource;
 import java.util.Map;
 
 @RequestMapping("/api/webdash/mois/webDashMois")
@@ -63,7 +47,6 @@ public class WebDashMoisController {
     public @ResponseBody ReturnData getRegionStatus(@RequestParam Map<String, Object> reqMap) {
             return service.getRegionStatus(new Criterion(reqMap, false));
     }
-
 
     /**지방자치단체 사이버위협 대응현황 (자동차단)*/
     @RequestMapping(value = "getRegionStatusAuto")

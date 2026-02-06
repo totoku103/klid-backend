@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.facename;
 /**
  * 대체 글꼴 유형
  * 
- * @author neolord
  */
 public enum FontType {
 	/**

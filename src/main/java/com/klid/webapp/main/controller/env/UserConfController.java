@@ -1,38 +1,14 @@
-/**
- * Program Name : InstIPMgmtController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.env;
 
-import java.util.Map;
-
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.main.env.userConf.service.UserConfService;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.main.env.userConf.service.UserConfService;
+import java.util.Map;
 
-/**
- * @author kdj
- *
- */
 @RequestMapping("/api/main/env/userConf")
 @Controller
 public class UserConfController {

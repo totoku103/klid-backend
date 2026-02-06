@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderPageH
 /**
  * 감추기 컨트롤
  * 
- * @author neolord
  */
 public class ControlPageHide extends Control {
 	/**

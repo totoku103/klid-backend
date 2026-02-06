@@ -1,20 +1,4 @@
-/**
- * Program Name	: MenuController.java
- * <p>
- * Version		:  1.0
- * <p>
- * Creation Date	: 2015. 1. 6.
- * <p>
- * Programmer Name 	: Bae Jung Yeo
- * <p>
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- * P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.controller;
-
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
@@ -27,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author jung
- */
 @RequestMapping("/api/common/menu")
 @Controller
 @Slf4j

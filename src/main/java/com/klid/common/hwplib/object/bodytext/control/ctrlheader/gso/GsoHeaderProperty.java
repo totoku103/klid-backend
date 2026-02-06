@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 그리기 객체 컨트롤의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class GsoHeaderProperty {
 	/**

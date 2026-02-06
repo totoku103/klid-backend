@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 바탕 페이지 정보를 나타내는 객체
  * 
- * @author neolord
  */
 public class BatangPageInfo {
 	/**

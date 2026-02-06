@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill;
 /**
  * 테두리선의 두께
  * 
- * @author neolord
  */
 public enum BorderThickness {
 	/**

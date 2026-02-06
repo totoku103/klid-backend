@@ -1,8 +1,8 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.memo;
 
-import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
 import com.klid.common.hwplib.object.bodytext.paragraph.memo.ListHeaderForMemo;
 import com.klid.common.hwplib.object.bodytext.paragraph.memo.Memo;
+import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
 import java.io.IOException;
@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 메모를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForMemo {
 	/**

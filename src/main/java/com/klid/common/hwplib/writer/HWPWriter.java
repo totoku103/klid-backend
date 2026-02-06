@@ -1,8 +1,8 @@
 package com.klid.common.hwplib.writer;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.HWPFile;
+import com.klid.common.hwplib.object.bindata.EmbeddedBinaryData;
+import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.compoundFile.writer.CompoundFileWriter;
@@ -11,13 +11,12 @@ import com.klid.common.hwplib.writer.autosetter.AutoSetter;
 import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.writer.bodytext.ForSection;
 import com.klid.common.hwplib.writer.docinfo.ForDocInfo;
-import com.klid.common.hwplib.object.bindata.EmbeddedBinaryData;
-import com.klid.common.hwplib.object.bodytext.Section;
+
+import java.io.IOException;
 
 /**
  * 한글 파일을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class HWPWriter {
 	/**
@@ -204,7 +203,6 @@ public class HWPWriter {
 		}
 		return false;
 	}
-
 
 	/**
 	 * 파일을 쓰고 닫는다.

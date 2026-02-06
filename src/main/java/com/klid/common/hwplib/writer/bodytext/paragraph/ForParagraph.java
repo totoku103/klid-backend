@@ -11,7 +11,6 @@ import java.io.IOException;
 /**
  * 문단을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForParagraph {
 	/**

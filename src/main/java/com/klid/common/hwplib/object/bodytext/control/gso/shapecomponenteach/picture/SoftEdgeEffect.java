@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.pi
 /**
  * 부드러운 가장자리 효과 속성
  * 
- * @author neolord
  */
 public class SoftEdgeEffect {
 	/**

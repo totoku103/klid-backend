@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.paragraph.charshape;
 /**
  * 글자 위치와 글자 모양의 쌍
  * 
- * @author neolord
  */
 public class CharPositonShapeIdPair {
 	/**

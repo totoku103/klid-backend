@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bodytext.control.ctrlheader;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
+
+import java.util.ArrayList;
 
 /**
  * 글자 겸침 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderOverlappingLetter extends CtrlHeader {
 	/**

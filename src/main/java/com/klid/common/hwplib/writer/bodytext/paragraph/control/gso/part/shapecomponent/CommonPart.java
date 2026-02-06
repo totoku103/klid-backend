@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.shapecomponent;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponent;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.Matrix;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.RenderingInfo;
-import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.renderingnfo.ScaleRotateMatrixPair;
+import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 그리기 개체의 객체 공통 속성 레코드의 공통 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class CommonPart {
 	/**

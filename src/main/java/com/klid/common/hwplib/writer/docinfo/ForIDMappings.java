@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer.docinfo;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.docinfo.IDMappings;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 아이디 매핑 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForIDMappings {
 	/**

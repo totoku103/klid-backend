@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.charshape;
 /**
  * 그림자 종류
  * 
- * @author neolord
  */
 public enum ShadowSort {
 	/**

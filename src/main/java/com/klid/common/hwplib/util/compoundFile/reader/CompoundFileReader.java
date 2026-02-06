@@ -1,19 +1,17 @@
 package com.klid.common.hwplib.util.compoundFile.reader;
 
-import java.io.*;
-import java.util.Set;
-
 import com.klid.common.hwplib.object.fileheader.FileVersion;
-
 import org.apache.poi.poifs.filesystem.DirectoryEntry;
 import org.apache.poi.poifs.filesystem.DocumentEntry;
 import org.apache.poi.poifs.filesystem.Entry;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
+import java.io.*;
+import java.util.Set;
+
 /**
  * MS Compound File을 읽기 위한 객체. Apache POI 라이브러리를 사용함
  * 
- * @author neolord
  */
 public class CompoundFileReader {
 	/**

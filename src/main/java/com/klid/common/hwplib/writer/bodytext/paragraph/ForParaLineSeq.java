@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.paragraph.lineseg.LineSegItem;
 import com.klid.common.hwplib.object.bodytext.paragraph.lineseg.ParaLineSeg;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
+
 /**
  * 문단의 레이아웃 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForParaLineSeq {
 	/**

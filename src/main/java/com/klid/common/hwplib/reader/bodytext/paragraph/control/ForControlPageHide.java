@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlPageHide;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderPageHide;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 감추기 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPageHide {
 	/**

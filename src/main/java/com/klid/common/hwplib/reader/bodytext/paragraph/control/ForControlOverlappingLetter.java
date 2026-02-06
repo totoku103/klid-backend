@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlOverlappingLetter;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderOverlappingLetter;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 글자 겹침 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlOverlappingLetter {
 	/**

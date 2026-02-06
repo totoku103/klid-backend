@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 색상 효과가 포함된 색상
  * 
- * @author neolord
  */
 public class ColorWithEffect {
 	/**

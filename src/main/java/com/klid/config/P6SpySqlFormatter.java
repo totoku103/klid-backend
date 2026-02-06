@@ -3,8 +3,6 @@ package com.klid.config;
 import com.p6spy.engine.logging.Category;
 import com.p6spy.engine.spy.appender.MessageFormattingStrategy;
 
-import java.util.Locale;
-
 /**
  * P6Spy SQL 로깅 포맷터
  * SQL을 한 줄로 출력하고 파라미터가 바인딩된 상태로 보여줌

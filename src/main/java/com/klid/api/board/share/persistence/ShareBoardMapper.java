@@ -4,8 +4,8 @@ import com.klid.api.board.share.dto.ShareBoardDTO;
 import com.klid.api.board.share.dto.ShareBoardListDTO;
 import com.klid.api.board.share.dto.ShareBoardSidoCntDTO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;

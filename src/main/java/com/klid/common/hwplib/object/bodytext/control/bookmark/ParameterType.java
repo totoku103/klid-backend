@@ -1,10 +1,8 @@
 package com.klid.common.hwplib.object.bodytext.control.bookmark;
 
-
 /**
  * 파라미터 아이템 종류
  * 
- * @author neolord
  */
 public enum ParameterType {
 	/**

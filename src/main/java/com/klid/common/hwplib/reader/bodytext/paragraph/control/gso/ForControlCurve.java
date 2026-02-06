@@ -1,20 +1,19 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.curve.CurveSegmentType;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.polygon.PositionXY;
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentCurve;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.curve.CurveSegmentType;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.polygon.PositionXY;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForTextBox;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 곡선 컨트롤의 나머지 부분을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlCurve {
 	/**

@@ -1,32 +1,15 @@
-/**
- * Program Name	: WebDashCenterServiceImpl.java
- * <p>
- * Version		:  1.0
- * <p>
- * Creation Date	: 2015. 12. 22.
- * <p>
- * Programmer Name 	:  kim dong ju
- * <p>
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- * P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.webdash.center.service;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.webdash.adminControl.dto.InciCntDto;
 import com.klid.webapp.webdash.center.dto.WebDashCenterDto;
 import com.klid.webapp.webdash.center.persistence.WebDashCenterMapper;
+import jakarta.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.map.HashedMap;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
 import java.util.*;
 
 @Service("webDashCenterService")
@@ -212,7 +195,6 @@ public class WebDashCenterServiceImpl extends MsgService implements WebDashCente
         Map<String,List<Map<String, Integer>>> listMap= new HashMap<String,List<Map<String, Integer>>>();
         listMap= dayTypeListReturn(dbList,listMap);
         return new ReturnData(listMap);
-
 
 //        if (!CollectionUtils.isEmpty(dbList)) {
 //            Map<String, Integer> map = new HashMap<>();

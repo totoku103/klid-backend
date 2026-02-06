@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ol
 /**
  * OLE 객체 종류
  * 
- * @author neolord
  */
 public enum ObjectSort {
 	/**

@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 타원 개체의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class ShapeComponentEllipseProperty {
 	/**

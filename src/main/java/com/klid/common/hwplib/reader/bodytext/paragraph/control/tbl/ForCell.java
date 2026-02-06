@@ -1,21 +1,20 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.table.Cell;
-import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterItem;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterSet;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterType;
+import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.ListHeaderForCell;
+import com.klid.common.hwplib.object.etc.HWPTag;
+import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForParameterSet;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 표의 셀을 읽기 위한 객체
  * 
- * @author 박성균
  * 
  */
 public class ForCell {

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 채우기 정보를 나태내는 객체
  * 
- * @author neolord
  */
 public class FillInfo {
 	/**

@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 미주(endnote) 컨트롤
  * 
- * @author neolord
  */
 public class ControlEndnote extends Control {
 	/**

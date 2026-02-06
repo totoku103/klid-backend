@@ -1,21 +1,8 @@
-/**
- * Program Name : SmsEmailHistMgmtService.java
- *
- * Version  :  1.0
- *
- * Creation Date : 2018. 08. 17
- *
- * Programmer Name  : devbong
- *
- * Copyright 2018 Hamonsoft. All rights reserved.
- */
 package com.klid.webapp.main.hist.smsEmailHist.service;
-
-
-import jakarta.servlet.http.HttpServletResponse;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
+import jakarta.servlet.http.HttpServletResponse;
 
 public interface SmsEmailHistMgmtService {
 

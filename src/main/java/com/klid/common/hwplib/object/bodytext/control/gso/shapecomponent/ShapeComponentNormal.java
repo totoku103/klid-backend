@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
 /**
  * 일반 컨트롤을 위한 객체 공통 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentNormal extends ShapeComponent {
 	/**

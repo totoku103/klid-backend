@@ -1,11 +1,6 @@
 package com.klid.common.hwplib.tool.paragraphadder;
 
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlChar;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlInline;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharNormal;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPChar;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlExtend;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.ParaText;
+import com.klid.common.hwplib.object.bodytext.paragraph.text.*;
 
 public class ParaTextCopyer {
 

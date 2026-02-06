@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.BinData;
 /**
  * DocInfo에 BinData를 복사하는 기능을 포함하는 클레스
  * 
- * @author neolord
  */
 public class BinDataAdder {
 	/**

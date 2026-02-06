@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.docinfo;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.docinfo.facename.FontType;
 import com.klid.common.hwplib.object.docinfo.FaceName;
+import com.klid.common.hwplib.object.docinfo.facename.FontType;
 import com.klid.common.hwplib.object.docinfo.facename.FontTypeInfo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 글꼴 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForFaceName {
 	/**

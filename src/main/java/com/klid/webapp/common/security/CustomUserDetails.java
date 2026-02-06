@@ -1,18 +1,3 @@
-/**
- * Program Name	: CustomUserDetails.java
- *
- * Version		:  3.0
- *
- * Creation Date	: 2015. 12. 14.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.security;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -23,10 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author jjung
- *
- */
 @SuppressWarnings("serial")
 public class CustomUserDetails implements UserDetails {
 

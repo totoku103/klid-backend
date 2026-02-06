@@ -1,14 +1,9 @@
 package com.klid.common.hwplib.tool.paragraphadder.docinfo;
 
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.GradientFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.ImageFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PatternFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PictureInfo;
+import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.*;
 import com.klid.common.hwplib.object.etc.Color4Byte;
+
+import java.util.ArrayList;
 
 public class ForFillInfo {
 

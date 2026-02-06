@@ -1,29 +1,15 @@
-/**
- * Program Name		: ErrorInfo.java
- * Description		: 
- * Programmer Name 	: Bae Jung Yeo
- * Creation Date	: 2014. 2. 13.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
+import jakarta.servlet.ServletContext;
 import org.springframework.context.MessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import jakarta.servlet.ServletContext;
 import java.io.Serializable;
 import java.util.Locale;
 
-/**
- * @author jung
- *
- */
 @SuppressWarnings("serial")
 public class ErrorInfo implements Serializable {
 	private String code;

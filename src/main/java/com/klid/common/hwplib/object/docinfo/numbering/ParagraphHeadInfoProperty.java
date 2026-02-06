@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 문단 머리 정보의 속성 객체
  * 
- * @author neolord
  */
 public class ParagraphHeadInfoProperty {
 	/**

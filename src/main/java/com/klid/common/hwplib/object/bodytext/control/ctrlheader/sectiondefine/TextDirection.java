@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.sectiondefine;
 /**
  * 텍스트 진행방향
  * 
- * @author neolord
  */
 public enum TextDirection {
 	/**

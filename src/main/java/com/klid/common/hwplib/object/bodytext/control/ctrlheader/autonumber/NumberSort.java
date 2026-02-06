@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.autonumber;
 /**
  * 번호 종류
  * 
- * @author neolord
  */
 public enum NumberSort {
 	/**

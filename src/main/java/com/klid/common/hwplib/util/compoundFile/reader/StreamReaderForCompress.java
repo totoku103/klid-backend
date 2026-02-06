@@ -1,5 +1,9 @@
 package com.klid.common.hwplib.util.compoundFile.reader;
 
+import com.klid.common.hwplib.object.fileheader.FileVersion;
+import org.apache.poi.poifs.filesystem.DocumentEntry;
+import org.apache.poi.poifs.filesystem.DocumentInputStream;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -8,15 +12,9 @@ import java.nio.ByteOrder;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 
-import com.klid.common.hwplib.object.fileheader.FileVersion;
-
-import org.apache.poi.poifs.filesystem.DocumentEntry;
-import org.apache.poi.poifs.filesystem.DocumentInputStream;
-
 /**
  * 압축된 스트림을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class StreamReaderForCompress extends StreamReader {
 	/**

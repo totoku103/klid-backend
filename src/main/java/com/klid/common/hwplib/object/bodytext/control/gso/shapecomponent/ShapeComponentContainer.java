@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 컨테이너 컨트롤을 위한 객체 공통 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentContainer extends ShapeComponent {
 	/**

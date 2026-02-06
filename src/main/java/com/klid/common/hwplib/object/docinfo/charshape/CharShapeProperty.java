@@ -6,7 +6,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 글자 모양 객체의 속성
  * 
- * @author neolord
  */
 public class CharShapeProperty {
 	/**

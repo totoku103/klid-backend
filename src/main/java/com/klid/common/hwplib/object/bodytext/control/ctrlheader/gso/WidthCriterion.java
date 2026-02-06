@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 오브젝트 폭의 기준
  * 
- * @author neolord
  */
 public enum WidthCriterion {
 	/**

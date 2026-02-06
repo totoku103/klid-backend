@@ -1,22 +1,7 @@
-/**
- * Program Name		: ReturnData.java
- * Description		: 
- * Programmer Name 	: Bae Jung Yeo
- * Creation Date	: 2014. 2. 13.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
 import java.io.Serializable;
 
-
-/**
- * @author jung
- *
- */
 @SuppressWarnings("serial")
 public class ReturnData implements Serializable {
 	private boolean hasError;

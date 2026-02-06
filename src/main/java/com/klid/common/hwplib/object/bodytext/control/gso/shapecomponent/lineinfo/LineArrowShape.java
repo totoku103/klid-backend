@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.linein
 /**
  * 선 끝에 화살표 모양
  * 
- * @author neolord
  */
 public enum LineArrowShape {
 	/**

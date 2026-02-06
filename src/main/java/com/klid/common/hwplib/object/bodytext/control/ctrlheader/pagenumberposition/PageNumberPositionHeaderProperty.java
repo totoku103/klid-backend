@@ -6,7 +6,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 쪽 번호 위치 컨트롤의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class PageNumberPositionHeaderProperty {
 	/**

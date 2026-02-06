@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.docinfo.parashape.ParaShapeProperty3;
 /**
  * 문단 모양에 대한  레코드
  * 
- * @author neolord
  */
 public class ParaShape {
 	/**

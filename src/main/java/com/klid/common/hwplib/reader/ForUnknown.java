@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.reader;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.etc.UnknownRecord;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 알수 없는 레코드를 읽기 위한 객체
  * 
- * @author 박성균
  */
 public class ForUnknown {
 	/**

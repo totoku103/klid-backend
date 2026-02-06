@@ -1,30 +1,4 @@
-/**
- * Program Name	: MenuMgmtController.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2016. 2. 22.
- * 
- * Programmer Name 	: Song Young Wook
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.engineer.controller.popup;
-
-import java.util.Map;
-
-import jakarta.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.klid.common.AppGlobal;
 import com.klid.common.CommonController;
@@ -33,11 +7,12 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.menu.service.MenuService;
 import com.klid.webapp.engineer.popup.service.PopupService;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * @author ywsong
- *
- */
+import java.util.Map;
+
 @RequestMapping("/api/engineer/popup")
 @Controller("engineer.popupController")
 public class PopupController extends CommonController {

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ar
 /**
  * 호 테두리
  * 
- * @author neolord
  */
 public enum ArcBorder {
 	/**

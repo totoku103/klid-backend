@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.Sha
 /**
  * 그림 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlPicture extends GsoControl {
 	/**

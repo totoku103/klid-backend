@@ -1,38 +1,32 @@
 package com.klid.webapp.main.acc.accidentApply.service;
 
+import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.*;
 import com.klid.webapp.common.controller.FileController;
 import com.klid.webapp.common.file.persistence.FileUploadMapper;
-import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.klid.webapp.main.acc.accidentApply.dto.AccidentApplyDto;
+import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import com.klid.common.SEED_KISA256;
+import jakarta.annotation.Resource;
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
-import jakarta.mail.*;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
 import java.io.*;
 import java.net.InetAddress;
-import java.net.URLDecoder;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * @author imhojong
- *
- */
 @Slf4j
 @Service("accidentApplyService")
 public class AccidentApplyServiceImpl extends MsgService implements AccidentApplyService {
@@ -299,7 +293,6 @@ public class AccidentApplyServiceImpl extends MsgService implements AccidentAppl
 
 		mapper.updateAccidentProcess(criterion.getCondition());
 
-
 		//멀티이관 사고 히스토리의 경우 본인사고 + 원본사고에 이력을 남긴다.
 		if(criterion.getValue("inciNo").toString().length() > 16){
 			if(criterion.getValue("inciNoMulti") != null){
@@ -332,7 +325,6 @@ public class AccidentApplyServiceImpl extends MsgService implements AccidentAppl
 		//criterion.addParam("transInciPrcsStat", 13);
 
 		mapper.updateAccidentProcess(criterion.getCondition());
-
 
 		return new ReturnData(criterion.getCondition());
 	}

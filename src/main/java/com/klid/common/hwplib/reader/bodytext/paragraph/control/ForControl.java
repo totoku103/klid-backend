@@ -1,33 +1,13 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlAdditionalText;
-import com.klid.common.hwplib.object.bodytext.control.ControlAutoNumber;
-import com.klid.common.hwplib.object.bodytext.control.ControlBookmark;
-import com.klid.common.hwplib.object.bodytext.control.ControlColumnDefine;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlEquation;
-import com.klid.common.hwplib.object.bodytext.control.ControlField;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.ControlIndexMark;
-import com.klid.common.hwplib.object.bodytext.control.ControlNewNumber;
-import com.klid.common.hwplib.object.bodytext.control.ControlOverlappingLetter;
-import com.klid.common.hwplib.object.bodytext.control.ControlPageHide;
-import com.klid.common.hwplib.object.bodytext.control.ControlPageNumberPosition;
-import com.klid.common.hwplib.object.bodytext.control.ControlSectionDefine;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
+import com.klid.common.hwplib.object.bodytext.control.*;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControl {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ol
 /**
  * windows API DVASPECT enumeration
  * 
- * @author neolord
  */
 public enum DVASPECT {
 	/**

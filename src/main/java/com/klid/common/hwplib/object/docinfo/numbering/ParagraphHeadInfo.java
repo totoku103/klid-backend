@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.numbering;
 /**
  * 문단 머리 정보 객체
  * 
- * @author neolord
  */
 public class ParagraphHeadInfo {
 	/**

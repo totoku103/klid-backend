@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentPolygon;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.polygon.PositionXY;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentPolygon;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.ForTextBox;
+
+import java.io.IOException;
 
 /**
  * 다각형 컨트롤의 나머지 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPolygon {
 	/**

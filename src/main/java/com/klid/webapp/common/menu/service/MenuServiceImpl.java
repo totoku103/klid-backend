@@ -1,41 +1,24 @@
-/**
- * Program Name	: MenuServiceImpl.java
- * <p>
- * Version		:  1.0
- * <p>
- * Creation Date	: 2015. 1. 6.
- * <p>
- * Programmer Name 	: Bae Jung Yeo
- * <p>
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- * P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.menu.service;
 
-import com.klid.common.AppGlobal;
-import com.klid.common.SiteEnum;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.common.menu.dto.*;
+import com.klid.webapp.common.menu.dto.MenuDto;
+import com.klid.webapp.common.menu.dto.PageDto;
+import com.klid.webapp.common.menu.dto.PageGrpDto;
+import com.klid.webapp.common.menu.dto.SimpleMenuDTO;
 import com.klid.webapp.common.menu.helper.IMenuHelper;
 import com.klid.webapp.common.menu.helper.NetisMenuHelper;
 import com.klid.webapp.common.menu.persistence.MenuMapper;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author jung
- */
 @Service("menuService")
 public class MenuServiceImpl extends MsgService implements MenuService {
 
@@ -45,11 +28,7 @@ public class MenuServiceImpl extends MsgService implements MenuService {
     private IMenuHelper menuHelper;
 
     private void setSiteMenuHelper() {
-        if (AppGlobal.webSiteName.equals(SiteEnum.None.name())) {
-            menuHelper = new NetisMenuHelper();
-        } else {
-            menuHelper = new NetisMenuHelper();
-        }
+        menuHelper = new NetisMenuHelper();
     }
 
     @Override
@@ -78,7 +57,6 @@ public class MenuServiceImpl extends MsgService implements MenuService {
     public List<SimpleMenuDTO> getExcludeMenuList(String authGrpNo) {
         return mapper.selectExcludeMenuList(authGrpNo);
     }
-
 
     /**
      * 대메뉴 태그 생성

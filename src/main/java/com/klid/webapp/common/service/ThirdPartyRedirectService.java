@@ -1,6 +1,5 @@
 package com.klid.webapp.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.SEED_KISA256;
 import com.klid.common.util.RedirectTokenUtil;
 import com.klid.webapp.common.CustomException;
@@ -12,6 +11,7 @@ import com.klid.webapp.common.enums.ThirdPartySystemTypes;
 import com.klid.webapp.common.login.persistence.LoginMapper;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
 import com.klid.webapp.main.thirdparty.redirect.dto.SimpleSaveTokenInfoDto;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

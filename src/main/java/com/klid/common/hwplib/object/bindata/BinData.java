@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.bindata;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
+
+import java.util.ArrayList;
 
 /**
  * 바이너리 데이터를 나타내는 객체 HWP파일 내의 "BinData" storage에 저장된다.
  * 
- * @author neolord
  */
 public class BinData {
 	/**

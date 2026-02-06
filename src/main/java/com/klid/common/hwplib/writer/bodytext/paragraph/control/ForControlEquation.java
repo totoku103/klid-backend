@@ -11,7 +11,6 @@ import java.io.IOException;
 /**
  * 수식 컨트롤을 쓰기 위한 컨트롤
  * 
- * @author neolord
  */
 public class ForControlEquation {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.parashape;
 /**
  * 줄 간격 종류(한글 2007이하 버전에만 사용)
  * 
- * @author neolord
  */
 public enum LineSpaceSort {
 	/**

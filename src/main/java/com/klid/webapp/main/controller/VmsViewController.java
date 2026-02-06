@@ -1,10 +1,10 @@
 package com.klid.webapp.main.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;

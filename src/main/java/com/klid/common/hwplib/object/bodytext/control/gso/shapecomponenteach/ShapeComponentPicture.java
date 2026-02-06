@@ -10,7 +10,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 그림 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentPicture {
 	/**

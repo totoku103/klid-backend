@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 구역 스트림을 읽기 위한 객체
  * 
- * @author 박성균
  * 
  */
 public class ForSection {

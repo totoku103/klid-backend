@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach;
 /**
  * 사각형 개체 속성 레코드
  * 
- * @author neolord
  */
 public class ShapeComponentRectangle {
 	/**

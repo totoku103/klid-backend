@@ -1,8 +1,7 @@
 package com.klid.webapp.common;
 
-import lombok.extern.slf4j.Slf4j;
-import com.klid.common.AppGlobal;
 import com.klid.common.LoginString;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;

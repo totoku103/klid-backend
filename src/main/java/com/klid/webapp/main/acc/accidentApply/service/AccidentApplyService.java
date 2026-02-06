@@ -1,15 +1,10 @@
 package com.klid.webapp.main.acc.accidentApply.service;
 
-import java.net.UnknownHostException;
-import java.util.Map;
-
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 
-/**
- * @author imhojong
- *
- */
+import java.net.UnknownHostException;
+
 public interface AccidentApplyService {
 	
 	/** 신고 목록	 */

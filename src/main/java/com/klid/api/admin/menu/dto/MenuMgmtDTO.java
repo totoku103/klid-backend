@@ -5,9 +5,6 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-/**
- * 메뉴 관리 DTO
- */
 @Getter
 @Setter
 public class MenuMgmtDTO implements Serializable {

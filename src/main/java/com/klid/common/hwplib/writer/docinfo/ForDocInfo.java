@@ -1,29 +1,17 @@
 package com.klid.common.hwplib.writer.docinfo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.docinfo.DocumentPropeties;
+import com.klid.common.hwplib.object.docinfo.*;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.writer.ForUnknown;
-import com.klid.common.hwplib.object.docinfo.BinData;
-import com.klid.common.hwplib.object.docinfo.BorderFill;
-import com.klid.common.hwplib.object.docinfo.Bullet;
-import com.klid.common.hwplib.object.docinfo.CharShape;
-import com.klid.common.hwplib.object.docinfo.DocInfo;
-import com.klid.common.hwplib.object.docinfo.FaceName;
-import com.klid.common.hwplib.object.docinfo.IDMappings;
-import com.klid.common.hwplib.object.docinfo.Numbering;
-import com.klid.common.hwplib.object.docinfo.ParaShape;
-import com.klid.common.hwplib.object.docinfo.Style;
-import com.klid.common.hwplib.object.docinfo.TabDef;
 import com.klid.common.hwplib.object.etc.UnknownRecord;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+import com.klid.common.hwplib.writer.ForUnknown;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * 문서 정보(DocInfo) 스트림을 쓰기 위한 객체
  * 
- * @author 박성균
  * 
  */
 public class ForDocInfo {

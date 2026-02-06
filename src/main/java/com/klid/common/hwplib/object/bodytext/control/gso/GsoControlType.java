@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlID;
 /**
  * 그리기 개체 타입
  * 
- * @author neolord
  */
 public enum GsoControlType {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.paragraph.header;
 /**
  * 문단 헤더 레코드
  * 
- * @author neolord
  */
 public class ParaHeader {
 	/**

@@ -1,20 +1,19 @@
 package com.klid.common.hwplib.reader.docinfo;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.docinfo.BorderFill;
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderFillProperty;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.object.docinfo.borderfill.EachBorder;
 import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
 import com.klid.common.hwplib.reader.docinfo.borderfill.ForFillInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderFillProperty;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 테두리/배경 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForBorderFill {
 	/**

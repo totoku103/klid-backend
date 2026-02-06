@@ -5,10 +5,9 @@ import com.klid.webapp.common.dto.EmailSendInfoDto;
 import com.klid.webapp.common.dto.IntegrationLoginInfoDto;
 import com.klid.webapp.common.dto.UserLastActionDto;
 import com.klid.webapp.common.enums.SessionAttributeTypes;
-import org.apache.commons.lang3.StringUtils;
-import lombok.extern.slf4j.Slf4j;
-
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 public class IntegrationSessionManager {

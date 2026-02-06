@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 상대적인 배열 방식
  * 
- * @author neolord
  */
 public enum RelativeArrange {
 	/**

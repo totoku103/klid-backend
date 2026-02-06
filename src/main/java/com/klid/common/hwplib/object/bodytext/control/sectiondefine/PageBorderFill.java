@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 쪽 테두리/배경 정보에 대한 레코드
  * 
- * @author neolord
  */
 public class PageBorderFill {
 	/**

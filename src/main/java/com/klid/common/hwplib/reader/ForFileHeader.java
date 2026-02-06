@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.reader;
 
-import java.io.IOException;
-import java.util.Arrays;
-
 import com.klid.common.hwplib.object.fileheader.FileHeader;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.binary.BitFlag;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 /**
  * 파일 헤더를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForFileHeader {
 	/**

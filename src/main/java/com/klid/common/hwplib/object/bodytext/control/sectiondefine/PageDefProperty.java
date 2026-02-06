@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 용지 설정의 속성에 대한 객체
  * 
- * @author neolord
  */
 public class PageDefProperty {
 	/**

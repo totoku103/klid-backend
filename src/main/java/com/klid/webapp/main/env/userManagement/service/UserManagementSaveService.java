@@ -1,7 +1,6 @@
 package com.klid.webapp.main.env.userManagement.service;
 
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.CustomException;
@@ -9,19 +8,15 @@ import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.enums.UserManagementProcessTypes;
 import com.klid.webapp.common.enums.UserManagementRequestTypes;
 import com.klid.webapp.main.env.userManagement.dto.CommUserDto;
-import com.klid.webapp.main.env.userManagement.dto.CommUserRequestUserInfo;
 import com.klid.webapp.main.env.userManagement.dto.CommUserRequestUserInfoDto;
 import com.klid.webapp.main.env.userManagement.persistence.UserManagementMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.Field;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 @Service
 @Transactional

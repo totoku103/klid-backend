@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.bindata;
 /**
  * 바이너리 데이터의 타입
  * 
- * @author neolord
  */
 public enum BinDataType {
 	/**

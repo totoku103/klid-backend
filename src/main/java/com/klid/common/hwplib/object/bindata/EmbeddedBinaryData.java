@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
 /**
  * HWP 파일내에서 사용하는 이미지등의 바이너리 데이터를 저장하는 객체
  * 
- * @author neolord
  */
 public class EmbeddedBinaryData {
 	/**

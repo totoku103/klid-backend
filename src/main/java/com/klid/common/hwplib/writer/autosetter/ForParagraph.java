@@ -11,7 +11,6 @@ import com.klid.common.hwplib.writer.autosetter.control.ForControl;
 /**
  * 문단 객체를 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForParagraph {
 	/**

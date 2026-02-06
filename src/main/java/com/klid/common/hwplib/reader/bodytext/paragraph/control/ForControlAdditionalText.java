@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlAdditionalText;
+import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderAdditionalText;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.additionaltext.AdditionalTextPosition;
 import com.klid.common.hwplib.object.docinfo.parashape.Alignment;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderAdditionalText;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 덧말 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlAdditionalText {
 	/**

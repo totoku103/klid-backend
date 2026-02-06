@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.tool;
 
-import java.util.Vector;
-
-import com.klid.common.hwplib.object.bodytext.control.table.Cell;
-import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.object.bodytext.control.ControlTable;
+import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.ListHeaderForCell;
+import com.klid.common.hwplib.object.bodytext.control.table.Row;
+
+import java.util.Vector;
 
 /**
  * 표의 셀을 병합하는 클래스
  * 
- * @author neolord
  */
 public class TableCellMerger {
 	/**

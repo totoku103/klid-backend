@@ -1,12 +1,12 @@
 package com.klid.common.hwplib.tool.paragraphadder;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
+import com.klid.common.hwplib.object.bodytext.paragraph.charshape.CharPositonShapeIdPair;
 import com.klid.common.hwplib.object.bodytext.paragraph.charshape.ParaCharShape;
 import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharNormal;
-import com.klid.common.hwplib.object.bodytext.paragraph.charshape.CharPositonShapeIdPair;
 import com.klid.common.hwplib.object.bodytext.paragraph.text.ParaText;
+
+import java.util.ArrayList;
 
 public class ParaTextSetter {
 	public static void changeText(Paragraph p, int startIndex, int endIndex, String text) {

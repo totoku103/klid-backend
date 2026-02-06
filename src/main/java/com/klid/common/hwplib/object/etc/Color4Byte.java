@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 4byte 색상 객체. windows API의 COLORREF에 대응하는 객체
  * 
- * @author neolord
  */
 public class Color4Byte {
 	/**

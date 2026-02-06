@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlPageHide;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderPageHide;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
+
 /**
  * 감추기 컨트롤을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPageHide {
 	/**

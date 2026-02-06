@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
-import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
 import com.klid.common.hwplib.object.bodytext.control.gso.caption.ListHeaderForCaption;
+import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
+import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 캡션 정보을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForCaption {
 	/**

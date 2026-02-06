@@ -1,18 +1,3 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.rpt.reportDailyState.service;
 
 import com.klid.common.AppGlobal;
@@ -20,7 +5,6 @@ import com.klid.common.hwplib.object.HWPFile;
 import com.klid.common.hwplib.object.bodytext.Section;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.reader.HWPReader;
 import com.klid.common.hwplib.writer.HWPWriter;
@@ -29,13 +13,11 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDaily.dto.ReportDailyDto;
-import com.klid.webapp.main.rpt.reportDaily.persistence.ReportDailyMapper;
-import com.klid.webapp.main.rpt.reportDailyState.dto.ReportDailyStateDto;
 import com.klid.webapp.main.rpt.reportDailyState.persistence.ReportDailyStateMapper;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -212,7 +194,6 @@ public class ReportDailyStateServiceImpl extends MsgService implements ReportDai
 //			}
 //			section.getParagraph(21).createText();
 //			section.getParagraph(21).getText().addString("(누적치 : ’"+totalDay.substring(0,4)+". "+totalDay.substring(4,6)+". "+totalDay.substring(6,8)+"이후, 단위 : 건)");
-
 
 			File file = new File(AppGlobal.homePath + "/export");
 			if(!file.exists())

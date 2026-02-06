@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.tbl;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.control.table.Table;
 import com.klid.common.hwplib.object.bodytext.control.table.ZoneInfo;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  * 표 정보 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForTable {
 	/**

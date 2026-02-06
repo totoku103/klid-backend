@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.additionaltext
 /**
  * 덧말의 위치
  * 
- * @author neolord
  */
 public enum AdditionalTextPosition {
 	/**

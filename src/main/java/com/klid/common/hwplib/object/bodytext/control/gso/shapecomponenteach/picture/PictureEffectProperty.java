@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 그림 효과의 속성을 나태내는 객체
  * 
- * @author neolord
  */
 public class PictureEffectProperty {
 	/**

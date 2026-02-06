@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 채우기 무늬 종류
  * 
- * @author neolord
  */
 public enum PatternType {
 	/**

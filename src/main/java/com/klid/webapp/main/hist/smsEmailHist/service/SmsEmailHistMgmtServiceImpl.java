@@ -1,31 +1,7 @@
-/**
- * Program Name : SmsEmailHistMgmtServiceImpl.java
- *
- * Version  :  1.0
- *
- * Creation Date : 2018. 08. 17
- *
- * Programmer Name  : devbong
- *
- * Copyright 2018 Hamonsoft. All rights reserved.
- */
 package com.klid.webapp.main.hist.smsEmailHist.service;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
-
-import com.klid.common.SEED_KISA256;
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Service;
-
 import com.klid.common.AppGlobal;
+import com.klid.common.SEED_KISA256;
 import com.klid.common.util.XLSFileBuilder;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
@@ -33,6 +9,17 @@ import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.hist.smsEmailHist.dto.SmsEmailHistMgmtDto;
 import com.klid.webapp.main.hist.smsEmailHist.persistence.SmsEmailHistMgmtMapper;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service("smsEmailHistMgmtService")
 public class SmsEmailHistMgmtServiceImpl extends MsgService implements SmsEmailHistMgmtService {

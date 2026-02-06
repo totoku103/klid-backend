@@ -9,7 +9,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeCo
 /**
  * 그리기 개체 컨트롤
  * 
- * @author neolord
  */
 public class GsoControl extends Control {
 	/**

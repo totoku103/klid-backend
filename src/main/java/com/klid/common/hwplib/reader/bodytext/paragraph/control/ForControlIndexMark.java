@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlIndexMark;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderIndexMark;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 찾아보기 표식 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlIndexMark {
 	/**

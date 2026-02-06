@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 오브젝트 주위를 텍스트가 어떻게 흘러갈지 지정하는 옵션
  * 
- * @author neolord
  */
 public enum TextFlowMethod {
 	/**

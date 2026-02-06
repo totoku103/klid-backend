@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.object.bodytext.control;
 
-import java.util.ArrayList;
-
+import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeader;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
+import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.object.bodytext.control.table.Table;
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeader;
-import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
+
+import java.util.ArrayList;
 
 /**
  * 표 컨트롤
  * 
- * @author neolord
  */
 public class ControlTable extends Control {
 	/**

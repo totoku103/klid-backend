@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 용지 설정에 대한 레코드
  * 
- * @author neolord
  */
 public class PageDef {
 	/**

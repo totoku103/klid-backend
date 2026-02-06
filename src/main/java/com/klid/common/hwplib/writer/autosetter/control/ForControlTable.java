@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.writer.autosetter.control;
 
-import com.klid.common.hwplib.object.bodytext.control.table.Cell;
-import com.klid.common.hwplib.writer.autosetter.InstanceID;
-import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCaption;
-import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCtrlHeaderGso;
 import com.klid.common.hwplib.object.bodytext.control.ControlTable;
+import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.object.bodytext.control.table.Table;
 import com.klid.common.hwplib.writer.autosetter.ForParagraphList;
+import com.klid.common.hwplib.writer.autosetter.InstanceID;
+import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCaption;
+import com.klid.common.hwplib.writer.autosetter.control.gso.part.ForCtrlHeaderGso;
 
 /**
  * 표 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlTable {
 	/**

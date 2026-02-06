@@ -1,6 +1,7 @@
 package com.klid.webapp.realtimeNotify.sms.dto;
 
 import lombok.Data;
+
 import java.util.List;
 
 /**

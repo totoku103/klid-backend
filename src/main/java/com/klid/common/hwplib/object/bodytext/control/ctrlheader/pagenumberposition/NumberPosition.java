@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.pagenumberposi
 /**
  * 번호의 표시 위치
  * 
- * @author neolord
  */
 public enum NumberPosition {
 	/**

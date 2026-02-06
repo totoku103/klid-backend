@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.docinfo.documentproperties.StartNumber;
 /**
  * 문서 속성를 나타내는 레코드
  * 
- * @author neolord
  */
 public class DocumentPropeties {
 	/**

@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 각주 모양에 대한 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class FootNoteShapeProperty {
 	/**

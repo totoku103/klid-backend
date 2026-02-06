@@ -1,5 +1,14 @@
 package com.klid.webapp.common.file.service;
 
+import com.klid.common.AppGlobal;
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.MsgService;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.common.file.persistence.FileUploadMapper;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,19 +20,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import jakarta.annotation.Resource;
-
-import com.klid.webapp.common.code.dto.CodeDto;
-import java.util.Base64;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.klid.common.AppGlobal;
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.MsgService;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.common.file.persistence.FileUploadMapper;
 
 @Service("fileUploadService")
 public class FileUploadServiceImpl extends MsgService implements FileUploadService {

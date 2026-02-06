@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 숨은 설명 컨트롤
  * 
- * @author neolord
  */
 public class ControlHiddenComment extends Control {
 	/**

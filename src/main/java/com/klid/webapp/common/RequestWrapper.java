@@ -1,13 +1,3 @@
-/**
- * Program Name		: HmHttpSessionListener.java
- * Description		: 
- * Programmer Name 	: Bae Jung Yeo
- * Creation Date	: 2017. 4. 13.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;

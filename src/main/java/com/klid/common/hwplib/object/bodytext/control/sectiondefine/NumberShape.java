@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 번호 모양
  * 
- * @author neolord
  */
 public enum NumberShape {
 	/**

@@ -7,17 +7,16 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.main.sms.dto.SmsInfoDto;
 import com.klid.webapp.main.sms.persistence.SmsMapper;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Date;
 
-/**
- * Created by Yuna on 2018-12-20.
- */
 @Service("smsService")
 public class SmsServiceImpl extends MsgService implements SmsService {
 

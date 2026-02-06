@@ -1,31 +1,11 @@
-/**
- * Program Name	: NoticeBoardMapper.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 14.
- * 
- * Programmer Name 	: kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.sys.riskMgmt.persistence;
 
-import java.util.Map;
-import java.util.List;
-
+import com.klid.webapp.main.sys.riskMgmt.dto.RiskMgmtDto;
 import org.springframework.stereotype.Repository;
 
-import com.klid.webapp.main.sys.riskMgmt.dto.RiskMgmtDto;
+import java.util.List;
+import java.util.Map;
 
-/**
- * @author imhojong
- *
- */
 @Repository("riskMgmtMapper")
 public interface RiskMgmtMapper {
 	RiskMgmtDto selectRiskMgmt(Map<String, Object> paramMap);

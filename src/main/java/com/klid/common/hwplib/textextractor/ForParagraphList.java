@@ -13,7 +13,6 @@ import java.util.ArrayList;
 /**
  * 문단 리스트를 위한 텍스트 추출기 객체
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

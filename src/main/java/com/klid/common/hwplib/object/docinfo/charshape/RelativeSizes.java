@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 언어별 상대 크기
  * 
- * @author neolord
  */
 public class RelativeSizes {
 	/**

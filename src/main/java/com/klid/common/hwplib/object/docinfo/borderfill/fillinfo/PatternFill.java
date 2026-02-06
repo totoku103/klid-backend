@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 단색 채우기 객체
  * 
- * @author neolord
  */
 public class PatternFill {
 	/**

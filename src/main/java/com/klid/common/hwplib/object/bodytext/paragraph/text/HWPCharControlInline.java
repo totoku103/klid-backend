@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 인라인 컨트롤 character
  * 
- * @author neolord
  */
 public class HWPCharControlInline extends HWPChar {
 	/**

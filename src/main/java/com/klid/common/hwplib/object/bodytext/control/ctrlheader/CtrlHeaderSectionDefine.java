@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.sectiondefine.S
 /**
  * 구역 정의 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderSectionDefine extends CtrlHeader {
 	/**

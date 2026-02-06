@@ -1,6 +1,5 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.dto.ThirdPartyOtpInitializeCryptoReqDto;
 import com.klid.webapp.common.dto.ThirdPartyOtpInitializePlainResDto;
@@ -8,6 +7,7 @@ import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.service.ThirdPartyCryptoService;
 import com.klid.webapp.common.service.ThirdPartyRedirectService;
 import com.klid.webapp.main.env.userManagementHistory.service.UserManagementHistoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

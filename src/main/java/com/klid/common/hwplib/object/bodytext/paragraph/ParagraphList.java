@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.object.bodytext.paragraph;
 
+import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
-
 /**
  * 문단 리스트를 나타내는 객체
  * 
- * @author neolord
  */
 public class ParagraphList implements ParagraphListInterface {
 	/**

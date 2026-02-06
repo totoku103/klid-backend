@@ -1,36 +1,15 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.sec.resourceBoard.service;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import jakarta.annotation.Resource;
 
 import com.klid.webapp.common.*;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
 import com.klid.webapp.main.sec.resourceBoard.dto.ResourceBoardDto;
+import com.klid.webapp.main.sec.resourceBoard.persistence.ResourceBoardMapper;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import com.klid.webapp.main.sec.resourceBoard.persistence.ResourceBoardMapper;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * @author dongju
- *
- */
 @Service("resourceBoardService")
 public class ResourceBoardServiceImpl extends MsgService implements ResourceBoardService {
 
@@ -142,7 +121,6 @@ public class ResourceBoardServiceImpl extends MsgService implements ResourceBoar
 		}
 		return new ReturnData(checkAuthYn);
 	}
-
 
 	/////////////////////////////행안부/////////////////////////
 

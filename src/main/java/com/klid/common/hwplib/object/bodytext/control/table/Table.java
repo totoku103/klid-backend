@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 테이블 정보를 포함하는 레코드
  * 
- * @author neolord
  */
 public class Table {
 	/**

@@ -1,30 +1,14 @@
-/**
- * Program Name : WebDashSidoController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- *
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.webdash.controller.sido;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.webdash.sido.service.WebDashSidoService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import jakarta.annotation.Resource;
 import java.util.Map;
 
 @RequestMapping("/api/webdash/sido/webDashSido")

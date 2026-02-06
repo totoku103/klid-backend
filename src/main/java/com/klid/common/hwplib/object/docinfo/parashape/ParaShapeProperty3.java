@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 문단 모양의 속성3 객체. (5.0.2.5 버전 이상)
  * 
- * @author neolord
  */
 public class ParaShapeProperty3 {
 	/**

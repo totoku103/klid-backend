@@ -1,9 +1,9 @@
 package com.klid.webapp.common;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.common.controller.CtrsRedirectController;
 import com.klid.webapp.common.dto.ThirdPartyBaseResDto;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

@@ -1,6 +1,5 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.common.SEED_KISA256;
 import com.klid.common.util.RedirectTokenUtil;
@@ -18,13 +17,14 @@ import com.klid.webapp.common.service.PrimaryCtrsService;
 import com.klid.webapp.common.service.ThirdPartyRedirectService;
 import com.klid.webapp.main.thirdparty.redirect.dto.SimpleTokenInfoDto;
 import com.klid.webapp.main.thirdparty.redirect.service.TokenInfoService;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 

@@ -1,37 +1,14 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.sec;
 
-import java.util.Map;
-
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.main.sec.noticeBoard.service.NoticeBoardService;
 import jakarta.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.main.sec.noticeBoard.service.NoticeBoardService;
+import java.util.Map;
 
-/**
- * @author kdj
- *
- */
 @RequestMapping("/api/main/sec/noticeBoard")
 @Controller
 public class NoticeBoardController {
@@ -128,7 +105,6 @@ public class NoticeBoardController {
 	public @ResponseBody ReturnData editNoticeConfirm(@RequestBody Map<String, Object> reqMap) {
 		return service.editNoticeConfirm(new Criterion(reqMap, false));
 	}
-
 
 	//실시간 공지팝업 확인내용 리스트
 	@RequestMapping(value = "getConfirmList")

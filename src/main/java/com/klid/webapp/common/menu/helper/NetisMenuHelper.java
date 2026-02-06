@@ -1,27 +1,8 @@
-/**
- * Program Name	: SKS_MenuHelper.java
- * <p>
- * Version		:  3.0
- * <p>
- * Creation Date	: 2016. 1. 10.
- * <p>
- * Programmer Name 	: Bae Jung Yeo
- * <p>
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- * P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.menu.helper;
 
 import com.klid.common.AppGlobal;
-import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.menu.persistence.MenuMapper;
 
-/**
- * @author jjung
- */
 public class NetisMenuHelper extends IMenuHelper {
 
     private MenuMapper mapper = null;
@@ -111,7 +92,6 @@ public class NetisMenuHelper extends IMenuHelper {
         menuList.put("5A2EC6A8-CBA4-4988-BB0E-FBB8F4200F0A", new MenuVO("경남", MenuTypeEnum.Klid));
         menuList.put("FEF9E66D-157E-41EE-A962-AD6034C1B680", new MenuVO("제주", MenuTypeEnum.Klid));
         menuList.put("1BD0D2E0-B9AA-42D3-BD47-777DD5A6815A", new MenuVO("세종", MenuTypeEnum.Klid));
-
 
     }
 

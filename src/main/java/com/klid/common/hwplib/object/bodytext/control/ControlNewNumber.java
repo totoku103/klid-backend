@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderNewNu
 /**
  * 새 번호 지정 컨트롤
  * 
- * @author neolord
  */
 public class ControlNewNumber extends Control {
 	/**

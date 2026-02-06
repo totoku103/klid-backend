@@ -1,13 +1,12 @@
 package com.klid.webapp.main.controller.env;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.UserManagementProcessTypes;
-import com.klid.webapp.common.enums.UserManagementRequestTypes;
 import com.klid.webapp.main.env.userManagementHistory.dto.*;
 import com.klid.webapp.main.env.userManagementHistory.service.UserManagementHistoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

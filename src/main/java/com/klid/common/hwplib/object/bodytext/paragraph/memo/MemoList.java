@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.paragraph.memo;
 /**
  * 메모 리스트 레코드
  * 
- * @author neolord
  */
 public class MemoList {
 	/**

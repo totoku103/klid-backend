@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.documentproperties;
 /**
  * 각종 시작번호에 대한 정보
  * 
- * @author neolord
  */
 public class StartNumber {
 	/**

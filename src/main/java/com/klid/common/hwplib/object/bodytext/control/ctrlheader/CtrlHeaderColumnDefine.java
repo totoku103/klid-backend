@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.object.bodytext.control.ctrlheader;
 
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnDefineHeaderProperty;
+import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnInfo;
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.object.etc.Color4Byte;
+
+import java.util.ArrayList;
 
 /**
  * 단 정의 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderColumnDefine extends CtrlHeader {
 	/**

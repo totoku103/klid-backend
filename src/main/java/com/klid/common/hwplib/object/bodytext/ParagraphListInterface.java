@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 /**
  * 문단 리스트 인터페이스
  * 
- * @author neolord
  */
 public interface ParagraphListInterface extends Iterable<Paragraph> {
 	/**

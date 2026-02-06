@@ -1,32 +1,12 @@
-/**
- * Program Name	: GrpMapper.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 23.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.grp.persistence;
+
+import com.klid.webapp.common.grp.dto.AuthGrpDto;
+import com.klid.webapp.common.grp.dto.GrpDto;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
-
-import com.klid.webapp.common.grp.dto.AuthGrpDto;
-import com.klid.webapp.common.grp.dto.GrpDto;
-
-/**
- * @author jung
- *
- */
 @Repository("grpMapper")
 public interface GrpMapper {
 
@@ -153,5 +133,4 @@ public interface GrpMapper {
 	/** 기관그룹 */
 	List<GrpDto> selectInstGrpTreeList(Map<String, Object> paramMap);
 }
-
 

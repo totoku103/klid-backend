@@ -1,9 +1,9 @@
 package com.klid.webapp.common.file.persistence;
 
-import java.util.Map;
-
-import org.springframework.stereotype.Repository;
 import com.klid.webapp.common.code.dto.CodeDto;
+import org.springframework.stereotype.Repository;
+
+import java.util.Map;
 
 @Repository("fileUploadMapper")
 public interface FileUploadMapper {

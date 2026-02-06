@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.secd;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderSectionDefine;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 구역 정보 컨트롤의 컨트롤 헤더 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForCtrlHeaderSecd {
 	/**

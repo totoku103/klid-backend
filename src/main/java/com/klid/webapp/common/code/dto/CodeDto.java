@@ -2,9 +2,6 @@ package com.klid.webapp.common.code.dto;
 
 import java.io.Serializable;
 
-/**
- * Created by devbong on 2018-07-05.
- */
 public class CodeDto implements Serializable {
     // 공통으로 사용될 정적변
     private String comCode1  = "";

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 문단의 영역 태그에 대한 레코드
  * 
- * @author neolord
  */
 public class ParaRangeTag {
 	/**

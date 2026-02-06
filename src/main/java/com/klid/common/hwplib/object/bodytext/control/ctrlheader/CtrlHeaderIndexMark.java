@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ControlType;
 /**
  * 찾아보기 표식 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderIndexMark extends CtrlHeader {
 	/**

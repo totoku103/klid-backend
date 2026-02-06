@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill;
 /**
  * Slash 대각선 모양
  * 
- * @author neolord
  */
 public enum SlashDiagonalShape {
 	/**

@@ -1,40 +1,14 @@
-/**
- * Program Name	: XLSFileStyle.java
- *
- * Version		:  3.2.0
- *
- * Creation Date	: 2016. 2. 3.
- *
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.common.util;
 
-import java.awt.Color;
-
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
-import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFPalette;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.VerticalAlignment;
-import org.apache.poi.ss.usermodel.Workbook;
 
-/**
- * @author jjung
- *
- */
+import java.awt.Color;
+
 public class XLSFileStyle {
 
 	// CellStyle
@@ -51,7 +25,6 @@ public class XLSFileStyle {
 	public final CellStyle noBorderStyle;
 
 	public final CellStyle blueTitleStyle;
-
 
 	public final CellStyle levelStyle_1;
 	public final CellStyle levelStyle_2;
@@ -206,7 +179,6 @@ public class XLSFileStyle {
 		}
 		levelStyle_1.setFillForegroundColor(poiColor.getIndex());
 		levelStyle_1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-
 
 		// Level 2
 		levelStyle_2 = workbook.createCellStyle();

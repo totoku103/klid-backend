@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.textbox.ListHeaderProp
 /**
  * 미주/각주을 위한 문단 리스트 헤더 레코드
  * 
- * @author neolord
  */
 public class ListHeaderForFootnodeEndnote {
 	/**

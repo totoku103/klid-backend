@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderOverl
 /**
  * 글자 겹침 컨트롤
  * 
- * @author neolord
  */
 public class ControlOverlappingLetter extends Control {
 	/**

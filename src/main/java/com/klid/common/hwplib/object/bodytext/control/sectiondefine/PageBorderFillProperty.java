@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 쪽 테두리/배경 정보의 속성에 대한 객체
  * 
- * @author neolord
  */
 public class PageBorderFillProperty {
 	/**

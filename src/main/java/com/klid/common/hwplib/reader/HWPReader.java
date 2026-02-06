@@ -1,5 +1,14 @@
 package com.klid.common.hwplib.reader;
 
+import com.klid.common.hwplib.object.HWPFile;
+import com.klid.common.hwplib.object.docinfo.BinData;
+import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
+import com.klid.common.hwplib.object.fileheader.FileVersion;
+import com.klid.common.hwplib.reader.bodytext.ForSection;
+import com.klid.common.hwplib.reader.docinfo.ForDocInfo;
+import com.klid.common.hwplib.util.compoundFile.reader.CompoundFileReader;
+import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,19 +17,9 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.klid.common.hwplib.object.HWPFile;
-import com.klid.common.hwplib.object.docinfo.bindata.BinDataCompress;
-import com.klid.common.hwplib.object.docinfo.BinData;
-import com.klid.common.hwplib.object.fileheader.FileVersion;
-import com.klid.common.hwplib.reader.bodytext.ForSection;
-import com.klid.common.hwplib.reader.docinfo.ForDocInfo;
-import com.klid.common.hwplib.util.compoundFile.reader.CompoundFileReader;
-import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
-
 /**
  * 한글 파일을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class HWPReader {
 	/**

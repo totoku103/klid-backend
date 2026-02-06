@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 테두리/배경 객체에서 4방향의 각각의 선을 나타내는 객체
  * 
- * @author neolord
  */
 public class EachBorder {
 	/**

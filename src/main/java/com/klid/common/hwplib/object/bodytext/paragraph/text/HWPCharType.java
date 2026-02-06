@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.paragraph.text;
 /**
  * 한글(HWP) 글자의 종류
  * 
- * @author neolord
  */
 public enum HWPCharType {
 	/**

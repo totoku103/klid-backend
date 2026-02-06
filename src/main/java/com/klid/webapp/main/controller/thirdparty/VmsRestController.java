@@ -1,12 +1,12 @@
 package com.klid.webapp.main.controller.thirdparty;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.dto.IntegrationLoginInfoDto;
 import com.klid.webapp.common.properties.ThirdPartyProperty;
 import com.klid.webapp.common.service.RedirectVmsService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 테두리/배경 객체의 속성
  * 
- * @author neolord
  */
 public class BorderFillProperty {
 	/**

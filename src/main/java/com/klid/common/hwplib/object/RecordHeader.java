@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object;
 /**
  * 레코드 헤더
  * 
- * @author neolord
  */
 public class RecordHeader {
 	/**

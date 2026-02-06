@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.paragraph.text;
 /**
  * ParaText에 저장되는 글자를 나타내는 추상 객체
  * 
- * @author neolord
  * 
  */
 public abstract class HWPChar {

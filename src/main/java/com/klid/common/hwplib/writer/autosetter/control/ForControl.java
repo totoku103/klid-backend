@@ -1,24 +1,13 @@
 package com.klid.common.hwplib.writer.autosetter.control;
 
+import com.klid.common.hwplib.object.bodytext.control.*;
+import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.writer.autosetter.control.gso.ForGsoControl;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlColumnDefine;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlEquation;
-import com.klid.common.hwplib.object.bodytext.control.ControlField;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.ControlSectionDefine;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 
 /**
  * 각각의 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControl {
 	/**

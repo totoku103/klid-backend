@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.etc;
 /**
  * Record의 테그 리스트
  * 
- * @author neolord
  */
 public class HWPTag {
 	/**

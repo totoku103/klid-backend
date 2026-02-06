@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.parashape;
 /**
  * 세로 정렬
  * 
- * @author neolord
  */
 public enum VerticalAlignment {
 	/**

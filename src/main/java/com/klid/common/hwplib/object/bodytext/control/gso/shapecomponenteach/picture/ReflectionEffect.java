@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.pi
 /**
  * 반사 효과 속성
  * 
- * @author neolord
  */
 public class ReflectionEffect {
 	/**

@@ -1,18 +1,17 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
 import com.klid.common.hwplib.object.bodytext.control.ControlColumnDefine;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderColumnDefine;
+import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnInfo;
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 단 정의 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlColumnDefine {
 	/**

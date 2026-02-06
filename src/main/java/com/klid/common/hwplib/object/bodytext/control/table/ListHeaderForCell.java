@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.table;
 /**
  * 셀의 문단 리스트 헤더 레코드
  * 
- * @author neolord
  */
 public class ListHeaderForCell {
 	/**

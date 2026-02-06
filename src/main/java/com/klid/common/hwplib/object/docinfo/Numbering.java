@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.object.docinfo;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.docinfo.numbering.LevelNumbering;
+
+import java.util.ArrayList;
 
 /**
  * 문단 번호  레코드
  * 
- * @author neolord
  */
 public class Numbering {
 	/**

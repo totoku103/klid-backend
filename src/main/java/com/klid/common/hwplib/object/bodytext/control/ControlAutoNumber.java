@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderAutoN
 /**
  * 자동번호 컨트롤에 대한 객체
  * 
- * @author neolord
  */
 public class ControlAutoNumber extends Control {
 	/**

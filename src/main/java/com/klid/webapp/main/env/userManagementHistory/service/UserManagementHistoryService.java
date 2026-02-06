@@ -1,7 +1,6 @@
 package com.klid.webapp.main.env.userManagementHistory.service;
 
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.CustomException;
@@ -17,6 +16,7 @@ import com.klid.webapp.main.env.userManagement.persistence.UserManagementMapper;
 import com.klid.webapp.main.env.userManagementHistory.dto.*;
 import com.klid.webapp.main.env.userManagementHistory.persistence.UserManagementHistoryMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

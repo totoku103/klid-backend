@@ -10,7 +10,6 @@ import java.io.UnsupportedEncodingException;
 /**
  * 그리기 개체에서 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class ForGso {
 	/**

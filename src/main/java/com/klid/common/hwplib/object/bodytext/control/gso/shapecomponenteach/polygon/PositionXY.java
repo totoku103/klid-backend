@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.po
 /**
  * 좌표를 나태내는 객체
  * 
- * @author neolord
  */
 public class PositionXY {
 	/**

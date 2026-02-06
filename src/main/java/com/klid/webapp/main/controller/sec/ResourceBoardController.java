@@ -1,41 +1,15 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.sec;
-
-import java.util.Map;
-
-import jakarta.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.sec.resourceBoard.service.ResourceBoardService;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * @author kdj
- *
- */
+import java.util.Map;
+
 @RequestMapping("/api/main/sec/resourceBoard")
 @Controller
 public class ResourceBoardController {
@@ -83,7 +57,6 @@ public class ResourceBoardController {
 		return service.checkAuth(new Criterion(reqMap));
 	}
 
-
 	//행안부 게시판 추가. 운영서버 소스 형상관리 및 패치 이슈로 자료실 java에 공유
 	@RequestMapping(value = "getMoisBoardList")
 	public @ResponseBody ReturnData getMoisBoardList(@RequestParam Map<String, Object> reqMap) {
@@ -101,12 +74,10 @@ public class ResourceBoardController {
 		return service.addMoisBoard(new Criterion(reqMap, false));
 	}
 
-
 	@RequestMapping(value = "editMoisBoard", method = RequestMethod.POST)
 	public @ResponseBody ReturnData editMoisBoard(@RequestBody Map<String, Object> reqMap) {
 		return service.editMoisBoard(new Criterion(reqMap, false));
 	}
-
 
 	@RequestMapping(value = "delMoisBoard")
 	public @ResponseBody ReturnData delMoisBoard(@RequestParam Map<String, Object> reqMap) {

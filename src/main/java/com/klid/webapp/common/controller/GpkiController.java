@@ -1,29 +1,17 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
-// TODO: GPKI 라이브러리가 Jakarta EE와 호환되지 않아 임시 비활성화
-// GPKI 라이브러리 업그레이드 후 아래 import 주석 해제 필요
-// import com.gpki.gpkiapi.cert.X509Certificate;
-// import com.gpki.servlet.GPKIHttpServletRequest;
-// import com.gpki.servlet.GPKIHttpServletResponse;
-import com.klid.common.IntegrationSessionManager;
-import com.klid.webapp.common.dto.IntegrationLoginInfoDto;
 import com.klid.webapp.common.service.GpkiService;
-import java.util.Base64;
-import me.totoku103.crypto.java.sha2.Sha512;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.tomcat.util.buf.HexUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Enumeration;
+import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

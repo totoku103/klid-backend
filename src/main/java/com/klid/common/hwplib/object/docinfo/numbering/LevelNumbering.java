@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.numbering;
 /**
  * 각 수준(1~7)에 해당하는 문단 번호 정보
  * 
- * @author neolord
  */
 public class LevelNumbering {
 	/**

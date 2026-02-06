@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 /**
  * 원하는 컨트롤을 찾기 위한 조건을 입력할 수 있는 인터페이스
  * 
- * @author neolord
  */
 public interface ControlFilter {
 	/**

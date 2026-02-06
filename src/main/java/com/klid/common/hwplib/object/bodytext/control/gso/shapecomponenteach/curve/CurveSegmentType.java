@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.cu
 /**
  * 곡선의 Segment Type
  * 
- * @author neolord
  */
 public enum CurveSegmentType {
 	/**

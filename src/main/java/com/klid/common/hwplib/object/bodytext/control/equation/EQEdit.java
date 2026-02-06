@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 수식 컨트롤의 수식 정보를 나타내는 레코드
  * 
- * @author neolord
  */
 public class EQEdit {
 	/**

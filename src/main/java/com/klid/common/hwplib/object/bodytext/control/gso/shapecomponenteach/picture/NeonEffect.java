@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.pi
 /**
  * 네온 효과 속성
  * 
- * @author neolord
  */
 public class NeonEffect {
 	/**

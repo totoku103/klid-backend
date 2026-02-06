@@ -1,39 +1,12 @@
-/**
- * Program Name	: LoggerAspect.java
- *
- * Version		:  3.2
- *
- * Creation Date	: 2016. 4. 1.
- * 
- * Programmer Name 	: jjung
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
-
-import com.klid.webapp.common.menu.helper.IMenuHelper;
-import com.klid.webapp.common.menu.helper.MenuVO;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.awt.*;
-import java.util.Map;
-
-/**
- * @author jjung
- *
- */
 @Aspect
 public class LoggerAspect {
 

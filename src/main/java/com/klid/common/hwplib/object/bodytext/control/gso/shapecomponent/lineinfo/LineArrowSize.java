@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.linein
 /**
  * 화살표 크기 (가로크기-세로크기)
  * 
- * @author neolord
  */
 public enum LineArrowSize {
 	/**

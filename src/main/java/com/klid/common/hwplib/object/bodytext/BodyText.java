@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * 본문를 나타나는 객체. HWP파일 내에 "BodyText" storage에 저장된다.
  * 
- * @author neolord
  */
 
 public class BodyText {

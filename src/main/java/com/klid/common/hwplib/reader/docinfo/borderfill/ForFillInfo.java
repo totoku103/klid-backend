@@ -1,22 +1,13 @@
 package com.klid.common.hwplib.reader.docinfo.borderfill;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.GradientFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.GradientType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.ImageFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.ImageFillType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PatternFill;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PatternType;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PictureEffect;
-import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.PictureInfo;
+import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.*;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 테두리/배경 레코드의 채우기 정보를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForFillInfo {
 	/**

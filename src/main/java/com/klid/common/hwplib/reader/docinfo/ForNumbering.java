@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.docinfo;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.docinfo.numbering.LevelNumbering;
 import com.klid.common.hwplib.object.docinfo.Numbering;
+import com.klid.common.hwplib.object.docinfo.numbering.LevelNumbering;
 import com.klid.common.hwplib.object.docinfo.numbering.ParagraphHeadInfo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 문단 번호 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForNumbering {
 	/**

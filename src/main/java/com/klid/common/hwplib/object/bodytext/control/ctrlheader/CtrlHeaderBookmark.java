@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ControlType;
 /**
  * 책갈피 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderBookmark extends CtrlHeader {
 	/**

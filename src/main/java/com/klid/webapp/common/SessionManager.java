@@ -1,40 +1,19 @@
-/**
- * Program Name	: SessionManager.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 27.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common;
 
-
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.ThirdPartySystemTypes;
 import com.klid.webapp.common.login.service.LoginServiceImpl;
+import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import jakarta.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
-/**
- * @author jung
- *
- */
 @Slf4j
 public class SessionManager {
     public final static String LITE_LOGIN_INFO_KEY = "LITE_LOGIN_INFO_KEY";

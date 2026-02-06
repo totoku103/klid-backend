@@ -1,6 +1,7 @@
 package com.klid.api.common.redirect.dto;
 
 import lombok.Data;
+
 import java.util.Date;
 
 @Data

@@ -1,29 +1,5 @@
-/**
- * Program Name : FaqBoardDto.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2016. 08. 10.
- * 
- * Programmer Name  : Song young wook
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.sec.qnaBoard.dto;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-/**
- * @author ywsong
- *
- */
 public class QnaBoardDto {
 	private int bultnNo;			//게시판번호	
 	private String bultnType;		//게시판종류

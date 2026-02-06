@@ -14,7 +14,6 @@ import java.util.ArrayList;
 /**
  * 원하는 컨트롤을 찾기 위한 객체
  * 
- * @author neolord
  */
 public class ControlFinder {
 	/**

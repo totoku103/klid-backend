@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.etc.Color4Byte;
 /**
  * 그림자 정보
  * 
- * @author neolord
  */
 public class ShadowInfo {
 	/**

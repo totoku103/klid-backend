@@ -1,18 +1,16 @@
 package com.klid.common.hwplib.util.compoundFile.reader;
 
+import com.klid.common.hwplib.object.fileheader.FileVersion;
+import org.apache.poi.poifs.filesystem.DocumentEntry;
+import org.apache.poi.poifs.filesystem.DocumentInputStream;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import com.klid.common.hwplib.object.fileheader.FileVersion;
-
-import org.apache.poi.poifs.filesystem.DocumentEntry;
-import org.apache.poi.poifs.filesystem.DocumentInputStream;
-
 /**
  * 일반적인 스트림을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class StreamReaderForNormal extends StreamReader {
 	/**

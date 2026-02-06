@@ -1,11 +1,10 @@
 package com.klid.common;
 
-import org.apache.commons.lang3.StringUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Slf4j
 public class HttpRequestUtils {

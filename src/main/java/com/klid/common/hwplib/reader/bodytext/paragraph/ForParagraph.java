@@ -1,7 +1,5 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
@@ -11,10 +9,11 @@ import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.ForGsoContro
 import com.klid.common.hwplib.reader.bodytext.paragraph.memo.ForMemo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 하나의 문단을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForParagraph {
 	/**

@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlObjectLinkLine;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentLineForObjectLinkLine;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 객체 연결선 컨트롤의 나머지 부분을 읽기 위한 객체
  * 
- * @author 박성균
  * 
  */
 public class ForControlObjectLinkLine {

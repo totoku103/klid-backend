@@ -2,9 +2,6 @@ package com.klid.webapp.common.dto;
 
 import java.io.Serializable;
 
-/**
- * Created by devbong on 2018-07-05.
- */
 public class PolicyInfoDto implements Serializable {
 
     private String maxWeeks;

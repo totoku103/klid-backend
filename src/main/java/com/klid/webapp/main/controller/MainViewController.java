@@ -1,28 +1,10 @@
-/**
- * Program Name	: MainViewController.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 9. 04.
- * 
- * Programmer Name 	: jjung
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.controller;
 
+import com.klid.common.CommonController;
 import jakarta.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.klid.common.CommonController;
-
 
 @RequestMapping("/main/board/")
 @Controller
@@ -110,7 +92,6 @@ public class MainViewController extends CommonController {
 		model.addAttribute("boardNo", request.getParameter("boardNo"));
 		setBaseInfo(model);
 	}
-
 
 	//행안부
 	@RequestMapping("pMoisBoardContents.do") public void pMoisBoardContents(Model model, HttpServletRequest request) {

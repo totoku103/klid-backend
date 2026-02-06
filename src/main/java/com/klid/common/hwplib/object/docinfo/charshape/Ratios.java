@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 언어별 글자 장평
  * 
- * @author neolord
  */
 public class Ratios {
 	/**

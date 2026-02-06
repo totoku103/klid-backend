@@ -1,13 +1,16 @@
 package com.klid.common;
 
-import org.apache.commons.codec.binary.Base32;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base32;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.*;
-import java.util.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
 
 @Slf4j
 @Component

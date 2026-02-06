@@ -1,7 +1,7 @@
 package com.klid.config;
 
-import com.klid.webapp.common.HtmlEscapingObjectMapperFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.klid.webapp.common.HtmlEscapingObjectMapperFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

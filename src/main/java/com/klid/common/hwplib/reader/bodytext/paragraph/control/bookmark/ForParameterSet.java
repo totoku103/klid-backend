@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterType;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterItem;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterSet;
+import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterType;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 파라메터 셋을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForParameterSet {
 	/**

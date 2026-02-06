@@ -11,7 +11,6 @@ import java.io.UnsupportedEncodingException;
 /**
  * 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class FieldFinder {
 	/**

@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.bindata.BinDataProperty;
 /**
  * 바이너리 데이터를 나타내는 레코드
  * 
- * @author neolord
  */
 public class BinData {
 	/**

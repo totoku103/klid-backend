@@ -1,19 +1,18 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part.shapecomponent;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentNormal;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.lineinfo.LineInfo;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowInfo;
 import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.docinfo.borderfill.ForFillInfo;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.shadowinfo.ShadowInfo;
+
+import java.io.IOException;
 
 /**
  * 묶음 컨트롤이 아닌 일반 컨트롤의 객체 공통 속성 레코드을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForShapeComponentForNormal {
 	/**

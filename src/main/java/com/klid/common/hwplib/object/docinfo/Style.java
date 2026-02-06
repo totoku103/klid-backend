@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.style.StyleProperty;
 /**
  * 스타일에 대한  레코드
  * 
- * @author neolord
  */
 public class Style {
 	/**

@@ -1,32 +1,16 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.env.userConf.service;
 
-import jakarta.annotation.Resource;
-
-import com.klid.webapp.common.*;
-import org.springframework.stereotype.Service;
-import com.klid.webapp.common.dto.UserDto;
-
-import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
 import com.klid.common.SEED_KISA256;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+import com.klid.webapp.common.*;
+import com.klid.webapp.common.dto.UserDto;
+import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service("userConfService")
 public class UserConfServiceImpl extends MsgService implements UserConfService {

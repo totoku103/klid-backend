@@ -1,33 +1,14 @@
-/**
- * Program Name	: IXLSFileBuilder.java
- *
- * Version		:  3.0
- *
- * Creation Date	: 2015. 12. 20.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.common.util;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.jfree.chart.JFreeChart;
 
-/**
- * @author jjung
- *
- */
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+
 public interface IXLSFileBuilder {
 
 	public Sheet newSheet(String sheetName);
@@ -75,7 +56,6 @@ public interface IXLSFileBuilder {
 	public void addImgFile(File imgFile);
 	
 	public void addImgFile(File imgFile, int width);
-
 
 	
 }

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.render
 /**
  * 확장/회전을 위한 행렬의 쌍을 나타내는 객체
  * 
- * @author neolord
  */
 public class ScaleRotateMatrixPair {
 	/**

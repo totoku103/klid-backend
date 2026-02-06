@@ -1,8 +1,5 @@
 package com.klid.common.hwplib.tool.textextractor;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
@@ -10,10 +7,12 @@ import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPChar;
 import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharNormal;
 import com.klid.common.hwplib.object.bodytext.paragraph.text.ParaText;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
 /**
  * 문단 리스트를 위한 텍스트 추출기 객체
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

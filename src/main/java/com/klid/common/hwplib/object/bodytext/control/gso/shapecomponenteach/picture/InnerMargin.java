@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.pi
 /**
  * 안쪽 여백 정보
  * 
- * @author neolord
  */
 public class InnerMargin {
 	/**

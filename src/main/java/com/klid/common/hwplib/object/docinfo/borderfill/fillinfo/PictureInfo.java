@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.borderfill.fillinfo;
 /**
  * 그림 정보 객체
  * 
- * @author neolord
  */
 public class PictureInfo {
 	/**

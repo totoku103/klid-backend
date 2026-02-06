@@ -1,13 +1,12 @@
 package com.klid.common.hwplib.writer.autosetter.control.gso.part;
 
-import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
 import com.klid.common.hwplib.writer.autosetter.ForParagraphList;
+import com.klid.common.hwplib.writer.autosetter.InstanceID;
 
 /**
  * 캡션 정보을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForCaption {
 	/**

@@ -8,7 +8,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderField
 /**
  * 필드 컨트롤
  * 
- * @author neolord
  */
 public class ControlField extends Control {
 	/**

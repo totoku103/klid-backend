@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.pi
 /**
  * 그림 효과
  * 
- * @author neolord
  */
 public class PictureEffect {
 	/**

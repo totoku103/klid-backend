@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
+import com.klid.common.hwplib.object.bodytext.control.gso.caption.ListHeaderForCaption;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.ForParagraphList;
-import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
-import com.klid.common.hwplib.object.bodytext.control.gso.caption.ListHeaderForCaption;
+
+import java.io.IOException;
 
 /**
  * 캡션 정보을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForCaption {
 	/**

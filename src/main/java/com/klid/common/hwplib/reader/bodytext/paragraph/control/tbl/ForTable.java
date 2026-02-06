@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.tbl;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.table.Table;
 import com.klid.common.hwplib.object.bodytext.control.table.ZoneInfo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 표 정보 레코드를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForTable {
 	/**

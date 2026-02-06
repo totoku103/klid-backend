@@ -1,12 +1,8 @@
 package com.klid.common.hwplib.object.bodytext.paragraph;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
-import com.klid.common.hwplib.object.bodytext.control.FactoryForControl;
-import com.klid.common.hwplib.object.bodytext.paragraph.rangetag.ParaRangeTag;
 import com.klid.common.hwplib.object.bodytext.control.Control;
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
+import com.klid.common.hwplib.object.bodytext.control.FactoryForControl;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControlType;
@@ -14,12 +10,15 @@ import com.klid.common.hwplib.object.bodytext.paragraph.charshape.ParaCharShape;
 import com.klid.common.hwplib.object.bodytext.paragraph.header.ParaHeader;
 import com.klid.common.hwplib.object.bodytext.paragraph.lineseg.ParaLineSeg;
 import com.klid.common.hwplib.object.bodytext.paragraph.memo.Memo;
+import com.klid.common.hwplib.object.bodytext.paragraph.rangetag.ParaRangeTag;
 import com.klid.common.hwplib.object.bodytext.paragraph.text.ParaText;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 /**
  * 하나의 문단을 나타내는 객체
  * 
- * @author neolord
  */
 public class Paragraph {
 	/**

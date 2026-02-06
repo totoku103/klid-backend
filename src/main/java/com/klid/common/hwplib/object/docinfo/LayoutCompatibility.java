@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo;
 /**
  * 레이아웃 호환성에 대한  레코드
  * 
- * @author neolord
  */
 public class LayoutCompatibility {
 	/**

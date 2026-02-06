@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 확장 컨트롤 Character
  * 
- * @author neolord
  */
 public class HWPCharControlExtend extends HWPChar {
 	/**

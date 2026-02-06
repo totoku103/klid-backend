@@ -1,19 +1,3 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.rpt;
 
 import com.klid.common.AppGlobal;
@@ -23,12 +7,12 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportSecurityResult.dto.ReportResultListDto;
 import com.klid.webapp.main.rpt.reportSecurityResult.persistence.ReportSecurityResultMapper;
 import com.klid.webapp.main.rpt.reportSecurityResult.service.ReportSecurityResultService;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletResponse;
 import java.text.DecimalFormat;
 import java.util.*;
 

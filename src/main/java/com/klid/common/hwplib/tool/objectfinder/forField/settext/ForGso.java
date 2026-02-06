@@ -1,14 +1,8 @@
 package com.klid.common.hwplib.tool.objectfinder.forField.settext;
 
 import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
 import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextBox;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.tool.objectfinder.SetFieldResult;
 import com.klid.common.hwplib.tool.objectfinder.TextBuffer;
 import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
@@ -16,7 +10,6 @@ import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
 /**
  * 그리기 개체에 포함된 필드의 텍스트를 설정하는 기능을 포함한 클래스
  * 
- * @author 박성균
  */
 public class ForGso {
 	/**

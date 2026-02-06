@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.Sha
 /**
  * 객체 연결선 컨트롤
  * 
- * @author neolord
  */
 public class ControlObjectLinkLine extends GsoControl {
 	/**

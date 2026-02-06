@@ -6,7 +6,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 문단 리스트 헤더의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class ListHeaderProperty {
 	/**

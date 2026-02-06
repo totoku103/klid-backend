@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine;
 /**
  * 단 방향
  * 
- * @author neolord
  */
 public enum ColumnDirection {
 	/**

@@ -1,23 +1,11 @@
 package com.klid.common.hwplib.object.bodytext.control;
 
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlLine;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlOLE;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlObjectLinkLine;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPicture;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControlType;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
 
 /**
  * 컨트롤을 생성하는 객체
  * 
- * @author neolord
  * 
  */
 public class FactoryForControl {

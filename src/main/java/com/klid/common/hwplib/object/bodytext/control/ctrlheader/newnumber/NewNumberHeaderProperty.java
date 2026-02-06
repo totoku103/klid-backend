@@ -6,7 +6,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 새 번호 지정 컨트롤의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class NewNumberHeaderProperty {
 	/**

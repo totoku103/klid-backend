@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlPageNumberPosition;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderPageNumberPosition;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 쪽 번호 위치 컨트롤을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPageNumberPosition {
 	/**

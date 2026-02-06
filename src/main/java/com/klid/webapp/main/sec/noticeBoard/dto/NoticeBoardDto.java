@@ -1,25 +1,5 @@
-/**
- * Program Name : NoticeBoardDto.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.sec.noticeBoard.dto;
 
-/**
- * @author kdj
- *
- */
 public class NoticeBoardDto {
 	private int bultnNo;			//게시판번호	
 	private String bultnType;		//게시판종류
@@ -62,7 +42,6 @@ public class NoticeBoardDto {
 	private String userNm;
 	private String instNm;
 	private String regDtime;		//설문응답 시간
-
 
 	public String getRegDtime() {
 		return regDtime;

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 미주를 위치시킬 방법
  * 
- * @author neolord
  */
 public enum EndNoteDisplayMethod {
 	/**

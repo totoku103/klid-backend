@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.util.compoundFile.reader;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.object.fileheader.FileVersion;
 import com.klid.common.hwplib.util.binary.BitFlag;
-import com.klid.common.hwplib.object.RecordHeader;
+
+import java.io.IOException;
 
 /**
  * MS Compound 파일의 스트림을 읽기 위한 객체
  * 
- * @author neolord
  */
 public abstract class StreamReader {
 	/**

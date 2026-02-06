@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderPageN
 /**
  * 쪽 번호 위치 컨트롤
  * 
- * @author neolord
  */
 public class ControlPageNumberPosition extends Control {
 	/**

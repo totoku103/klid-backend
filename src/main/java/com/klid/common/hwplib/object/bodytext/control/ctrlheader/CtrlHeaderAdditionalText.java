@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.docinfo.parashape.Alignment;
 /**
  * 덧말 컨트롤을 위한 컨트롤 헤더 레코드
  * 
- * @author neolord
  */
 public class CtrlHeaderAdditionalText extends CtrlHeader {
 	/**

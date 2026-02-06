@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.tabdef;
 /**
  * 탭의 종류
  * 
- * @author neolord
  */
 public enum TabSort {
 	/**

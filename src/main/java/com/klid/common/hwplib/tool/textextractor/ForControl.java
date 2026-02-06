@@ -1,24 +1,15 @@
 package com.klid.common.hwplib.tool.textextractor;
 
-import java.io.UnsupportedEncodingException;
-
+import com.klid.common.hwplib.object.bodytext.control.*;
+import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
 import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlAdditionalText;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlEquation;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * 컨트롤을 위한 텍스트 추출기 객체
  * 
- * @author neolord
  */
 public class ForControl {
 	/**

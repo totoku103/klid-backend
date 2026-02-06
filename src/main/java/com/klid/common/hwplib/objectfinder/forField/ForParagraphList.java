@@ -13,7 +13,6 @@ import java.util.ArrayList;
 /**
  * 문단리스트, 문단에서 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

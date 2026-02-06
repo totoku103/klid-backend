@@ -1,27 +1,8 @@
-/**
- * Program Name	: GrpService.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 29.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.grp.service;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ReturnData;
 
-/**
- * @author jung
- *
- */
 public interface GrpService {
 
 	ReturnData getGrpDuplCnt(Criterion criterion);
@@ -107,8 +88,6 @@ public interface GrpService {
 	ReturnData editServiceGrp(Criterion criterion);
 
 	ReturnData delServiceGrp(Criterion criterion);
-
-
 
 	/** 서비스포트그룹 */
 	ReturnData getSvcPortGrpList(Criterion criterion);

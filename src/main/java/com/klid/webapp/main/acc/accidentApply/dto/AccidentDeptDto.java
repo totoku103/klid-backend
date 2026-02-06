@@ -1,9 +1,5 @@
 package com.klid.webapp.main.acc.accidentApply.dto;
 
-/**
- * @author imhojong
- *
- */
 public class AccidentDeptDto {
 	private int instCd;
 	private String instNm;		

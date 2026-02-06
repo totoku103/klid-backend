@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.secd;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.bodytext.control.sectiondefine.PageBorderFill;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
-import com.klid.common.hwplib.object.bodytext.control.sectiondefine.PageBorderFill;
+
+import java.io.IOException;
 
 /**
  * 쪽 테두리/배경 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForPageBorderFill {
 	/**

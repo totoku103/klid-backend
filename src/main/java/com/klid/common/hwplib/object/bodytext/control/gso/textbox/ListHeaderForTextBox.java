@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.gso.textbox;
 /**
  * 글상자를 위한 문단 리스트 헤더 레코드
  * 
- * @author neolord
  */
 public class ListHeaderForTextBox {
 	/**

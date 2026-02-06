@@ -1,18 +1,3 @@
-/**
- * Program Name		: PolicyConfServiceImpl.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 10. 2.
- * 
- * Programmer Name  : jjung
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
 package com.klid.webapp.common.policy.service;
 
 import com.klid.webapp.common.Criterion;
@@ -21,16 +6,12 @@ import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.dto.PolicyDto;
 import com.klid.webapp.common.dto.PolicyInfoDto;
 import com.klid.webapp.common.policy.persistence.PolicyConfMapper;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @author jjung
- *
- */
 @Service("policyConfService")
 public class PolicyConfServiceImpl extends MsgService implements PolicyConfService {
 	

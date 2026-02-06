@@ -1,11 +1,7 @@
 package com.klid.common.hwplib.tool.paragraphadder.docinfo;
 
-import com.klid.common.hwplib.object.docinfo.charshape.Ratios;
 import com.klid.common.hwplib.object.docinfo.CharShape;
-import com.klid.common.hwplib.object.docinfo.charshape.CharOffsets;
-import com.klid.common.hwplib.object.docinfo.charshape.CharSpaces;
-import com.klid.common.hwplib.object.docinfo.charshape.FaceNameIds;
-import com.klid.common.hwplib.object.docinfo.charshape.RelativeSizes;
+import com.klid.common.hwplib.object.docinfo.charshape.*;
 
 public class CharShapeAdder {
 	private DocInfoAdder docInfoAdder;

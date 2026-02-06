@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.bodytext.paragraph.charshape.CharPositonShapeIdPair;
 import com.klid.common.hwplib.object.bodytext.paragraph.charshape.ParaCharShape;
 import com.klid.common.hwplib.object.etc.HWPTag;
-import com.klid.common.hwplib.object.bodytext.paragraph.charshape.CharPositonShapeIdPair;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
+
+import java.io.IOException;
 
 /**
  * 문단의 글자 모양 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForParaCharShape {
 	/**

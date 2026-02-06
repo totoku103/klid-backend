@@ -1,12 +1,11 @@
 package com.klid.common.hwplib.writer.autosetter.control.gso.part;
 
-import com.klid.common.hwplib.writer.autosetter.InstanceID;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
+import com.klid.common.hwplib.writer.autosetter.InstanceID;
 
 /**
  * 그리기 개체의 컨트롤 헤더 레코드를 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForCtrlHeaderGso {
 	/**

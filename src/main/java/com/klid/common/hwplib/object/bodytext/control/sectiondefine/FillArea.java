@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 채워질 영역의 종류
  * 
- * @author neolord
  */
 public enum FillArea {
 	/**

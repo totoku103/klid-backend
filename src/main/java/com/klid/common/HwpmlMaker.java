@@ -1,26 +1,19 @@
 package com.klid.common;
 
+import org.apache.commons.codec.binary.Base64;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageInputStream;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageInputStream;
-
-import org.apache.commons.codec.binary.Base64;
-
-/**
- *
- * @author Kyoungnam Kim (zealiard@gmail.com)
- *
- */
 public class HwpmlMaker {
 
 	private String reportFile;
 	private String prefix;
 	private String postfix;
 	private String hwpml;
-
 
 	public HwpmlMaker(String reportFile) {
 		this.reportFile = reportFile;
@@ -29,7 +22,6 @@ public class HwpmlMaker {
 		this.setReport();
 	}
 
-
 	public HwpmlMaker(String reportFile, String prefix) {
 		this.reportFile = reportFile;
 		this.prefix = prefix;
@@ -37,14 +29,12 @@ public class HwpmlMaker {
 		this.setReport();
 	}
 
-
 	public HwpmlMaker(String reportFile, String prefix, String postfix) {
 		this.reportFile = reportFile;
 		this.prefix = prefix;
 		this.postfix = postfix;
 		this.setReport();
 	}
-
 
 	/**
 	 * hwpml 문서의 파라미터를 입력한다.
@@ -59,7 +49,6 @@ public class HwpmlMaker {
 		}
 	}
 
-
 	/**
 	 * hwpml 문서의 파라미터를 입력한다.
 	 *
@@ -69,7 +58,6 @@ public class HwpmlMaker {
 	public void setParam(String paramName, String param) {
 		hwpml = hwpml.replaceFirst(prefix + paramName + postfix, param);
 	}
-
 
 	/**
 	 * hwpml 문서를 지정된 경로에 저장한다.
@@ -94,9 +82,7 @@ public class HwpmlMaker {
 			e.printStackTrace();
 		}
 
-
 	}
-
 
 	/**
 	 * hwpml을 반환한다.
@@ -105,7 +91,6 @@ public class HwpmlMaker {
 	public String getHwpml() {
 		return hwpml;
 	}
-
 
 	/**
 	 * 이미지파일(fileName)을 hwpml에 추가한다.
@@ -167,7 +152,6 @@ public class HwpmlMaker {
 		}
 	}
 
-
 	/**
 	 * id="abcd" 형식의 Attribute 값을 변경한다.
 	 * id값은 반드시 Unique 해야 한다.
@@ -190,7 +174,6 @@ public class HwpmlMaker {
 		hwpml = hwpml.replaceFirst(tag, newTag);
 	}
 
-
 	/**
 	 * parentId 노드를 포함한 하위 노드들의 attribute 값을 모두 value로 변경한다.
 	 *
@@ -204,7 +187,6 @@ public class HwpmlMaker {
 
 		hwpml = hwpml.replaceFirst(tag, newTag);
 	}
-
 
 	/**
 	 * TABLE의 ROW를 늘려준다.
@@ -223,7 +205,6 @@ public class HwpmlMaker {
 
 		// 테이블의 RowCount를 추가 될 Row수에 맞게 수정
 		this.setAttribute(tableId, "RowCount", String.valueOf(startRowAddr + rows));
-
 
 		StringBuffer newTag = new StringBuffer(tag);
 
@@ -253,8 +234,6 @@ public class HwpmlMaker {
 		hwpml = hwpml.replaceFirst(old, newTag.toString());
 	}
 
-
-
 	/**
 	 * 시작태그 부분만 가져온다.
 	 *
@@ -273,7 +252,6 @@ public class HwpmlMaker {
 
 		return tag;
 	}
-
 
 	/**
 	 * 태그블럭 전체를 가져온다.
@@ -294,7 +272,6 @@ public class HwpmlMaker {
 
 		return tag;
 	}
-
 
 	/**
 	 * reportFile을 읽어 hwpml에 저장한다.

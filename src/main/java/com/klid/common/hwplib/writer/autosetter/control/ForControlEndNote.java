@@ -7,7 +7,6 @@ import com.klid.common.hwplib.writer.autosetter.InstanceID;
 /**
  * 미주 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlEndNote {
 	/**

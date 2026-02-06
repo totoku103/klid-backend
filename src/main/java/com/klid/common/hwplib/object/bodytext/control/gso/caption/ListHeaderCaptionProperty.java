@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 캡션 정보의 속성을 나태내는 객체
  * 
- * @author neolord
  */
 public class ListHeaderCaptionProperty {
 	/**

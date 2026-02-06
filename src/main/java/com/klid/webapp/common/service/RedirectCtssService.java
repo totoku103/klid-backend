@@ -1,6 +1,5 @@
 package com.klid.webapp.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.ThirdPartyRestTemplate;
 import com.klid.webapp.common.dto.ThirdPartyBaseResDto;
@@ -8,6 +7,7 @@ import com.klid.webapp.common.dto.ThirdPartyRedirectCryptoReqDto;
 import com.klid.webapp.common.dto.ThirdPartyRedirectResDto;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
 import com.klid.webapp.common.enums.ThirdPartySystemTypes;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service

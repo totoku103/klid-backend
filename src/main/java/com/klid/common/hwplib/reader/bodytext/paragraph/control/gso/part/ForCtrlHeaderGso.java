@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
 import com.klid.common.hwplib.util.binary.BitFlag;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
+import java.io.IOException;
+
 /**
  * 그리기 개체의 컨트롤 헤더 레코드를 읽는다.
  * 
- * @author neolord
  */
 public class ForCtrlHeaderGso {
 	/**

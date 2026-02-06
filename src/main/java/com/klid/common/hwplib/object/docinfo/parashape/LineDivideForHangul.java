@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.parashape;
 /**
  * 줄 나눔 기준 한글 단위
  * 
- * @author neolord
  */
 public enum LineDivideForHangul {
 	/**

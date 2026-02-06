@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 단 정의 컨트롤의 속성 객체
  * 
- * @author neolord
  */
 public class ColumnDefineHeaderProperty {
 	/**

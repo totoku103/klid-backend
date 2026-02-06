@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.docinfo.numbering;
 /**
  * 수준별 본문과의 거리 종류
  * 
- * @author neolord
  */
 public enum ValueType {
 	/**

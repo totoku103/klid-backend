@@ -1,18 +1,3 @@
-/**
- * Program Name	: NoticeBoardServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 12. 22.
- * 
- * Programmer Name 	:  kim dong ju
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.env.nationIPMgmt.service;
 
 import com.klid.common.AppGlobal;
@@ -20,15 +5,14 @@ import com.klid.common.util.XLSFileBuilder;
 import com.klid.webapp.common.*;
 import com.klid.webapp.main.env.nationIPMgmt.dto.NationIPMgmtDto;
 import com.klid.webapp.main.env.nationIPMgmt.persistence.NationIPMgmtMapper;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.aspectj.weaver.ast.Not;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.*;
 import java.util.*;
 
@@ -72,8 +56,6 @@ public class NationIPMgmtServiceImpl extends MsgService implements NationIPMgmtS
 	@Override
 	public ReturnData addNationIPMgmt(Criterion criterion){
 		try{
-
-
 
 		MultipartFile uploadedFile = (MultipartFile) criterion.getValue("file");
 		String usrId = criterion.getValue("usrId").toString();
@@ -153,7 +135,6 @@ public class NationIPMgmtServiceImpl extends MsgService implements NationIPMgmtS
 			oneMap.put("nationNm", nationNm);
 			oneMap.put("usrId", usrId);
 			oneMap.put("usrIp", usrIp);
-
 
 			if(!oneMap.containsKey("nationCd")) continue; // nationCd 정보 가져온거 없을시, 해당 ip 정보 저장 안함
 

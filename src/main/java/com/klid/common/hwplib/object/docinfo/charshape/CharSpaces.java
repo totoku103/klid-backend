@@ -5,7 +5,6 @@ import java.io.IOException;
 /**
  * 언어별 자간에 대한 객체
  * 
- * @author neolord
  */
 public class CharSpaces {
 	/**

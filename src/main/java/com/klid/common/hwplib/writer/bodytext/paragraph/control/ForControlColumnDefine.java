@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.ControlColumnDefine;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderColumnDefine;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.columndefine.ColumnInfo;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
+
 /**
  * 단 정의 컨트롤를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlColumnDefine {
 	/**

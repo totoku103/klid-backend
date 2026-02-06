@@ -1,48 +1,19 @@
-/**
- * Program Name	: EngineerViewController.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2016. 2. 22.
- *
- * Programmer Name 	: Song Young Wook
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.main.controller;
 
-
-import lombok.extern.slf4j.Slf4j;
-import jakarta.annotation.Resource;
-
+import com.klid.common.CommonController;
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.SessionManager;
-import com.klid.webapp.common.dto.UserDto;
-import com.klid.webapp.common.enums.UserManagementProcessTypes;
 import com.klid.webapp.main.controller.env.UserManagementController;
 import com.klid.webapp.main.controller.env.UserManagementHistoryController;
 import com.klid.webapp.main.env.userManagementHistory.dto.LatestCommUserRequestProcessStateDto;
 import com.klid.webapp.main.env.userManagementHistory.service.UserManagementHistoryService;
-import org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.klid.common.CommonController;
-import com.klid.webapp.engineer.menuMgmt.service.MenuMgmtService;
-import com.klid.webapp.engineer.popup.service.PopupService;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-/**
- * @author imhojong
- *
- */
 @RequestMapping("/main/popup")
 @Controller
 @Slf4j
@@ -52,7 +23,6 @@ public class PopupViewController extends CommonController {
     public PopupViewController(final UserManagementHistoryService userManagementHistoryService) {
         this.userManagementHistoryService = userManagementHistoryService;
     }
-
 
     /*====================================
      *  	COMM
@@ -67,7 +37,6 @@ public class PopupViewController extends CommonController {
 	@RequestMapping("home/pHomeAlert.do") public void pHomeAlert(Model model) {}
 
 	@RequestMapping("home/pImportXls.do") public void pImportXls(Model model) {}
-
 
 	//신고접수 등록
 	@RequestMapping("acc/pAccidentAdd.do") public void pAccidentAdd(Model model) {}
@@ -145,7 +114,6 @@ public class PopupViewController extends CommonController {
 	//기관관리 정보 수정
 	@RequestMapping("env/pInstIPEdit.do") public void pInstIPEdit(Model model) {}
 
-
 	/*
 	* ============================================= 국가별IP대역관리 =============================================
 	*/
@@ -153,7 +121,6 @@ public class PopupViewController extends CommonController {
 	@RequestMapping("env/pNationIPImport.do") public void pNationIPImport(Model model) {}
 	// 국가별IP 리스트 조회
 	@RequestMapping("env/pNationIPList.do") public void pNationIPList(Model model) {}
-
 
 	/*
 	* ============================================= 위협등급관리 =============================================

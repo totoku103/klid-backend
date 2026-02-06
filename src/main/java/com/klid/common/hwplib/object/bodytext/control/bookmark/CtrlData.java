@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.bookmark;
 /**
  * 임의 데이터 레코드
  * 
- * @author neolord
  */
 public class CtrlData {
 	/**

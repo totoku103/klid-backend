@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 /**
  * 문단 리스트 객체를 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

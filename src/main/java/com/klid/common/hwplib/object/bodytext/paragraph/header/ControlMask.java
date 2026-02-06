@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 문단에 포함된 컨트롤의 종류를 나타내는 객체
  * 
- * @author neolord
  */
 public class ControlMask {
 	/**

@@ -1,21 +1,16 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
+import com.klid.common.hwplib.object.bodytext.paragraph.text.*;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPChar;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlChar;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlExtend;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharControlInline;
-import com.klid.common.hwplib.object.bodytext.paragraph.text.HWPCharNormal;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * 문단의 텍스트 레코드를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForParaText {
 	/**

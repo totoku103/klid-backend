@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 /**
  * 탭 정보에 대한 객체
  * 
- * @author neolord
  */
 public class TabInfo {
 	/**

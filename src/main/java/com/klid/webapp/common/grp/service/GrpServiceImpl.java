@@ -1,27 +1,4 @@
-/**
- * Program Name	: GrpService.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2015. 1. 23.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2014 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.common.grp.service;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import jakarta.annotation.Resource;
-
-import org.springframework.stereotype.Service;
 
 import com.klid.common.AppGlobal;
 import com.klid.common.DBEnum;
@@ -30,11 +7,13 @@ import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.common.grp.persistence.GrpMapper;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
-/**
- * @author jung
- *
- */
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Service("grpService")
 public class GrpServiceImpl extends MsgService implements GrpService {
 

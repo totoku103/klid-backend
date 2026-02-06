@@ -1,15 +1,14 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph;
 
+import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
-import com.klid.common.hwplib.object.bodytext.ParagraphListInterface;
 
 import java.io.IOException;
 
 /**
  * 문단 리스트를 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForParagraphList {
 	/**

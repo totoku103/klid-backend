@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlID;
 /**
  * 컨트롤 타입
  * 
- * @author neolord
  */
 public enum ControlType {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.bookmark;
 /**
  * 파라미터 아이탬 객체
  * 
- * @author neolord
  */
 public class ParameterItem {
 	/**

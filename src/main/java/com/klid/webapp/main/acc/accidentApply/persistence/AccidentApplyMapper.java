@@ -1,19 +1,14 @@
 package com.klid.webapp.main.acc.accidentApply.persistence;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.session.ResultHandler;
-import org.springframework.stereotype.Repository;
-
 import com.klid.webapp.common.file.dto.AttachfileDto;
 import com.klid.webapp.main.acc.accidentApply.dto.AccidentApplyDto;
 import com.klid.webapp.main.acc.accidentApply.dto.AccidentHistoryDto;
+import org.apache.ibatis.session.ResultHandler;
+import org.springframework.stereotype.Repository;
 
-/**
- * @author imhojong
- *
- */
+import java.util.List;
+import java.util.Map;
+
 @Repository("accidentApplyMapper")
 public interface AccidentApplyMapper {
 	/** 신고 목록	 */

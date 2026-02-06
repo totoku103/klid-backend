@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderColum
 /**
  * 단 정의 컨트롤을 쓰기 전에 자동 설정하기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlColumnDefine {
 	/**

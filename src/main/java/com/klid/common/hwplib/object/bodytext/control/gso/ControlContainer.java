@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.object.bodytext.control.gso;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentContainer;
+
+import java.util.ArrayList;
 
 /**
  * 묶음 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlContainer extends GsoControl {
 	/**

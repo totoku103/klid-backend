@@ -1,20 +1,19 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
+import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlPicture;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.ShapeComponentPicture;
 import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.InnerMargin;
 import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForPictureEffect;
 import com.klid.common.hwplib.reader.docinfo.borderfill.ForFillInfo;
-import com.klid.common.hwplib.object.RecordHeader;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
+
+import java.io.IOException;
 
 /**
  * 그림 컨트롤의 나머지 부분을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlPicture {
 	/**

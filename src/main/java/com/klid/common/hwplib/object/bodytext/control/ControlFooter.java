@@ -7,7 +7,6 @@ import com.klid.common.hwplib.object.bodytext.paragraph.ParagraphList;
 /**
  * 꼬리말 컨트롤
  * 
- * @author neolord
  */
 public class ControlFooter extends Control {
 	/**

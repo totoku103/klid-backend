@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader.gso;
 /**
  * 오브젝트의 좌/우 어느 쪽에 글을 배치할지 지정하는 옵션
  * 
- * @author neolord
  */
 public enum TextHorzArrange {
 	/**

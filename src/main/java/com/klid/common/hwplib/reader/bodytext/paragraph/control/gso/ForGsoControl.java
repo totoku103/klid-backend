@@ -1,34 +1,23 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.FactoryForControl;
 import com.klid.common.hwplib.object.bodytext.control.bookmark.CtrlData;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderGso;
+import com.klid.common.hwplib.object.bodytext.control.gso.*;
+import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
 import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
 import com.klid.common.hwplib.object.etc.HWPTag;
+import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForCtrlData;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForCaption;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForCtrlHeaderGso;
 import com.klid.common.hwplib.reader.bodytext.paragraph.control.gso.part.ForShapeComponent;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlArc;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlCurve;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlEllipse;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlLine;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlOLE;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlObjectLinkLine;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPicture;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlPolygon;
-import com.klid.common.hwplib.object.bodytext.control.gso.ControlRectangle;
-import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
-import com.klid.common.hwplib.object.bodytext.control.gso.caption.Caption;
-import com.klid.common.hwplib.reader.bodytext.paragraph.control.bookmark.ForCtrlData;
+
+import java.io.IOException;
 
 /**
  * 그리기 개체 컨트롤들을 읽는다.
  * 
- * @author neolord
  */
 public class ForGsoControl {
 	/**

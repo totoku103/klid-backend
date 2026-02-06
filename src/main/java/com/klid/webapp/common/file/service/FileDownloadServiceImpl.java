@@ -1,6 +1,29 @@
 package com.klid.webapp.common.file.service;
 
+import com.klid.common.AppGlobal;
+import com.klid.common.util.XLSFileBuilder;
+import com.klid.webapp.common.Criterion;
+import com.klid.webapp.common.ErrorInfo;
+import com.klid.webapp.common.MsgService;
+import com.klid.webapp.common.ReturnData;
+import com.klid.webapp.common.code.dto.CodeDto;
+import com.klid.webapp.common.file.dto.AttachfileDto;
+import com.klid.webapp.common.file.persistence.FileDownloadMapper;
+import com.klid.webapp.common.file.persistence.FileUploadMapper;
+import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
+import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.ibatis.session.ResultContext;
+import org.apache.ibatis.session.ResultHandler;
+import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,31 +36,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
-
-import com.klid.common.util.XLSFileBuilder;
-import com.klid.webapp.common.ErrorInfo;
-import com.klid.webapp.common.ReturnData;
-import com.klid.webapp.common.code.dto.CodeDto;
-import com.klid.webapp.common.file.persistence.FileUploadMapper;
-import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
-import com.klid.webapp.main.env.userConf.persistence.UserConfMapper;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.ibatis.session.ResultContext;
-import org.apache.ibatis.session.ResultHandler;
-import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
-
-import com.klid.common.AppGlobal;
-import com.klid.webapp.common.Criterion;
-import com.klid.webapp.common.MsgService;
-import com.klid.webapp.common.file.dto.AttachfileDto;
-import com.klid.webapp.common.file.persistence.FileDownloadMapper;
 
 @Service("fileDownloadService")
 @Slf4j

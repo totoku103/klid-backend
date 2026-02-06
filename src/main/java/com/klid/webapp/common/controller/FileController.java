@@ -1,8 +1,6 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.AppGlobal;
-import com.klid.common.util.XLSFileBuilder;
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
@@ -13,34 +11,27 @@ import com.klid.webapp.common.file.dto.AttachfileDto;
 import com.klid.webapp.common.file.service.FileDeleteService;
 import com.klid.webapp.common.file.service.FileDownloadService;
 import com.klid.webapp.common.file.service.FileUploadService;
-import com.klid.webapp.main.acc.accidentApply.persistence.AccidentApplyMapper;
 import com.klid.webapp.main.sec.shareBoard.dto.ShareBoardDto;
 import com.klid.webapp.main.sec.shareBoard.service.ShareBoardService;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.ibatis.session.ResultContext;
-import org.apache.ibatis.session.ResultHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.nio.file.Paths;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 

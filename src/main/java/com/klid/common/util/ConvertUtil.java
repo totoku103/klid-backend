@@ -1,18 +1,3 @@
-/**
- * Program Name	: ConvertUtil.java
- *
- * Version		:  3.0
- *
- * Creation Date	: 2015. 12. 24.
- * 
- * Programmer Name 	: Bae Jung Yeo
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.common.util;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +6,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 
-/**
- * @author jjung
- *
- */
 @Slf4j
 public class ConvertUtil {
 

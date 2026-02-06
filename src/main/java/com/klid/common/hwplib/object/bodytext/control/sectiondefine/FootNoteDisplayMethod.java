@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 한 페이지 내에서 각주를 다단에 위치시킬 방법
  * 
- * @author neolord
  */
 public enum FootNoteDisplayMethod {
 	/**

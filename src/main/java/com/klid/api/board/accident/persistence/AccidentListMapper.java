@@ -1,7 +1,6 @@
 package com.klid.api.board.accident.persistence;
 
 import com.klid.api.board.accident.dto.AccidentListItemDTO;
-import com.klid.api.board.accident.dto.AccidentSearchRequestDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

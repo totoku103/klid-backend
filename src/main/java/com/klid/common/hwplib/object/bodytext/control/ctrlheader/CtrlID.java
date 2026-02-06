@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.ctrlheader;
 /**
  * 컨트롤 id을 생성하기 위한 객체
  * 
- * @author neolord
  */
 public class CtrlID {
 	/**

@@ -1,9 +1,9 @@
 package com.klid.webapp.common.file.persistence;
 
+import com.klid.webapp.common.file.dto.AttachfileDto;
+
 import java.util.List;
 import java.util.Map;
-
-import com.klid.webapp.common.file.dto.AttachfileDto;
 
 public interface FileDownloadMapper {
 

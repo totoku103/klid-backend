@@ -1,7 +1,5 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.tbl;
 
-import java.io.IOException;
-
 import com.klid.common.hwplib.object.bodytext.control.bookmark.ParameterSet;
 import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.ListHeaderForCell;
@@ -10,10 +8,11 @@ import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.ForParagraphList;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.bookmark.ForParameterSet;
 
+import java.io.IOException;
+
 /**
  * 표 컨트롤의 셀을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForCell {
 	/**

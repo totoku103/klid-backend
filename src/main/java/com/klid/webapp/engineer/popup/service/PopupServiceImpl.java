@@ -1,33 +1,12 @@
-/**
- * Program Name	: PopupServiceImpl.java
- *
- * Version		:  1.0
- *
- * Creation Date	: 2016. 2. 23.
- * 
- * Programmer Name 	: Song Young Wook
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE			: PROGRAMMER	: REASON
- */
 package com.klid.webapp.engineer.popup.service;
-
-import jakarta.annotation.Resource;
-
-import org.springframework.stereotype.Service;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.MsgService;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.engineer.popup.persistence.PopupMapper;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
-/**
- * @author ywsong
- *
- */
 @Service("popupService")
 public class PopupServiceImpl extends MsgService implements PopupService {
 
@@ -95,6 +74,5 @@ public class PopupServiceImpl extends MsgService implements PopupService {
 		return new ReturnData(criterion.getCondition());
 	}
 	
-
 
 }

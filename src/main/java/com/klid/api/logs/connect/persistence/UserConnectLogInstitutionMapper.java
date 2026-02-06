@@ -1,7 +1,7 @@
 package com.klid.api.logs.connect.persistence;
 
-import com.klid.api.logs.connect.dto.InstitutionChartYAxisDTO;
 import com.klid.api.logs.common.dto.InstitutionSummaryGridResDTO;
+import com.klid.api.logs.connect.dto.InstitutionChartYAxisDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

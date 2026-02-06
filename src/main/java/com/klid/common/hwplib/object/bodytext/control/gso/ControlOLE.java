@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.Sha
 /**
  * OLE 개체 컨트롤
  * 
- * @author neolord
  */
 public class ControlOLE extends GsoControl {
 	/**

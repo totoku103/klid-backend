@@ -1,8 +1,8 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.gso;
 
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentContainer;
 import com.klid.common.hwplib.object.bodytext.control.gso.ControlContainer;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponent.ShapeComponentContainer;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
 import java.io.IOException;
@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 묶은 컨트롤의 나머지 부분을 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlContainer {
 	/**

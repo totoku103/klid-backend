@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * OLE 개체의 속성에 대한 객체
  * 
- * @author neolord
  */
 public class ShapeComponentOLEProperty {
 	/**

@@ -1,14 +1,13 @@
 package com.klid.common.hwplib.object.bodytext.control.table;
 
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.sectiondefine.TextDirection;
-import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextVerticalAlignment;
 import com.klid.common.hwplib.object.bodytext.control.gso.textbox.LineChange;
+import com.klid.common.hwplib.object.bodytext.control.gso.textbox.TextVerticalAlignment;
 import com.klid.common.hwplib.util.binary.BitFlag;
 
 /**
  * 셀의 문단 리스트 헤더의 속성을 나타내는 객체
  * 
- * @author neolord
  */
 public class ListHeaderPropertyForCell {
 	/**

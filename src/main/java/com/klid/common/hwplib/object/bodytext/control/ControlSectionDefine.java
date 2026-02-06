@@ -1,17 +1,16 @@
 package com.klid.common.hwplib.object.bodytext.control;
 
-import java.util.ArrayList;
-
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderSectionDefine;
-import com.klid.common.hwplib.object.bodytext.control.sectiondefine.PageDef;
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.FootEndNoteShape;
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.PageBorderFill;
+import com.klid.common.hwplib.object.bodytext.control.sectiondefine.PageDef;
+
+import java.util.ArrayList;
 
 /**
  * 구역 정의 컨트롤
  * 
- * @author neolord
  */
 public class ControlSectionDefine extends Control {
 	/**

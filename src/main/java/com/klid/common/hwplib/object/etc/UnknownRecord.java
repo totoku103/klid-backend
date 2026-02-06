@@ -5,7 +5,6 @@ import com.klid.common.hwplib.object.RecordHeader;
 /**
  * 알려지지 않은 레코드
  * 
- * @author neolord
  */
 public class UnknownRecord {
 	/**

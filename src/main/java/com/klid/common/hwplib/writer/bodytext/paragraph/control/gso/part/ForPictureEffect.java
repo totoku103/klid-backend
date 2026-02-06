@@ -1,21 +1,13 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control.gso.part;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.ColorEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.ColorWithEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.NeonEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.PictureEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.ReflectionEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.ShadowEffect;
-import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.SoftEdgeEffect;
+import com.klid.common.hwplib.object.bodytext.control.gso.shapecomponenteach.picture.*;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 
+import java.io.IOException;
 
 /**
  * 그림 개체 속성 레코드의 그림 효과 부분을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForPictureEffect {
 	/**

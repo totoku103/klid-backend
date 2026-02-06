@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.object.bodytext;
 
+import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
+import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
+
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import com.klid.common.hwplib.object.bodytext.paragraph.Paragraph;
-import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
 
 /**
  * 문단 구역(섹션)를 나타내는 객체. HWP 파일내의 "BodyText" storage 안에 "Section[번호]" stream에
  * 저장된다.
  * 
- * @author neolord
  */
 public class Section implements ParagraphListInterface {
 	/**

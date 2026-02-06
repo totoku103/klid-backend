@@ -1,25 +1,17 @@
 package com.klid.common.hwplib.tool.objectfinder.forField.gettext;
 
-import java.io.UnsupportedEncodingException;
-
-import com.klid.common.hwplib.object.bodytext.control.ControlType;
-import com.klid.common.hwplib.object.bodytext.control.table.Cell;
-import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
-import com.klid.common.hwplib.object.bodytext.control.Control;
-import com.klid.common.hwplib.object.bodytext.control.ControlEndnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlFooter;
-import com.klid.common.hwplib.object.bodytext.control.ControlFootnote;
-import com.klid.common.hwplib.object.bodytext.control.ControlHeader;
-import com.klid.common.hwplib.object.bodytext.control.ControlHiddenComment;
-import com.klid.common.hwplib.object.bodytext.control.ControlTable;
+import com.klid.common.hwplib.object.bodytext.control.*;
 import com.klid.common.hwplib.object.bodytext.control.gso.GsoControl;
+import com.klid.common.hwplib.object.bodytext.control.table.Cell;
 import com.klid.common.hwplib.object.bodytext.control.table.Row;
 import com.klid.common.hwplib.tool.objectfinder.forField.ForParagraphList;
+import com.klid.common.hwplib.tool.textextractor.TextExtractMethod;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * 컨트롤에서 필드 객체를 찾는 기능을 포함하는 클래스
  * 
- * @author neolord
  */
 public class ForControl {
 	/**

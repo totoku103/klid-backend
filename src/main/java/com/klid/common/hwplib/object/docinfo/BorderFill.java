@@ -1,16 +1,15 @@
 package com.klid.common.hwplib.object.docinfo;
 
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderFillProperty;
 import com.klid.common.hwplib.object.docinfo.borderfill.BorderThickness;
+import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 import com.klid.common.hwplib.object.docinfo.borderfill.EachBorder;
 import com.klid.common.hwplib.object.docinfo.borderfill.fillinfo.FillInfo;
 import com.klid.common.hwplib.object.etc.Color4Byte;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderFillProperty;
-import com.klid.common.hwplib.object.docinfo.borderfill.BorderType;
 
 /**
  * 테두리/배경의 모양을 나타내는 레코드
  * 
- * @author neolord
  */
 public class BorderFill {
 	/**

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.writer.autosetter;
 /**
  * 인스턴스 id을 구하기 위한 객체
  * 
- * @author neolord
  */
 public class InstanceID {
 	private static final int START_OBJECT_ID = 0x5bb840e1;

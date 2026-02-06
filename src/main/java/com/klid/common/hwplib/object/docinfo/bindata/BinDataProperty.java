@@ -5,7 +5,6 @@ import com.klid.common.hwplib.util.binary.BitFlag;
 /**
  * 바이너리 데이터의 속성
  * 
- * @author neolord
  */
 public class BinDataProperty {
 	/**

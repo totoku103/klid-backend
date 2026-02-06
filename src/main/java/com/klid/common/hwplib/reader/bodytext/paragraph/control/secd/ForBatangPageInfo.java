@@ -1,8 +1,8 @@
 package com.klid.common.hwplib.reader.bodytext.paragraph.control.secd;
 
+import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.ListHeaderForBatangPage;
 import com.klid.common.hwplib.reader.bodytext.ForParagraphList;
-import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
 import com.klid.common.hwplib.util.compoundFile.reader.StreamReader;
 
 import java.io.IOException;
@@ -10,7 +10,6 @@ import java.io.IOException;
 /**
  * 바탕쪽 정보를 읽기 위한 객체
  * 
- * @author neolord
  */
 public class ForBatangPageInfo {
 	/**

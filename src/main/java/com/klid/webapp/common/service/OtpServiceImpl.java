@@ -1,6 +1,5 @@
 package com.klid.webapp.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.common.OtpApi;
 import com.klid.webapp.common.CustomException;
@@ -9,6 +8,7 @@ import com.klid.webapp.common.dto.*;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
 import com.klid.webapp.common.enums.ThirdPartyUserTypes;
 import com.klid.webapp.main.user.otp.persistence.OtpMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,6 @@ package com.klid.common.hwplib.object.bodytext.control.sectiondefine;
 /**
  * 용지 방향
  * 
- * @author neolord
  */
 public enum PaperDirection {
 	/**

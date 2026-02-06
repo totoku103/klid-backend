@@ -6,7 +6,6 @@ import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderBookm
 /**
  * 책갈피 컨트롤에 대한 객체
  * 
- * @author neolord
  */
 public class ControlBookmark extends Control {
 	/**

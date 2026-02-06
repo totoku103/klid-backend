@@ -1,19 +1,3 @@
-/**
- * Program Name : NoticeBoardController.java
- *
- * Version  :  3.0
- *
- * Creation Date : 2015. 12. 22.
- * 
- * Programmer Name  : kim dong ju
- *
- * Copyright 2015 Hamonsoft. All rights reserved.
- * ***************************************************************
- *                P R O G R A M    H I S T O R Y
- * ***************************************************************
- * DATE   : PROGRAMMER : REASON
- */
-
 package com.klid.webapp.main.controller.rpt;
 
 import com.klid.common.AppGlobal;
@@ -22,26 +6,23 @@ import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.ErrorInfo;
 import com.klid.webapp.common.ReturnData;
 import com.klid.webapp.main.rpt.reportDailyInciState.service.ReportDailyInciStateService;
-
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
-
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.*;
 
 @RequestMapping("/api/main/rpt/reportDailyInciState")
 @Controller
 public class ReportDailyInciStateController {
-
-
 
 	@Resource(name = "reportDailyInciStateService")
 	private ReportDailyInciStateService service;
@@ -93,7 +74,6 @@ public class ReportDailyInciStateController {
 			hmlMaker.insertTableRow("tb1","row1",dailyGrid.size()-1);
 		}
 
-
 			for (int i = 0; i < dailyGrid.size(); i++) {
 				double per = (double) (dailyTotGrid.get(i).get("end_cnt") * 100 / (double) dailyTotGrid.get(i).get("total_cnt"));
 				if(dailyTotGrid.get(i).get("total_cnt").equals(0))
@@ -109,7 +89,6 @@ public class ReportDailyInciStateController {
 				hmlMaker.setParam("s_p" + i, String.format("%.1f", per) + "%");
 				hmlMaker.setParam("s_i" + i, String.valueOf(stringToComma(dailyTotGrid.get(i).get("ing_cnt"))));
 			}
-
 
 		//"endDt" -> "20190124060000" "startDt" -> "20190125055959"
 		String strEndDt = reqMap.get("endDt").toString();

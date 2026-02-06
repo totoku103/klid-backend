@@ -1,11 +1,9 @@
 package com.klid.common.hwplib.writer.bodytext.paragraph.control;
 
-import java.io.IOException;
-
-import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.object.bodytext.control.ControlSectionDefine;
 import com.klid.common.hwplib.object.bodytext.control.ctrlheader.CtrlHeaderSectionDefine;
 import com.klid.common.hwplib.object.bodytext.control.sectiondefine.BatangPageInfo;
+import com.klid.common.hwplib.object.etc.HWPTag;
 import com.klid.common.hwplib.util.compoundFile.writer.StreamWriter;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.bookmark.ForCtrlData;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.secd.ForBatangPageInfo;
@@ -13,10 +11,11 @@ import com.klid.common.hwplib.writer.bodytext.paragraph.control.secd.ForFootEndN
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.secd.ForPageBorderFill;
 import com.klid.common.hwplib.writer.bodytext.paragraph.control.secd.ForPageDef;
 
+import java.io.IOException;
+
 /**
  * 구역 정의 컨트롤을 쓰기 위한 객체
  * 
- * @author neolord
  */
 public class ForControlSectionDefine {
 	/**

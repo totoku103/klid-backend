@@ -1,6 +1,5 @@
 package com.klid.webapp.common.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import com.klid.common.IntegrationSessionManager;
 import com.klid.common.SEED_KISA256;
 import com.klid.common.util.RandomUtils;
@@ -11,6 +10,7 @@ import com.klid.webapp.common.dto.*;
 import com.klid.webapp.common.security.SecurityAuthenticationService;
 import com.klid.webapp.common.service.EmailService;
 import com.klid.webapp.common.service.OtpService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
