@@ -19,17 +19,17 @@
 
 
   	<!--  page 리스트	-->
-	<select id="selectPageList" resultMap="resultPageList">
+	<select id="selectPageList" parameterType="com.klid.api.admin.menu.dto.MenuMgmtSearchDTO" resultMap="resultPageList">
 		SELECT	MENU_NO, MENU_NAME, MENU_KIND, MENU_AUTH, MENU_PAGE_NO, MENU_PAGE_GRP_NO, GUID, SITE_NAME, VISIBLE_ORDER, IS_WEBUSE, WEB_ICON_CLASS FROM COM_MENU WHERE MENU_KIND = 'PAGE' AND SITE_NAME = #{siteName}
 	</select>
 
   	<!--  page_group 리스트	-->
-	<select id="selectPageGroupList" resultMap="resultPageList">
+	<select id="selectPageGroupList" parameterType="com.klid.api.admin.menu.dto.MenuMgmtSearchDTO" resultMap="resultPageList">
 		SELECT MENU_NO, MENU_NAME, MENU_KIND, MENU_AUTH, MENU_PAGE_NO, MENU_PAGE_GRP_NO, GUID, SITE_NAME, VISIBLE_ORDER, IS_WEBUSE, WEB_ICON_CLASS FROM COM_MENU WHERE MENU_KIND = 'PAGE_GROUP' AND MENU_PAGE_NO = #{menuPageNo}  AND SITE_NAME = #{siteName}
 	</select>
 
 	  	<!--  menu 리스트	-->
-	<select id="selectMenuList" resultMap="resultPageList">
+	<select id="selectMenuList" parameterType="com.klid.api.admin.menu.dto.MenuMgmtSearchDTO" resultMap="resultPageList">
 		SELECT MENU_NO, MENU_NAME, MENU_KIND, MENU_AUTH,
 		CASE MENU_AUTH
             WHEN '1' THEN 'User'
@@ -37,15 +37,6 @@
             WHEN '3' THEN 'System'
         END as MENU_AUTH_NM
 		, MENU_PAGE_NO, MENU_PAGE_GRP_NO, GUID, SITE_NAME, VISIBLE_ORDER, IS_WEBUSE, WEB_ICON_CLASS, IS_FILEUSE FROM COM_MENU WHERE MENU_KIND = 'MENU' AND MENU_PAGE_GRP_NO = #{menuPageGrpNo} AND MENU_PAGE_NO = #{menuPageNo} AND SITE_NAME = #{siteName}
-	</select>
-
-	<select id="getUserInfoById" resultMap="resultPageList">
-		select MEnu_no, menu_name, menu_kind
-				case MEnu_auth
-					when '1' then 'user'
-				END as Menu_auth_nm,
-				Menu_page_no,menu_page_grp_no
-
 	</select>
 
 </mapper>

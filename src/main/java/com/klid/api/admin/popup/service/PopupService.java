@@ -1,11 +1,10 @@
 package com.klid.api.admin.popup.service;
 
+import com.klid.api.admin.popup.dto.*;
 import com.klid.api.admin.popup.persistence.PopupMapper;
 import com.klid.common.AppGlobal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 /**
  * 팝업 관리 Service
@@ -19,72 +18,72 @@ public class PopupService {
     /**
      * 페이지 추가
      */
-    public int addPage(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        return popupMapper.addPage(params);
+    public int addPage(PageCreateRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        return popupMapper.addPage(request);
     }
 
     /**
      * 페이지 삭제
      */
-    public void delPage(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.delPage(params);
+    public void delPage(PageDeleteRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.delPage(request);
     }
 
     /**
      * 페이지 수정
      */
-    public void savePage(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.savePage(params);
+    public void savePage(PageSaveRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.savePage(request);
     }
 
     /**
      * 페이지 그룹 추가
      */
-    public int addPageGroup(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        return popupMapper.addPageGroup(params);
+    public int addPageGroup(PageGroupCreateRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        return popupMapper.addPageGroup(request);
     }
 
     /**
      * 페이지 그룹 삭제
      */
-    public void delPageGroup(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.delPageGroup(params);
+    public void delPageGroup(PageGroupDeleteRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.delPageGroup(request);
     }
 
     /**
      * 페이지 그룹 수정
      */
-    public void savePageGroup(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.savePageGroup(params);
+    public void savePageGroup(PageGroupSaveRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.savePageGroup(request);
     }
 
     /**
      * 메뉴 추가
      */
-    public void addMenu(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.addMenu(params);
+    public void addMenu(MenuCreateRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.addMenu(request);
     }
 
     /**
      * 메뉴 삭제
      */
-    public void delMenu(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.delMenu(params);
+    public void delMenu(PageDeleteRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.delMenu(request);
     }
 
     /**
      * 메뉴 수정
      */
-    public void saveMenu(Map<String, Object> params) {
-        params.put("siteName", AppGlobal.siteName);
-        popupMapper.saveMenu(params);
+    public void saveMenu(MenuSaveRequest request) {
+        request.setSiteName(AppGlobal.siteName);
+        popupMapper.saveMenu(request);
     }
 }

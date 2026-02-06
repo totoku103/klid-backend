@@ -1,9 +1,8 @@
 package com.klid.api.admin.popup.persistence;
 
+import com.klid.api.admin.popup.dto.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
-
-import java.util.Map;
 
 /**
  * 팝업 관리 Mapper
@@ -13,29 +12,29 @@ import java.util.Map;
 public interface PopupMapper {
 
     /** 페이지 추가 */
-    int addPage(Map<String, Object> params);
+    int addPage(PageCreateRequest request);
 
     /** 페이지 수정 */
-    void savePage(Map<String, Object> params);
+    void savePage(PageSaveRequest request);
 
     /** 페이지 삭제 */
-    void delPage(Map<String, Object> params);
+    void delPage(PageDeleteRequest request);
 
     /** 페이지 그룹 추가 */
-    int addPageGroup(Map<String, Object> params);
+    int addPageGroup(PageGroupCreateRequest request);
 
     /** 페이지 그룹 수정 */
-    void savePageGroup(Map<String, Object> params);
+    void savePageGroup(PageGroupSaveRequest request);
 
     /** 페이지 그룹 삭제 */
-    void delPageGroup(Map<String, Object> params);
+    void delPageGroup(PageGroupDeleteRequest request);
 
     /** 메뉴 추가 */
-    void addMenu(Map<String, Object> params);
+    void addMenu(MenuCreateRequest request);
 
     /** 메뉴 수정 */
-    void saveMenu(Map<String, Object> params);
+    void saveMenu(MenuSaveRequest request);
 
     /** 메뉴 삭제 */
-    void delMenu(Map<String, Object> params);
+    void delMenu(PageDeleteRequest request);
 }
