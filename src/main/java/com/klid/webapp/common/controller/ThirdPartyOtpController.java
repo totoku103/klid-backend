@@ -6,7 +6,7 @@ import com.klid.webapp.common.dto.ThirdPartyOtpInitializePlainResDto;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.service.ThirdPartyCryptoService;
 import com.klid.webapp.common.service.ThirdPartyRedirectService;
-import com.klid.webapp.main.env.userManagementHistory.service.UserManagementHistoryService;
+import com.klid.api.env.usermgmthist.service.UserManagementHistoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;

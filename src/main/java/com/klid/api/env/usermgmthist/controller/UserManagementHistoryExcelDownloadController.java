@@ -1,10 +1,11 @@
-package com.klid.webapp.main.controller.env;
+package com.klid.api.env.usermgmthist.controller;
 
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.file.service.ExcelFileService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.MediaType;
@@ -19,15 +20,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/main/env/user-management/history/excel")
+@RequestMapping("/api/env/user-management/history/excel")
+@RequiredArgsConstructor
 @Slf4j
 public class UserManagementHistoryExcelDownloadController {
 
     private final ExcelFileService excelFileService;
-
-    public UserManagementHistoryExcelDownloadController(final ExcelFileService excelFileService) {
-        this.excelFileService = excelFileService;
-    }
 
     private SimpleMenuInfo getGuid() {
         final SimpleMenuInfo simpleMenuInfo = new SimpleMenuInfo();
@@ -49,11 +47,9 @@ public class UserManagementHistoryExcelDownloadController {
         SimpleMenuInfo simpleMenuInfo = null;
 
         try {
-            // 사용자 정보 먼저 조회
             userId = SessionManager.getUser() != null ? SessionManager.getUser().getUserId() : "unknown";
             userName = SessionManager.getUser() != null ? SessionManager.getUser().getUserName() : "unknown";
 
-            // 입력 검증
             if (StringUtils.isBlank(requestDto.getReason())) {
                 log.warn("[EXCEL_DOWNLOAD_VALIDATION_FAILED] Download reason is empty. userId=" + userId + ", sessionId=" + sessionId);
                 throw new CustomException("다운로드 사유를 입력해주세요");
@@ -69,10 +65,8 @@ public class UserManagementHistoryExcelDownloadController {
                 throw new CustomException("엑셀 파일 비밀번호를 입력해주세요");
             }
 
-            // 메뉴 정보 조회
             simpleMenuInfo = getGuid();
 
-            // 파일명 생성
             final String baseName;
             if (!StringUtils.isBlank(requestDto.getFileName())) {
                 baseName = requestDto.getFileName().trim();
@@ -82,7 +76,6 @@ public class UserManagementHistoryExcelDownloadController {
             }
             finalName = baseName + ".xls";
 
-            // 다운로드 요청 로깅 (보안 감사용)
             log.info("[EXCEL_DOWNLOAD_START] userId=" + userId
                     + ", userName=" + userName
                     + ", filename=" + finalName
@@ -91,14 +84,12 @@ public class UserManagementHistoryExcelDownloadController {
                     + ", sessionId=" + sessionId
                     + ", requestDetail=" + requestDto.toString());
 
-            // 파일 생성 및 전송 (비밀번호 암호화 포함)
             final SimpleMenuInfo menuInfo = getGuid();
             excelFileService.getFileWithMapHeadersAndPassword(response, menuInfo.getGuid(), menuInfo.getRefTableName(),
                     userId, userName, finalName, requestDto.getSheetName(),
                     requestDto.getGroupHeaders(), requestDto.getHeaders(), requestDto.getRows(),
-                    requestDto.getReason(), requestDto.searchOptions, requestDto.getPassword());
+                    requestDto.getReason(), requestDto.getSearchOptions(), requestDto.getPassword());
 
-            // 성공 로깅
             final long elapsedTime = System.currentTimeMillis() - startTime;
             log.info("[EXCEL_DOWNLOAD_SUCCESS] userId=" + userId
                     + ", userName=" + userName

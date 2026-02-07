@@ -1,6 +1,4 @@
-
-package com.klid.webapp.main.controller.env;
-
+package com.klid.api.env.usermgmt.controller;
 
 import com.klid.webapp.common.Criterion;
 import com.klid.webapp.common.CustomException;
@@ -10,26 +8,21 @@ import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.UserManagementProcessTypes;
 import com.klid.webapp.main.env.userConf.service.UserConfService;
 import com.klid.webapp.main.env.userManagement.dto.*;
-import com.klid.webapp.main.env.userManagement.service.UserManagementSaveService;
+import com.klid.api.env.usermgmt.service.UserManagementSaveService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-
 @RestController
-@RequestMapping("/api/main/env/user-management/request")
+@RequestMapping("/api/env/user-management/request")
+@RequiredArgsConstructor
 @Slf4j
 public class UserManagementController {
     private final UserManagementSaveService userManagementSaveService;
     private final UserConfService userConfService;
-
-    public UserManagementController(final UserManagementSaveService userManagementSaveService,
-                                    final UserConfService userConfService) {
-        this.userManagementSaveService = userManagementSaveService;
-        this.userConfService = userConfService;
-    }
 
     public static void validateUserAuthorization() {
         log.debug("사용자 권한 검증 시작");

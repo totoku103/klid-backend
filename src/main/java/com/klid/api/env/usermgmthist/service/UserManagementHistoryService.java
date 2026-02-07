@@ -1,5 +1,4 @@
-package com.klid.webapp.main.env.userManagementHistory.service;
-
+package com.klid.api.env.usermgmthist.service;
 
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.Criterion;
@@ -16,6 +15,7 @@ import com.klid.webapp.main.env.userManagement.persistence.UserManagementMapper;
 import com.klid.webapp.main.env.userManagementHistory.dto.*;
 import com.klid.webapp.main.env.userManagementHistory.persistence.UserManagementHistoryMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -26,6 +26,7 @@ import java.util.*;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 @Slf4j
 public class UserManagementHistoryService {
     private final UserManagementHistoryMapper userManagementHistoryMapper;
@@ -33,19 +34,6 @@ public class UserManagementHistoryService {
     private final UserManagementMapper userManagementMapper;
     private final OtpService otpService;
     private final GpkiService gpkiService;
-
-    public UserManagementHistoryService(final UserManagementHistoryMapper userManagementHistoryMapper,
-                                        final UserActHistMapper userActHistMapper,
-                                        final UserManagementMapper userManagementMapper,
-                                        final OtpService otpService,
-                                        final GpkiService gpkiService) {
-        this.userManagementHistoryMapper = userManagementHistoryMapper;
-        this.userActHistMapper = userActHistMapper;
-        this.userManagementMapper = userManagementMapper;
-        this.otpService = otpService;
-        this.gpkiService = gpkiService;
-    }
-
 
     public List<HistoryGridResDto> getHistoryGridList(UserManagementHistoryGridSearchDto searchDto) {
         final UserDto user = SessionManager.getUser();

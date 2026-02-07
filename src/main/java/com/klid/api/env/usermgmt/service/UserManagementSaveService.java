@@ -1,5 +1,4 @@
-package com.klid.webapp.main.env.userManagement.service;
-
+package com.klid.api.env.usermgmt.service;
 
 import com.klid.common.SEED_KISA256;
 import com.klid.webapp.common.Criterion;
@@ -11,6 +10,7 @@ import com.klid.webapp.main.env.userManagement.dto.CommUserDto;
 import com.klid.webapp.main.env.userManagement.dto.CommUserRequestUserInfoDto;
 import com.klid.webapp.main.env.userManagement.persistence.UserManagementMapper;
 import com.klid.webapp.main.hist.userActHist.persistence.UserActHistMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,16 +20,11 @@ import java.time.LocalDateTime;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 @Slf4j
 public class UserManagementSaveService {
     private final UserManagementMapper userManagementMapper;
     private final UserActHistMapper userActHistMapper;
-
-    public UserManagementSaveService(final UserManagementMapper userManagementMapper,
-                                     final UserActHistMapper userActHistMapper) {
-        this.userManagementMapper = userManagementMapper;
-        this.userActHistMapper = userActHistMapper;
-    }
 
     private void saveUserActHist(UserManagementRequestTypes requestType) {
         final Criterion criterionHist = new Criterion();
@@ -60,8 +55,6 @@ public class UserManagementSaveService {
         userActHistMapper.addUserActHist(criterionHist.getCondition());
     }
 
-
-
     public void saveRequest(CommUserRequestUserInfoDto commUserRequestUserInfoDto,
                             Integer requestUserSeq,
                             Integer requestInstCd,
@@ -69,10 +62,6 @@ public class UserManagementSaveService {
                             String requestReason,
                             UserManagementProcessTypes requestProcessState) {
         commUserRequestUserInfoDto.encrypt();
-
-//        if (UserManagementRequestTypes.MODIFICATION_REQUEST.equals(requestType)) {
-//            compareData(commUserRequestUserInfoDto);
-//        }
 
         log.debug(String.format("requestUserSeq: %d, requestType: %s, requestProcessState: %s, userInfo: %s", requestUserSeq, requestType, requestProcessState, commUserRequestUserInfoDto));
         final int i = userManagementMapper.insertCommUserRequest(commUserRequestUserInfoDto,
@@ -87,7 +76,6 @@ public class UserManagementSaveService {
 
         saveUserActHist(requestType);
     }
-
 
     public void savePasswordReset(int commUserSeq,
                                   Integer requestUserSeq,

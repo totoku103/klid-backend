@@ -1,11 +1,12 @@
-package com.klid.webapp.main.controller.env;
+package com.klid.api.env.usermgmthist.controller;
 
 import com.klid.webapp.common.CustomException;
 import com.klid.webapp.common.SessionManager;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.UserManagementProcessTypes;
 import com.klid.webapp.main.env.userManagementHistory.dto.*;
-import com.klid.webapp.main.env.userManagementHistory.service.UserManagementHistoryService;
+import com.klid.api.env.usermgmthist.service.UserManagementHistoryService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,22 +16,17 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/main/env/user-management/history")
+@RequestMapping("/api/env/user-management/history")
+@RequiredArgsConstructor
 @Slf4j
 public class UserManagementHistoryController {
     private final UserManagementHistoryService userManagementHistoryService;
-
-    public UserManagementHistoryController(final UserManagementHistoryService userManagementHistoryService) {
-        this.userManagementHistoryService = userManagementHistoryService;
-    }
 
     public static void checkAuthenticate() {
         final UserDto user = SessionManager.getUser();
         if (user == null) throw new CustomException("접속자 정보를 찾을 수 없습니다.");
 
-//        메인권한 관리자
         final boolean isAdmin = "AUTH_MAIN_1".equalsIgnoreCase(user.getAuthMain());
-//        메인권한 개발원
         final boolean isKlid = "AUTH_MAIN_2".equalsIgnoreCase(user.getAuthMain());
         final boolean isOperator = "AUTH_SUB_3".equalsIgnoreCase(user.getAuthSub());
 
