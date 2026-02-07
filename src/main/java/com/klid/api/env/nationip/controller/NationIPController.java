@@ -62,7 +62,7 @@ public class NationIPController {
     }
 
     @PostMapping("/nations/export")
-    public ResponseEntity<Map<String, String>> exportNations(@RequestBody final Map<String, Object> params) {
+    public ResponseEntity<Map<String, String>> exportNations(@RequestBody final Map<String, Object> params) throws Exception {
         final Map<String, String> result = nationIPService.exportNations(params);
         return ResponseEntity.ok(result);
     }
@@ -71,7 +71,7 @@ public class NationIPController {
     public ResponseEntity<Map<String, String>> exportIPs(
             @RequestParam final String nationCd,
             @RequestParam(required = false) final String nationNm,
-            @RequestParam(required = false) final String continental) {
+            @RequestParam(required = false) final String continental) throws Exception {
         final Map<String, String> result = nationIPService.exportIPs(nationCd, nationNm, continental);
         return ResponseEntity.ok(result);
     }

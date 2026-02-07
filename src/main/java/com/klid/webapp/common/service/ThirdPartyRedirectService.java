@@ -3,7 +3,6 @@ package com.klid.webapp.common.service;
 import com.klid.common.SEED_KISA256;
 import com.klid.common.util.RedirectTokenUtil;
 import com.klid.webapp.common.CustomException;
-import com.klid.webapp.common.controller.CtrsRedirectViewController;
 import com.klid.webapp.common.dto.UserDto;
 import com.klid.webapp.common.enums.RedirectTokenStatusTypes;
 import com.klid.webapp.common.enums.ThirdPartyResponseStatusCodes;
@@ -91,7 +90,7 @@ public class ThirdPartyRedirectService {
     }
 
     public String getRedirect(String token) throws UnsupportedEncodingException {
-        final String ctrsUrlHost = thirdPartyProperty.getCtrsUrlHost() + CtrsRedirectViewController.REDIRECT_URL;
+        final String ctrsUrlHost = thirdPartyProperty.getCtrsUrlHost() + "/ctrs/redirect.do";
         final String redirectUrl = RedirectTokenUtil.buildRedirectUrl(ctrsUrlHost, token);
         log.info("generated redirect url: " + redirectUrl);
         return redirectUrl;

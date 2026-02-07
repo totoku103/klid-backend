@@ -72,7 +72,7 @@ public class InstitutionService {
         saveUserActHist("D");
     }
 
-    public Map<String, String> export(final Map<String, Object> params) {
+    public Map<String, String> export(final Map<String, Object> params) throws Exception {
         final String fileNm = "기관관리";
         final String sheetNm = "기관관리";
         final String[][] headers = {

@@ -125,7 +125,7 @@ public class NationIPService {
         nationIPMgmtMapper.deleteNationIP_all();
     }
 
-    public Map<String, String> exportNations(final Map<String, Object> params) {
+    public Map<String, String> exportNations(final Map<String, Object> params) throws Exception {
         final String fileNm = "국가별IP대역관리";
         final String sheetNm = "국가별IP대역관리";
         final String[][] headers = {
@@ -178,7 +178,7 @@ public class NationIPService {
         return resultMap;
     }
 
-    public Map<String, String> exportIPs(final String nationCd, final String nationNm, final String continental) {
+    public Map<String, String> exportIPs(final String nationCd, final String nationNm, final String continental) throws Exception {
         final String fileNm = "국가별IP리스트";
         final String sheetNm = "국가별IP리스트";
         final String[][] headers = {

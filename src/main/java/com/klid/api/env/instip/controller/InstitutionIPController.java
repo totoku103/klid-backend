@@ -47,7 +47,7 @@ public class InstitutionIPController {
     }
 
     @PostMapping("/export")
-    public ResponseEntity<Map<String, String>> export(@RequestBody final Map<String, Object> params) {
+    public ResponseEntity<Map<String, String>> export(@RequestBody final Map<String, Object> params) throws Exception {
         final Map<String, String> result = institutionIPService.export(params);
         return ResponseEntity.ok(result);
     }
